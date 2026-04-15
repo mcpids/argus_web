@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Argus Sentinel | AI Agent Security Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#0b0d0d",
+                      "tertiary-fixed": "#94d1d1",
+                      "on-secondary-fixed": "#111414",
+                      "tertiary-fixed-dim": "#7abdbd",
+                      "on-primary-fixed": "#002020",
+                      "inverse-on-surface": "#2d3131",
+                      "on-tertiary-container": "#002020",
+                      "on-secondary": "#2d3131",
+                      "tertiary-container": "#004d4d",
+                      "surface-tint": "#94d1d1",
+                      "secondary": "#bfc8c8",
+                      "on-background": "#e1e3e2",
+                      "surface-container-low": "#191c1c",
+                      "outline": "#899292",
+                      "surface-container-highest": "#333535",
+                      "primary-fixed-dim": "#94d1d1",
+                      "error-container": "#93000a",
+                      "on-secondary-container": "#adb7b7",
+                      "surface-container-high": "#232727",
+                      "secondary-fixed": "#dbe4e4",
+                      "outline-variant": "#3f4848",
+                      "background": "#111414",
+                      "on-primary": "#003737",
+                      "secondary-fixed-dim": "#bfc8c8",
+                      "primary": "#94d1d1",
+                      "tertiary": "#94d1d1",
+                      "on-error": "#690005",
+                      "surface-bright": "#373a3a",
+                      "error": "#ffb4ab",
+                      "inverse-primary": "#006a6a",
+                      "on-tertiary": "#003737",
+                      "on-tertiary-fixed-variant": "#004f4f",
+                      "on-surface": "#e1e3e2",
+                      "primary-fixed": "#b1ecec",
+                      "surface-container": "#1d2020",
+                      "surface-dim": "#111414",
+                      "secondary-container": "#3f4848",
+                      "primary-container": "#004d4d",
+                      "surface": "#111414",
+                      "on-tertiary-fixed": "#002020",
+                      "inverse-surface": "#e1e3e2",
+                      "on-surface-variant": "#bfc8c8",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#3f4848",
+                      "on-primary-container": "#b1ecec",
+                      "on-primary-fixed-variant": "#004f4f",
+                      "surface-variant": "#3f4848"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Exo 2", "sans-serif"],
+                      "body": ["Exo 2", "sans-serif"],
+                      "label": ["Exo 2", "sans-serif"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .obsidian-glass {
+            background: rgba(17, 20, 20, 0.6);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar Component -->
+<header class="fixed top-0 w-full z-50 bg-[#111414]/80 backdrop-blur-lg shadow-2xl shadow-black/20">
+<nav class="flex justify-between items-center w-full px-8 py-5 max-w-7xl mx-auto font-body font-medium tracking-tight text-sm">
+<div class="flex items-center gap-3">
+<img alt="Argus Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ujXAuOrK8ZXUF3BdIieTyEsSSXmSDbfV9esa9xU1cC0h_l7zBI8vp4VwBoImkkVklvOs9YZksJkYMk4tqMUeJ52wMbsiQJBSgK3ygEW610Y0_skqTr6RWTpbgQ7XTiOx9_jPj4jca2sFxGtf0bVRGajwvh6tsfgelwaGiVuYgs7uzLYHmS39PdsiF-P_Am1oTndGFBf9yFn-jYDTpOvD-0tnEpYFxFtbp5S5fQwK6Ywd7rcDwJYQYsPDXHlpTPt7lNBgFwpot7nmdw"/>
+<span class="text-2xl font-black text-teal-300 dark:text-[#94d1d1] tracking-tighter">Argus</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-teal-300 dark:text-[#94d1d1] border-b-2 border-teal-300 dark:border-[#94d1d1] pb-1" href="#">Solutions</a>
+<a class="text-zinc-400 dark:text-[#e1e3e2]/70 hover:text-white dark:hover:text-white transition-all duration-300" href="#">Technology</a>
+<a class="text-zinc-400 dark:text-[#e1e3e2]/70 hover:text-white dark:hover:text-white transition-all duration-300" href="#">Intelligence</a>
+<a class="text-zinc-400 dark:text-[#e1e3e2]/70 hover:text-white dark:hover:text-white transition-all duration-300" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-zinc-400 dark:text-[#e1e3e2]/70 hover:text-white font-medium scale-95 active:scale-90 transition-transform">Login</button>
+<button class="px-5 py-2.5 bg-primary text-on-primary rounded-lg font-bold scale-95 active:scale-90 transition-transform hover:bg-primary-container">
+                Request Access
+            </button>
+</div>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden px-8">
+<div class="absolute inset-0 z-0">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-tertiary/5 rounded-full blur-[100px]"></div>
+</div>
+<div class="relative z-10 max-w-5xl mx-auto text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/20 mb-8">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant">Live deep-detection active</span>
+</div>
+<h1 class="text-8xl md:text-9xl font-headline font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary-container mb-6">
+                Argus
+            </h1>
+<h2 class="text-3xl md:text-5xl font-headline font-semibold text-on-surface mb-8 max-w-4xl mx-auto leading-tight">
+                See everything your AI agents do. <span class="text-primary">In real time.</span> Before the damage.
+            </h2>
+<p class="text-xl text-on-surface-variant max-w-2xl mx-auto mb-12 leading-relaxed">
+                A sophisticated deep-detection security layer built for the autonomous era. Monitor, intercept, and secure AI agent interactions with architectural precision.
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+<button class="px-8 py-4 bg-surface-container-low text-primary border border-outline-variant/30 rounded-lg font-bold text-lg hover:bg-surface-container-high transition-all">
+                    Documentation
+                </button>
+</div>
+</div>
+</section>
+<!-- System Architecture -->
+<section class="py-32 px-8 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20">
+<span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold">Topography</span>
+<h2 class="text-5xl font-headline font-extrabold mt-4 tracking-tight">System Architecture</h2>
+</div>
+<div class="grid lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-4 space-y-8">
+<div class="p-8 rounded-lg bg-surface-container-low border-l-4 border-primary">
+<h3 class="text-xl font-headline font-bold mb-3">Ingress Stream</h3>
+<p class="text-on-surface-variant text-sm font-medium">Intercepting raw agent telemetry before it reaches the execution environment.</p>
+</div>
+<div class="p-8 rounded-lg bg-surface-container-low border-l-4 border-primary/40">
+<h3 class="text-xl font-headline font-bold mb-3">Enforcement Loop</h3>
+<p class="text-on-surface-variant text-sm font-medium">Real-time policy reconciliation via high-frequency ML classification.</p>
+</div>
+</div>
+<div class="lg:col-span-8 p-12 rounded-2xl bg-surface-container border border-outline-variant/10 relative overflow-hidden">
+<div class="relative z-10 grid grid-cols-3 gap-12">
+<div class="flex flex-col gap-24">
+<div class="relative h-24 w-full rounded border border-dashed border-outline-variant flex items-center justify-center bg-surface-container-low">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">AI Agent A</span>
+<div class="absolute -right-12 top-1/2 w-12 h-[2px] bg-primary/20"></div>
+</div>
+<div class="relative h-24 w-full rounded border border-dashed border-outline-variant flex items-center justify-center bg-surface-container-low">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">AI Agent B</span>
+<div class="absolute -right-12 top-1/2 w-12 h-[2px] bg-primary/20"></div>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-full aspect-square rounded-full border-4 border-primary p-4 flex items-center justify-center bg-primary/5 shadow-[0_0_40px_rgba(148,209,209,0.1)] relative">
+<div class="text-center relative z-10">
+<div class="font-headline font-black text-2xl text-primary">CORE</div>
+<div class="text-[9px] text-primary/70 uppercase font-bold tracking-tighter">Sentinel Engine</div>
+</div>
+<div class="absolute inset-0 rounded-full border border-primary/10 scale-125"></div>
+</div>
+</div>
+<div class="flex flex-col justify-center gap-12">
+<div class="relative h-48 w-full rounded-xl bg-surface-container-high border border-outline-variant/30 flex flex-col items-center justify-center gap-4">
+<div class="w-full px-6 space-y-3">
+<div class="h-1 bg-primary w-[85%] rounded-full"></div>
+<div class="h-1 bg-primary/20 w-full rounded-full"></div>
+<div class="h-1 bg-primary/40 w-[65%] rounded-full"></div>
+</div>
+<span class="text-[9px] text-primary font-bold uppercase tracking-widest">Visibility Dashboard</span>
+</div>
+</div>
+</div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-radial-gradient from-primary/5 to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Argus Stack -->
+<section class="py-32 px-8">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-24">
+<span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold">Architecture</span>
+<h2 class="text-6xl font-headline font-extrabold mt-4 tracking-tight">The Argus Stack</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+<!-- Gateway -->
+<div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+<div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="shield_lock">shield_lock</span>
+</div>
+<h3 class="text-2xl font-headline font-bold mb-4">Gateway</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Secure ingress/egress. Intercepting every request and response in the proxy layer.</p>
+</div>
+<!-- API -->
+<div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+<div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</div>
+<h3 class="text-2xl font-headline font-bold mb-4">API</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Unified control layer. One integration to govern all agent ecosystems.</p>
+</div>
+<!-- Sentinel -->
+<div class="group p-8 rounded-lg bg-surface-container-high border border-primary/40 shadow-[0_0_30px_rgba(148,209,209,0.05)]">
+<div class="mb-8 w-12 h-12 rounded bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="visibility" style="font-variation-settings: 'FILL' 1;">visibility</span>
+</div>
+<h3 class="text-2xl font-headline font-bold mb-4">Sentinel</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Real-time monitoring. The all-seeing eye tracking sub-second agent behaviors.</p>
+</div>
+<!-- Cortex -->
+<div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+<div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<h3 class="text-2xl font-headline font-bold mb-4">Cortex</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">ML classification &amp; threat detection. Deciphering intent from noise.</p>
+</div>
+<!-- Console -->
+<div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+<div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</div>
+<h3 class="text-2xl font-headline font-bold mb-4">Console</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Visibility and enforcement dashboard. Command center for your AI fleet.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Proactive AI Security -->
+<section class="py-32 px-8 bg-surface-container-low/50">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-24">
+<div class="max-w-2xl">
+<span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold">Capabilities</span>
+<h2 class="text-5xl md:text-7xl font-headline font-extrabold mt-4 tracking-tighter">Proactive AI Security</h2>
+</div>
+<div class="h-[1px] flex-1 bg-outline-variant/20 hidden md:block mb-6 mx-12"></div>
+<div class="text-on-surface-variant font-label text-sm uppercase tracking-widest font-bold">Comprehensive Governance</div>
+</div>
+<div class="grid md:grid-cols-2 gap-x-24 gap-y-4">
+<div class="space-y-2">
+<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
+<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">01</span>
+<div class="h-px flex-1 bg-outline-variant/10"></div>
+<span class="text-lg font-headline font-semibold">Protocol Inspection</span>
+</div>
+<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
+<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">02</span>
+<div class="h-px flex-1 bg-outline-variant/10"></div>
+<span class="text-lg font-headline font-semibold">Kernel Monitoring</span>
+</div>
+<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
+<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">03</span>
+<div class="h-px flex-1 bg-outline-variant/10"></div>
+<span class="text-lg font-headline font-semibold">ML-based Classification</span>
+</div>
+<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
+<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">04</span>
+<div class="h-px flex-1 bg-outline-variant/10"></div>
+<span class="text-lg font-headline font-semibold">Real-time Policy Enforcement</span>
+</div>
+<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
+<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">05</span>
+<div class="h-px flex-1 bg-outline-variant/10"></div>
+<span class="text-lg font-headline font-semibold">Agent Session Replay</span>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
+<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">06</span>
+<div class="h-px flex-1 bg-outline-variant/10"></div>
+<span class="text-lg font-headline font-semibold">Data Leakage Prevention</span>
+</div>
+<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
+<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">07</span>
+<div class="h-px flex-1 bg-outline-variant/10"></div>
+<span class="text-lg font-headline font-semibold">Behavioral Analysis</span>
+</div>
+<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
+<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">08</span>
+<div class="h-px flex-1 bg-outline-variant/10"></div>
+<span class="text-lg font-headline font-semibold">Audit Logging</span>
+</div>
+<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
+<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">09</span>
+<div class="h-px flex-1 bg-outline-variant/10"></div>
+<span class="text-lg font-headline font-semibold">Anomaly Detection</span>
+</div>
+<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
+<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">10</span>
+<div class="h-px flex-1 bg-outline-variant/10"></div>
+<span class="text-lg font-headline font-semibold">Granular Access Control</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 px-8 overflow-hidden relative">
+<div class="max-w-5xl mx-auto p-16 rounded-2xl bg-[#1d2020] border border-primary/10 relative">
+<div class="relative z-10 text-center">
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold mb-8 tracking-tight">Secure your agent swarm today.</h2>
+<p class="text-xl text-on-surface-variant mb-12 max-w-xl mx-auto font-medium">Argus Sentinel is ready for enterprise production deployment. Secure your future agents.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="px-10 py-5 bg-primary text-on-primary rounded-lg font-bold text-xl hover:shadow-[0_0_40px_rgba(148,209,209,0.2)] transition-all">Request Access</button>
+</div>
+</div>
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-[#111414] w-full border-t border-zinc-800/15">
+<div class="max-w-7xl mx-auto px-8 py-16 flex flex-col md:flex-row justify-between items-center gap-12 font-body text-xs uppercase tracking-widest font-semibold">
+<div class="flex items-center gap-4">
+<div class="text-lg font-bold text-teal-300 dark:text-[#94d1d1] font-headline">Argus Sentinel</div>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-zinc-500 dark:text-[#e1e3e2]/50 hover:text-teal-300 dark:hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-zinc-500 dark:text-[#e1e3e2]/50 hover:text-teal-300 dark:hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-zinc-500 dark:text-[#e1e3e2]/50 hover:text-teal-300 dark:hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Trust Center</a>
+<a class="text-zinc-500 dark:text-[#e1e3e2]/50 hover:text-teal-300 dark:hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Contact</a>
+</div>
+<div class="text-zinc-500 dark:text-[#e1e3e2]/50 text-center md:text-right">
+            © 2024 Argus Sentinel. Precision Editorialism in Cybersecurity.
+        </div>
+</div>
+</footer>
+</body></html>
