@@ -1,352 +1,651 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html class="dark" lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Argus Sentinel | AI Agent Security Platform</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "surface-container-lowest": "#0b0d0d",
-                      "tertiary-fixed": "#94d1d1",
-                      "on-secondary-fixed": "#111414",
-                      "tertiary-fixed-dim": "#7abdbd",
-                      "on-primary-fixed": "#002020",
-                      "inverse-on-surface": "#2d3131",
-                      "on-tertiary-container": "#002020",
-                      "on-secondary": "#2d3131",
-                      "tertiary-container": "#004d4d",
-                      "surface-tint": "#94d1d1",
-                      "secondary": "#bfc8c8",
-                      "on-background": "#e1e3e2",
-                      "surface-container-low": "#191c1c",
-                      "outline": "#899292",
-                      "surface-container-highest": "#333535",
-                      "primary-fixed-dim": "#94d1d1",
-                      "error-container": "#93000a",
-                      "on-secondary-container": "#adb7b7",
-                      "surface-container-high": "#232727",
-                      "secondary-fixed": "#dbe4e4",
-                      "outline-variant": "#3f4848",
-                      "background": "#111414",
-                      "on-primary": "#003737",
-                      "secondary-fixed-dim": "#bfc8c8",
-                      "primary": "#94d1d1",
-                      "tertiary": "#94d1d1",
-                      "on-error": "#690005",
-                      "surface-bright": "#373a3a",
-                      "error": "#ffb4ab",
-                      "inverse-primary": "#006a6a",
-                      "on-tertiary": "#003737",
-                      "on-tertiary-fixed-variant": "#004f4f",
-                      "on-surface": "#e1e3e2",
-                      "primary-fixed": "#b1ecec",
-                      "surface-container": "#1d2020",
-                      "surface-dim": "#111414",
-                      "secondary-container": "#3f4848",
-                      "primary-container": "#004d4d",
-                      "surface": "#111414",
-                      "on-tertiary-fixed": "#002020",
-                      "inverse-surface": "#e1e3e2",
-                      "on-surface-variant": "#bfc8c8",
-                      "on-error-container": "#ffdad6",
-                      "on-secondary-fixed-variant": "#3f4848",
-                      "on-primary-container": "#b1ecec",
-                      "on-primary-fixed-variant": "#004f4f",
-                      "surface-variant": "#3f4848"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.125rem",
-                      "lg": "0.25rem",
-                      "xl": "0.5rem",
-                      "full": "0.75rem"
-              },
-              "fontFamily": {
-                      "headline": ["Exo 2", "sans-serif"],
-                      "body": ["Exo 2", "sans-serif"],
-                      "label": ["Exo 2", "sans-serif"]
-              }
-            },
-          }
-        }
-    </script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-lowest": "#0b0d0d",
+            "surface-container-low": "#191c1c",
+            "surface-container": "#1d2020",
+            "surface-container-high": "#232727",
+            "surface-container-highest": "#333535",
+            "surface": "#111414",
+            "surface-dim": "#111414",
+            "surface-bright": "#373a3a",
+            "surface-variant": "#3f4848",
+            "surface-tint": "#94d1d1",
+            "background": "#111414",
+            "on-background": "#e1e3e2",
+            "on-surface": "#e1e3e2",
+            "on-surface-variant": "#bfc8c8",
+            "primary": "#94d1d1",
+            "primary-container": "#004d4d",
+            "primary-fixed": "#b1ecec",
+            "primary-fixed-dim": "#94d1d1",
+            "on-primary": "#003737",
+            "on-primary-container": "#b1ecec",
+            "on-primary-fixed": "#002020",
+            "on-primary-fixed-variant": "#004f4f",
+            "secondary": "#bfc8c8",
+            "secondary-container": "#3f4848",
+            "secondary-fixed": "#dbe4e4",
+            "secondary-fixed-dim": "#bfc8c8",
+            "on-secondary": "#2d3131",
+            "on-secondary-fixed": "#111414",
+            "on-secondary-container": "#adb7b7",
+            "on-secondary-fixed-variant": "#3f4848",
+            "tertiary": "#94d1d1",
+            "tertiary-container": "#004d4d",
+            "tertiary-fixed": "#94d1d1",
+            "tertiary-fixed-dim": "#7abdbd",
+            "on-tertiary": "#003737",
+            "on-tertiary-container": "#002020",
+            "on-tertiary-fixed": "#002020",
+            "on-tertiary-fixed-variant": "#004f4f",
+            "outline": "#899292",
+            "outline-variant": "#3f4848",
+            "error": "#ffb4ab",
+            "error-container": "#93000a",
+            "on-error": "#690005",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#e1e3e2",
+            "inverse-on-surface": "#2d3131",
+            "inverse-primary": "#006a6a",
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem",
+          },
+          fontFamily: {
+            headline: ["Exo 2", "sans-serif"],
+            body: ["Exo 2", "sans-serif"],
+            label: ["Exo 2", "sans-serif"],
+          },
+        },
+      },
+    };
+</script>
 <style>
-        html, body, * {
-            font-family: 'Exo 2', sans-serif;
-        }
-        .material-symbols-outlined {
-            font-family: 'Material Symbols Outlined';
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .obsidian-glass {
-            background: rgba(17, 20, 20, 0.6);
-            backdrop-filter: blur(24px);
-        }
-    </style>
+    html, body, * { font-family: 'Exo 2', sans-serif; }
+    .material-symbols-outlined {
+        font-family: 'Material Symbols Outlined';
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    html { scroll-behavior: smooth; }
+</style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary/30">
-<!-- TopNavBar Component -->
+
+<!-- Nav -->
 <header class="fixed top-0 w-full z-50 bg-[#111414]/80 backdrop-blur-lg shadow-2xl shadow-black/20">
 <nav class="flex justify-between items-center w-full px-8 py-5 max-w-7xl mx-auto font-body font-medium tracking-tight text-sm">
-<div class="flex items-center gap-3">
-<img alt="Argus Sentinel Logo" class="h-10 w-auto" src="images/argus_horizontal_logo.png"/>
-</div>
-<div class="hidden md:flex items-center gap-8">
-<a class="text-teal-300 dark:text-[#94d1d1] border-b-2 border-teal-300 dark:border-[#94d1d1] pb-1" href="#">Solutions</a>
-<a class="text-zinc-400 dark:text-[#e1e3e2]/70 hover:text-white dark:hover:text-white transition-all duration-300" href="#">Technology</a>
-<a class="text-zinc-400 dark:text-[#e1e3e2]/70 hover:text-white dark:hover:text-white transition-all duration-300" href="#">Intelligence</a>
-<a class="text-zinc-400 dark:text-[#e1e3e2]/70 hover:text-white dark:hover:text-white transition-all duration-300" href="#">About</a>
-</div>
-<div class="flex items-center gap-4">
-<button class="text-zinc-400 dark:text-[#e1e3e2]/70 hover:text-white font-medium scale-95 active:scale-90 transition-transform">Login</button>
-<button class="px-5 py-2.5 bg-primary text-on-primary rounded-lg font-bold scale-95 active:scale-90 transition-transform hover:bg-primary-container">
-                Request Access
-            </button>
-</div>
+    <a href="#" class="flex items-center gap-3">
+        <img alt="Argus Sentinel Logo" class="h-10 w-auto" src="images/argus_horizontal_logo.png"/>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+        <a class="text-[#e1e3e2]/70 hover:text-white transition-all duration-300" href="#threats">Threats</a>
+        <a class="text-[#e1e3e2]/70 hover:text-white transition-all duration-300" href="#how-it-works">How It Works</a>
+        <a class="text-[#e1e3e2]/70 hover:text-white transition-all duration-300" href="#platform">Platform</a>
+        <a class="text-[#e1e3e2]/70 hover:text-white transition-all duration-300" href="#deploy">Deploy</a>
+    </div>
+    <div class="flex items-center gap-4">
+        <button class="text-[#e1e3e2]/70 hover:text-white font-medium transition-colors">Login</button>
+        <button class="px-5 py-2.5 bg-primary text-on-primary rounded-lg font-bold transition-colors hover:bg-primary-container">Request Access</button>
+    </div>
 </nav>
 </header>
+
 <main class="pt-20">
-<!-- Hero Section -->
+
+<!-- Hero -->
 <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden px-8">
-<div class="absolute inset-0 z-0">
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]"></div>
-<div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-tertiary/5 rounded-full blur-[100px]"></div>
-</div>
-<div class="relative z-10 max-w-5xl mx-auto text-center">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/20 mb-8">
-<span class="relative flex h-2 w-2">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-</span>
-<span class="text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant">Live deep-detection active</span>
-</div>
-<div class="mb-6 flex justify-center">
-                <img alt="Argus Sentinel" class="h-40 md:h-56 w-auto" src="images/argus_nonverbose_logo.png"/>
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]"></div>
+        <div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-tertiary/5 rounded-full blur-[100px]"></div>
+    </div>
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/20 mb-8">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span class="text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant">Live deep-detection active</span>
+        </div>
+        <div class="mb-6 flex justify-center">
+            <img alt="Argus Sentinel" class="h-40 md:h-56 w-auto" src="images/argus_nonverbose_logo.png"/>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-headline font-semibold text-on-surface mb-8 max-w-4xl mx-auto leading-tight">
+            See everything your AI agents do. <span class="text-primary">In real time.</span> Before the damage.
+        </h2>
+        <p class="text-lg text-on-surface-variant max-w-2xl mx-auto mb-8 leading-relaxed">
+            Deep-inspection security for autonomous AI agents. Intercepts MCP, OpenAI, and Anthropic traffic inline. Fail-closed by default. Verdicts in under 100ms.
+        </p>
+        <!-- Protocol badges -->
+        <div class="flex justify-center gap-3 mb-12">
+            <span class="px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/20 text-xs font-label uppercase tracking-widest text-primary font-bold">MCP</span>
+            <span class="px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/20 text-xs font-label uppercase tracking-widest text-primary font-bold">OpenAI</span>
+            <span class="px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/20 text-xs font-label uppercase tracking-widest text-primary font-bold">Anthropic</span>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button class="px-8 py-4 bg-primary text-on-primary rounded-lg font-bold text-lg hover:shadow-[0_0_40px_rgba(148,209,209,0.2)] transition-all">Request Access</button>
+            <button class="px-8 py-4 bg-surface-container-low text-primary border border-outline-variant/30 rounded-lg font-bold text-lg hover:bg-surface-container-high transition-all">Documentation</button>
+        </div>
+    </div>
+</section>
+
+<!-- Threat Coverage -->
+<section id="threats" class="py-24 px-8 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+        <span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold">Threat Intelligence</span>
+        <h2 class="text-5xl md:text-6xl font-headline font-extrabold mt-4 tracking-tight">What Argus Stops</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Prompt Injection -->
+        <div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+            <div class="mb-6 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">shield</span>
             </div>
-<h2 class="text-3xl md:text-5xl font-headline font-semibold text-on-surface mb-8 max-w-4xl mx-auto leading-tight">
-                See everything your AI agents do. <span class="text-primary">In real time.</span> Before the damage.
-            </h2>
-<p class="text-xl text-on-surface-variant max-w-2xl mx-auto mb-12 leading-relaxed">
-                A sophisticated deep-detection security layer built for the autonomous era. Monitor, intercept, and secure AI agent interactions with architectural precision.
-            </p>
-<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-<button class="px-8 py-4 bg-surface-container-low text-primary border border-outline-variant/30 rounded-lg font-bold text-lg hover:bg-surface-container-high transition-all">
-                    Documentation
-                </button>
-</div>
+            <h3 class="text-xl font-headline font-bold mb-3">Prompt Injection</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Detects attempts to hijack agent behavior through crafted inputs embedded in tool descriptions and outputs.</p>
+        </div>
+        <!-- Data Exfiltration -->
+        <div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+            <div class="mb-6 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">lock</span>
+            </div>
+            <h3 class="text-xl font-headline font-bold mb-3">Data Exfiltration</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Blocks silent extraction of sensitive data through agent channels, including multi-tool exfiltration chains.</p>
+        </div>
+        <!-- Lateral Movement -->
+        <div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+            <div class="mb-6 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">conversion_path</span>
+            </div>
+            <h3 class="text-xl font-headline font-bold mb-3">Lateral Movement</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Identifies cross-server and cross-tool traversal patterns through graph analysis and behavioral baselines.</p>
+        </div>
+        <!-- Shadow Agents -->
+        <div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+            <div class="mb-6 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">visibility_off</span>
+            </div>
+            <h3 class="text-xl font-headline font-bold mb-3">Shadow Agents</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Discovers unregistered AI agents operating outside governance using TLS fingerprinting and protocol detection.</p>
+        </div>
+        <!-- Privilege Escalation -->
+        <div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+            <div class="mb-6 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">admin_panel_settings</span>
+            </div>
+            <h3 class="text-xl font-headline font-bold mb-3">Privilege Escalation</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Catches agents exceeding their authorized scope with policy rules, tool risk scoring, and credential analysis.</p>
+        </div>
+        <!-- Tool Poisoning -->
+        <div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+            <div class="mb-6 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">bug_report</span>
+            </div>
+            <h3 class="text-xl font-headline font-bold mb-3">Tool Poisoning</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Flags malicious or manipulated tool descriptions before execution via schema drift detection and risk scoring.</p>
+        </div>
+    </div>
+    <p class="text-center text-on-surface-variant text-sm mt-12 max-w-2xl mx-auto">Every request is classified, scored, and enforced before it reaches its destination.</p>
 </div>
 </section>
-<!-- System Architecture -->
-<section class="py-32 px-8 bg-surface-container-lowest">
+
+<!-- Inspection Pipeline -->
+<section id="how-it-works" class="py-24 px-8">
 <div class="max-w-7xl mx-auto">
-<div class="mb-20">
-<span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold">Topography</span>
-<h2 class="text-5xl font-headline font-extrabold mt-4 tracking-tight">System Architecture</h2>
-</div>
-<div class="grid lg:grid-cols-12 gap-8 items-center">
-<div class="lg:col-span-4 space-y-8">
-<div class="p-8 rounded-lg bg-surface-container-low border-l-4 border-primary">
-<h3 class="text-xl font-headline font-bold mb-3">Ingress Stream</h3>
-<p class="text-on-surface-variant text-sm font-medium">Intercepting raw agent telemetry before it reaches the execution environment.</p>
-</div>
-<div class="p-8 rounded-lg bg-surface-container-low border-l-4 border-primary/40">
-<h3 class="text-xl font-headline font-bold mb-3">Enforcement Loop</h3>
-<p class="text-on-surface-variant text-sm font-medium">Real-time policy reconciliation via high-frequency ML classification.</p>
-</div>
-</div>
-<div class="lg:col-span-8 p-12 rounded-2xl bg-surface-container border border-outline-variant/10 relative overflow-hidden">
-<div class="relative z-10 grid grid-cols-3 gap-12">
-<div class="flex flex-col gap-24">
-<div class="relative h-24 w-full rounded border border-dashed border-outline-variant flex items-center justify-center bg-surface-container-low">
-<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">AI Agent A</span>
-<div class="absolute -right-12 top-1/2 w-12 h-[2px] bg-primary/20"></div>
-</div>
-<div class="relative h-24 w-full rounded border border-dashed border-outline-variant flex items-center justify-center bg-surface-container-low">
-<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">AI Agent B</span>
-<div class="absolute -right-12 top-1/2 w-12 h-[2px] bg-primary/20"></div>
-</div>
-</div>
-<div class="flex items-center">
-<div class="w-full aspect-square rounded-full border-4 border-primary p-4 flex items-center justify-center bg-primary/5 shadow-[0_0_40px_rgba(148,209,209,0.1)] relative">
-<div class="text-center relative z-10">
-<div class="font-headline font-black text-2xl text-primary">CORE</div>
-<div class="text-[9px] text-primary/70 uppercase font-bold tracking-tighter">Sentinel Engine</div>
-</div>
-<div class="absolute inset-0 rounded-full border border-primary/10 scale-125"></div>
-</div>
-</div>
-<div class="flex flex-col justify-center gap-12">
-<div class="relative h-48 w-full rounded-xl bg-surface-container-high border border-outline-variant/30 flex flex-col items-center justify-center gap-4">
-<div class="w-full px-6 space-y-3">
-<div class="h-1 bg-primary w-[85%] rounded-full"></div>
-<div class="h-1 bg-primary/20 w-full rounded-full"></div>
-<div class="h-1 bg-primary/40 w-[65%] rounded-full"></div>
-</div>
-<span class="text-[9px] text-primary font-bold uppercase tracking-widest">Visibility Dashboard</span>
-</div>
-</div>
-</div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-radial-gradient from-primary/5 to-transparent"></div>
-</div>
-</div>
+    <div class="text-center mb-16">
+        <span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold">How It Works</span>
+        <h2 class="text-5xl md:text-6xl font-headline font-extrabold mt-4 tracking-tight">10-Step Inspection Pipeline</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">Every message passes through a 10-step inline pipeline before reaching its destination.</p>
+    </div>
+    <!-- Pipeline stepper -->
+    <div class="overflow-x-auto pb-4">
+        <div class="flex items-start gap-0 min-w-[900px] px-4">
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center flex-1 relative">
+                <div class="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-primary text-xs font-bold z-10">01</div>
+                <div class="mt-3 text-center">
+                    <span class="material-symbols-outlined text-primary/60 text-lg">router</span>
+                    <div class="text-[11px] font-bold text-on-surface mt-1">Protocol</div>
+                    <div class="text-[10px] text-on-surface-variant">Detection</div>
+                </div>
+                <div class="absolute top-5 left-1/2 w-full h-[2px] bg-primary/20 z-0"></div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center flex-1 relative">
+                <div class="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-primary text-xs font-bold z-10">02</div>
+                <div class="mt-3 text-center">
+                    <span class="material-symbols-outlined text-primary/60 text-lg">transform</span>
+                    <div class="text-[11px] font-bold text-on-surface mt-1">Normalize</div>
+                    <div class="text-[10px] text-on-surface-variant">Payload</div>
+                </div>
+                <div class="absolute top-5 left-1/2 w-full h-[2px] bg-primary/20 z-0"></div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center flex-1 relative">
+                <div class="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-primary text-xs font-bold z-10">03</div>
+                <div class="mt-3 text-center">
+                    <span class="material-symbols-outlined text-primary/60 text-lg">rule</span>
+                    <div class="text-[11px] font-bold text-on-surface mt-1">Rule</div>
+                    <div class="text-[10px] text-on-surface-variant">Evaluation</div>
+                </div>
+                <div class="absolute top-5 left-1/2 w-full h-[2px] bg-primary/20 z-0"></div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex flex-col items-center flex-1 relative">
+                <div class="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-primary text-xs font-bold z-10">04</div>
+                <div class="mt-3 text-center">
+                    <span class="material-symbols-outlined text-primary/60 text-lg">speed</span>
+                    <div class="text-[11px] font-bold text-on-surface mt-1">Risk</div>
+                    <div class="text-[10px] text-on-surface-variant">Scoring</div>
+                </div>
+                <div class="absolute top-5 left-1/2 w-full h-[2px] bg-primary/20 z-0"></div>
+            </div>
+            <!-- Step 5 -->
+            <div class="flex flex-col items-center flex-1 relative">
+                <div class="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-primary text-xs font-bold z-10">05</div>
+                <div class="mt-3 text-center">
+                    <span class="material-symbols-outlined text-primary/60 text-lg">compare</span>
+                    <div class="text-[11px] font-bold text-on-surface mt-1">Diff</div>
+                    <div class="text-[10px] text-on-surface-variant">Engine</div>
+                </div>
+                <div class="absolute top-5 left-1/2 w-full h-[2px] bg-primary/20 z-0"></div>
+            </div>
+            <!-- Step 6 -->
+            <div class="flex flex-col items-center flex-1 relative">
+                <div class="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-primary text-xs font-bold z-10">06</div>
+                <div class="mt-3 text-center">
+                    <span class="material-symbols-outlined text-primary/60 text-lg">account_tree</span>
+                    <div class="text-[11px] font-bold text-on-surface mt-1">Graph</div>
+                    <div class="text-[10px] text-on-surface-variant">Analysis</div>
+                </div>
+                <div class="absolute top-5 left-1/2 w-full h-[2px] bg-primary/20 z-0"></div>
+            </div>
+            <!-- Step 7 -->
+            <div class="flex flex-col items-center flex-1 relative">
+                <div class="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-primary text-xs font-bold z-10">07</div>
+                <div class="mt-3 text-center">
+                    <span class="material-symbols-outlined text-primary/60 text-lg">psychology</span>
+                    <div class="text-[11px] font-bold text-on-surface mt-1">Semantic</div>
+                    <div class="text-[10px] text-on-surface-variant">Classification</div>
+                </div>
+                <div class="absolute top-5 left-1/2 w-full h-[2px] bg-primary/20 z-0"></div>
+            </div>
+            <!-- Step 8 -->
+            <div class="flex flex-col items-center flex-1 relative">
+                <div class="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-primary text-xs font-bold z-10">08</div>
+                <div class="mt-3 text-center">
+                    <span class="material-symbols-outlined text-primary/60 text-lg">gavel</span>
+                    <div class="text-[11px] font-bold text-on-surface mt-1">Policy</div>
+                    <div class="text-[10px] text-on-surface-variant">Decision</div>
+                </div>
+                <div class="absolute top-5 left-1/2 w-full h-[2px] bg-primary/20 z-0"></div>
+            </div>
+            <!-- Step 9 -->
+            <div class="flex flex-col items-center flex-1 relative">
+                <div class="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center text-primary text-xs font-bold z-10">09</div>
+                <div class="mt-3 text-center">
+                    <span class="material-symbols-outlined text-primary/60 text-lg">edit_note</span>
+                    <div class="text-[11px] font-bold text-on-surface mt-1">Event</div>
+                    <div class="text-[10px] text-on-surface-variant">Recording</div>
+                </div>
+                <div class="absolute top-5 left-1/2 w-full h-[2px] bg-primary/20 z-0"></div>
+            </div>
+            <!-- Step 10 -->
+            <div class="flex flex-col items-center flex-1 relative">
+                <div class="w-10 h-10 rounded-full bg-primary border-2 border-primary flex items-center justify-center text-on-primary text-xs font-bold z-10">10</div>
+                <div class="mt-3 text-center">
+                    <span class="material-symbols-outlined text-primary text-lg">verified_user</span>
+                    <div class="text-[11px] font-bold text-on-surface mt-1">Enforce</div>
+                    <div class="text-[10px] text-on-surface-variant">Verdict</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Performance badges -->
+    <div class="flex flex-wrap justify-center gap-6 mt-12">
+        <div class="flex items-center gap-3 px-6 py-3 rounded-lg bg-surface-container border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary">bolt</span>
+            <div>
+                <div class="text-2xl font-headline font-black text-primary">&lt; 100ms</div>
+                <div class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">End-to-end latency</div>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 px-6 py-3 rounded-lg bg-surface-container border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary">security</span>
+            <div>
+                <div class="text-2xl font-headline font-black text-primary">Fail-closed</div>
+                <div class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">By default</div>
+            </div>
+        </div>
+    </div>
 </div>
 </section>
+
+<!-- Verdict & Classification -->
+<section class="py-24 px-8 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+        <span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold">Enforcement</span>
+        <h2 class="text-5xl md:text-6xl font-headline font-extrabold mt-4 tracking-tight">7-Level Verdict System</h2>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-16">
+        <!-- Verdict scale -->
+        <div>
+            <h3 class="text-lg font-headline font-bold mb-6 text-on-surface-variant">Graduated Response</h3>
+            <div class="space-y-3">
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/10">
+                    <div class="w-3 h-3 rounded-full bg-red-400 shrink-0"></div>
+                    <div class="flex-1">
+                        <span class="font-headline font-bold text-sm">Quarantine</span>
+                        <span class="text-on-surface-variant text-xs ml-2">Isolate the agent session immediately</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/10">
+                    <div class="w-3 h-3 rounded-full bg-red-400/70 shrink-0"></div>
+                    <div class="flex-1">
+                        <span class="font-headline font-bold text-sm">Deny</span>
+                        <span class="text-on-surface-variant text-xs ml-2">Block the request outright</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/10">
+                    <div class="w-3 h-3 rounded-full bg-amber-400 shrink-0"></div>
+                    <div class="flex-1">
+                        <span class="font-headline font-bold text-sm">Require Approval</span>
+                        <span class="text-on-surface-variant text-xs ml-2">Hold for human-in-the-loop review</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/10">
+                    <div class="w-3 h-3 rounded-full bg-yellow-400 shrink-0"></div>
+                    <div class="flex-1">
+                        <span class="font-headline font-bold text-sm">Redact</span>
+                        <span class="text-on-surface-variant text-xs ml-2">Strip sensitive content, allow the rest</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/10">
+                    <div class="w-3 h-3 rounded-full bg-on-surface-variant/40 shrink-0"></div>
+                    <div class="flex-1">
+                        <span class="font-headline font-bold text-sm">Hide</span>
+                        <span class="text-on-surface-variant text-xs ml-2">Suppress from agent visibility</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/10">
+                    <div class="w-3 h-3 rounded-full bg-primary/50 shrink-0"></div>
+                    <div class="flex-1">
+                        <span class="font-headline font-bold text-sm">Monitor Only</span>
+                        <span class="text-on-surface-variant text-xs ml-2">Allow but flag for review</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/10">
+                    <div class="w-3 h-3 rounded-full bg-emerald-400 shrink-0"></div>
+                    <div class="flex-1">
+                        <span class="font-headline font-bold text-sm">Allow</span>
+                        <span class="text-on-surface-variant text-xs ml-2">Permit with full logging</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Agent Classification + Risk -->
+        <div>
+            <h3 class="text-lg font-headline font-bold mb-6 text-on-surface-variant">Agent Classification</h3>
+            <div class="space-y-3 mb-10">
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-emerald-400">verified</span>
+                    <div>
+                        <div class="font-headline font-bold text-sm">Enterprise Managed</div>
+                        <div class="text-on-surface-variant text-xs">Known, registered, policy-compliant</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-on-surface-variant">visibility_off</span>
+                    <div>
+                        <div class="font-headline font-bold text-sm">Shadow Agent</div>
+                        <div class="text-on-surface-variant text-xs">Unknown to IT, discovered via fingerprinting</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-amber-400">warning</span>
+                    <div>
+                        <div class="font-headline font-bold text-sm">Suspicious</div>
+                        <div class="text-on-surface-variant text-xs">Anomalous behavior, elevated risk score</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-red-400">dangerous</span>
+                    <div>
+                        <div class="font-headline font-bold text-sm">Malicious</div>
+                        <div class="text-on-surface-variant text-xs">Active threat indicators confirmed</div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-lg font-headline font-bold mb-4 text-on-surface-variant">Composite Risk Scoring</h3>
+            <div class="p-6 rounded-lg bg-surface-container border border-outline-variant/10">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-on-surface">Rule Matches</span>
+                        <div class="flex items-center gap-2">
+                            <div class="w-32 h-2 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-primary rounded-full" style="width:40%"></div></div>
+                            <span class="text-xs text-primary font-bold w-8">40%</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-on-surface">Diff Engine</span>
+                        <div class="flex items-center gap-2">
+                            <div class="w-32 h-2 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-primary rounded-full" style="width:25%"></div></div>
+                            <span class="text-xs text-primary font-bold w-8">25%</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-on-surface">Semantic Analysis</span>
+                        <div class="flex items-center gap-2">
+                            <div class="w-32 h-2 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-primary rounded-full" style="width:20%"></div></div>
+                            <span class="text-xs text-primary font-bold w-8">20%</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-on-surface">Graph Analysis</span>
+                        <div class="flex items-center gap-2">
+                            <div class="w-32 h-2 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-primary rounded-full" style="width:10%"></div></div>
+                            <span class="text-xs text-primary font-bold w-8">10%</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-on-surface">First-seen Penalty</span>
+                        <div class="flex items-center gap-2">
+                            <div class="w-32 h-2 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-primary rounded-full" style="width:5%"></div></div>
+                            <span class="text-xs text-primary font-bold w-8">5%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
 <!-- The Argus Stack -->
-<section class="py-32 px-8">
+<section id="platform" class="py-24 px-8">
 <div class="max-w-7xl mx-auto">
-<div class="text-center mb-24">
-<span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold">Architecture</span>
-<h2 class="text-6xl font-headline font-extrabold mt-4 tracking-tight">The Argus Stack</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-<!-- Gateway -->
-<div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
-<div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined" data-icon="shield_lock">shield_lock</span>
-</div>
-<h3 class="text-2xl font-headline font-bold mb-4">Gateway</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">Secure ingress/egress. Intercepting every request and response in the proxy layer.</p>
-</div>
-<!-- API -->
-<div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
-<div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
-</div>
-<h3 class="text-2xl font-headline font-bold mb-4">API</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">Unified control layer. One integration to govern all agent ecosystems.</p>
-</div>
-<!-- Sentinel -->
-<div class="group p-8 rounded-lg bg-surface-container-high border border-primary/40 shadow-[0_0_30px_rgba(148,209,209,0.05)]">
-<div class="mb-8 w-12 h-12 rounded bg-primary flex items-center justify-center text-on-primary">
-<span class="material-symbols-outlined" data-icon="visibility" style="font-variation-settings: 'FILL' 1;">visibility</span>
-</div>
-<h3 class="text-2xl font-headline font-bold mb-4">Sentinel</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">Real-time monitoring. The all-seeing eye tracking sub-second agent behaviors.</p>
-</div>
-<!-- Cortex -->
-<div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
-<div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
-</div>
-<h3 class="text-2xl font-headline font-bold mb-4">Cortex</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">ML classification &amp; threat detection. Deciphering intent from noise.</p>
-</div>
-<!-- Console -->
-<div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
-<div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-</div>
-<h3 class="text-2xl font-headline font-bold mb-4">Console</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">Visibility and enforcement dashboard. Command center for your AI fleet.</p>
-</div>
-</div>
+    <div class="text-center mb-16">
+        <span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold">Platform</span>
+        <h2 class="text-5xl md:text-6xl font-headline font-extrabold mt-4 tracking-tight">The Argus Stack</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Gateway -->
+        <div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+            <div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">shield_lock</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold mb-4">Gateway</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Inline reverse proxy. Inspects MCP, OpenAI, and Anthropic traffic. Enforces verdicts in &lt; 100ms.</p>
+        </div>
+        <!-- API -->
+        <div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+            <div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">terminal</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold mb-4">API</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Control plane. REST + gRPC. Policy engine, approvals, event recording, SIEM export.</p>
+        </div>
+        <!-- Sentinel -->
+        <div class="group p-8 rounded-lg bg-surface-container-high border border-primary/40 shadow-[0_0_30px_rgba(148,209,209,0.05)]">
+            <div class="mb-8 w-12 h-12 rounded bg-primary flex items-center justify-center text-on-primary">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">visibility</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold mb-4">Sentinel</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Endpoint daemon. Discovers local MCP configs, wraps stdio, runs eBPF sensor on Linux.</p>
+        </div>
+        <!-- Cortex -->
+        <div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+            <div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">psychology</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold mb-4">Cortex</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">ML classification. Prompt injection detection, exfiltration intent, tool risk scoring.</p>
+        </div>
+        <!-- Console -->
+        <div class="group p-8 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all duration-500 border border-transparent hover:border-primary/20">
+            <div class="mb-8 w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">dashboard</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold mb-4">Console</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">SaaS dashboard. Real-time event stream, agent inventory, policy editor.</p>
+        </div>
+    </div>
 </div>
 </section>
-<!-- Proactive AI Security -->
-<section class="py-32 px-8 bg-surface-container-low/50">
+
+<!-- Integrations & Deployment -->
+<section id="deploy" class="py-24 px-8 bg-surface-container-lowest">
 <div class="max-w-7xl mx-auto">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-24">
-<div class="max-w-2xl">
-<span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold">Capabilities</span>
-<h2 class="text-5xl md:text-7xl font-headline font-extrabold mt-4 tracking-tighter">Proactive AI Security</h2>
-</div>
-<div class="h-[1px] flex-1 bg-outline-variant/20 hidden md:block mb-6 mx-12"></div>
-<div class="text-on-surface-variant font-label text-sm uppercase tracking-widest font-bold">Comprehensive Governance</div>
-</div>
-<div class="grid md:grid-cols-2 gap-x-24 gap-y-4">
-<div class="space-y-2">
-<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
-<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">01</span>
-<div class="h-px flex-1 bg-outline-variant/10"></div>
-<span class="text-lg font-headline font-semibold">Protocol Inspection</span>
-</div>
-<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
-<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">02</span>
-<div class="h-px flex-1 bg-outline-variant/10"></div>
-<span class="text-lg font-headline font-semibold">Kernel Monitoring</span>
-</div>
-<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
-<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">03</span>
-<div class="h-px flex-1 bg-outline-variant/10"></div>
-<span class="text-lg font-headline font-semibold">ML-based Classification</span>
-</div>
-<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
-<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">04</span>
-<div class="h-px flex-1 bg-outline-variant/10"></div>
-<span class="text-lg font-headline font-semibold">Real-time Policy Enforcement</span>
-</div>
-<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
-<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">05</span>
-<div class="h-px flex-1 bg-outline-variant/10"></div>
-<span class="text-lg font-headline font-semibold">Agent Session Replay</span>
-</div>
-</div>
-<div class="space-y-2">
-<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
-<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">06</span>
-<div class="h-px flex-1 bg-outline-variant/10"></div>
-<span class="text-lg font-headline font-semibold">Data Leakage Prevention</span>
-</div>
-<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
-<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">07</span>
-<div class="h-px flex-1 bg-outline-variant/10"></div>
-<span class="text-lg font-headline font-semibold">Behavioral Analysis</span>
-</div>
-<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
-<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">08</span>
-<div class="h-px flex-1 bg-outline-variant/10"></div>
-<span class="text-lg font-headline font-semibold">Audit Logging</span>
-</div>
-<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
-<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">09</span>
-<div class="h-px flex-1 bg-outline-variant/10"></div>
-<span class="text-lg font-headline font-semibold">Anomaly Detection</span>
-</div>
-<div class="flex items-center gap-6 p-6 rounded hover:bg-surface-container transition-colors group cursor-default">
-<span class="text-primary/30 font-headline text-xl group-hover:text-primary transition-colors font-bold">10</span>
-<div class="h-px flex-1 bg-outline-variant/10"></div>
-<span class="text-lg font-headline font-semibold">Granular Access Control</span>
-</div>
-</div>
-</div>
+    <div class="mb-16">
+        <span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold">Deploy</span>
+        <h2 class="text-5xl md:text-6xl font-headline font-extrabold mt-4 tracking-tight">Integrations &amp; Deployment</h2>
+    </div>
+    <!-- Protocols -->
+    <div class="mb-12">
+        <h3 class="text-sm font-label uppercase tracking-widest text-on-surface-variant font-bold mb-6">Protocol Support</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-6 rounded-lg bg-surface-container border border-outline-variant/10 flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary text-3xl">hub</span>
+                <div>
+                    <div class="font-headline font-bold">MCP</div>
+                    <div class="text-on-surface-variant text-xs">Model Context Protocol (JSON-RPC 2.0)</div>
+                </div>
+            </div>
+            <div class="p-6 rounded-lg bg-surface-container border border-outline-variant/10 flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary text-3xl">api</span>
+                <div>
+                    <div class="font-headline font-bold">OpenAI</div>
+                    <div class="text-on-surface-variant text-xs">Chat Completions function calling</div>
+                </div>
+            </div>
+            <div class="p-6 rounded-lg bg-surface-container border border-outline-variant/10 flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary text-3xl">api</span>
+                <div>
+                    <div class="font-headline font-bold">Anthropic</div>
+                    <div class="text-on-surface-variant text-xs">Tool use block inspection</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SIEM -->
+    <div class="mb-12">
+        <h3 class="text-sm font-label uppercase tracking-widest text-on-surface-variant font-bold mb-6">SIEM &amp; Alerting</h3>
+        <div class="flex flex-wrap gap-3">
+            <div class="px-5 py-3 rounded-lg bg-surface-container border border-outline-variant/10 flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">analytics</span>
+                <span class="font-headline font-bold text-sm">Splunk</span>
+            </div>
+            <div class="px-5 py-3 rounded-lg bg-surface-container border border-outline-variant/10 flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">search</span>
+                <span class="font-headline font-bold text-sm">Elastic</span>
+            </div>
+            <div class="px-5 py-3 rounded-lg bg-surface-container border border-outline-variant/10 flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">chat</span>
+                <span class="font-headline font-bold text-sm">Slack</span>
+            </div>
+            <div class="px-5 py-3 rounded-lg bg-surface-container border border-outline-variant/10 flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">webhook</span>
+                <span class="font-headline font-bold text-sm">Webhooks</span>
+            </div>
+        </div>
+        <p class="text-on-surface-variant text-sm mt-4">Stream events to your existing security stack in real time.</p>
+    </div>
+    <!-- Deployment options -->
+    <div>
+        <h3 class="text-sm font-label uppercase tracking-widest text-on-surface-variant font-bold mb-6">Deployment Options</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-8 rounded-lg bg-surface-container border border-outline-variant/10 text-center">
+                <span class="material-symbols-outlined text-primary text-4xl mb-4">cloud</span>
+                <h4 class="font-headline font-bold text-lg mb-2">SaaS</h4>
+                <p class="text-on-surface-variant text-sm">Managed deployment. Zero infrastructure.</p>
+            </div>
+            <div class="p-8 rounded-lg bg-surface-container border border-outline-variant/10 text-center">
+                <span class="material-symbols-outlined text-primary text-4xl mb-4">deployed_code</span>
+                <h4 class="font-headline font-bold text-lg mb-2">Docker Compose</h4>
+                <p class="text-on-surface-variant text-sm">Self-hosted. Single-node. Full control.</p>
+            </div>
+            <div class="p-8 rounded-lg bg-surface-container border border-outline-variant/10 text-center">
+                <span class="material-symbols-outlined text-primary text-4xl mb-4">grid_view</span>
+                <h4 class="font-headline font-bold text-lg mb-2">Kubernetes</h4>
+                <p class="text-on-surface-variant text-sm">Production-grade. Horizontally scalable.</p>
+            </div>
+        </div>
+    </div>
 </div>
 </section>
-<!-- CTA Section -->
-<section class="py-32 px-8 overflow-hidden relative">
+
+<!-- CTA -->
+<section class="py-24 px-8 overflow-hidden relative">
 <div class="max-w-5xl mx-auto p-16 rounded-2xl bg-[#1d2020] border border-primary/10 relative">
-<div class="relative z-10 text-center">
-<h2 class="text-4xl md:text-5xl font-headline font-extrabold mb-8 tracking-tight">Secure your agent swarm today.</h2>
-<p class="text-xl text-on-surface-variant mb-12 max-w-xl mx-auto font-medium">Ready for enterprise production deployment. Secure your future agents.</p>
-<div class="flex flex-wrap justify-center gap-4">
-<button class="px-10 py-5 bg-primary text-on-primary rounded-lg font-bold text-xl hover:shadow-[0_0_40px_rgba(148,209,209,0.2)] transition-all">Request Access</button>
-</div>
-</div>
-<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+    <div class="relative z-10 text-center">
+        <h2 class="text-4xl md:text-5xl font-headline font-extrabold mb-8 tracking-tight">Start securing your AI agents in minutes.</h2>
+        <p class="text-xl text-on-surface-variant mb-12 max-w-xl mx-auto font-medium">SaaS, Docker, or Kubernetes. Fail-closed from the first request.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <button class="px-10 py-5 bg-primary text-on-primary rounded-lg font-bold text-xl hover:shadow-[0_0_40px_rgba(148,209,209,0.2)] transition-all">Request Access</button>
+            <button class="px-10 py-5 bg-surface-container-low text-primary border border-outline-variant/30 rounded-lg font-bold text-xl hover:bg-surface-container-high transition-all">Read the Docs</button>
+        </div>
+    </div>
+    <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
 </div>
 </section>
+
 </main>
-<!-- Footer Component -->
+
+<!-- Footer -->
 <footer class="bg-[#111414] w-full border-t border-zinc-800/15">
 <div class="max-w-7xl mx-auto px-8 py-16 flex flex-col md:flex-row justify-between items-center gap-12 font-body text-xs uppercase tracking-widest font-semibold">
-<div class="flex items-center gap-4">
-<div class="text-lg font-bold text-teal-300 dark:text-[#94d1d1] font-headline">Argus Sentinel</div>
-</div>
-<div class="flex flex-wrap justify-center gap-8">
-<a class="text-zinc-500 dark:text-[#e1e3e2]/50 hover:text-teal-300 dark:hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Privacy Policy</a>
-<a class="text-zinc-500 dark:text-[#e1e3e2]/50 hover:text-teal-300 dark:hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Terms of Service</a>
-<a class="text-zinc-500 dark:text-[#e1e3e2]/50 hover:text-teal-300 dark:hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Trust Center</a>
-<a class="text-zinc-500 dark:text-[#e1e3e2]/50 hover:text-teal-300 dark:hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Contact</a>
-</div>
-<div class="text-zinc-500 dark:text-[#e1e3e2]/50 text-center md:text-right">
-            © 2025 Argus Sentinel. All rights reserved.
-        </div>
+    <div class="flex items-center gap-4">
+        <div class="text-lg font-bold text-[#94d1d1] font-headline">Argus Sentinel</div>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8">
+        <a class="text-[#e1e3e2]/50 hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Privacy Policy</a>
+        <a class="text-[#e1e3e2]/50 hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Terms of Service</a>
+        <a class="text-[#e1e3e2]/50 hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Trust Center</a>
+        <a class="text-[#e1e3e2]/50 hover:text-[#94d1d1] transition-opacity opacity-70 hover:opacity-100" href="#">Contact</a>
+    </div>
+    <div class="text-[#e1e3e2]/50 text-center md:text-right">
+        &copy; 2026 Argus Sentinel. All rights reserved.
+    </div>
 </div>
 </footer>
-</body></html>
+
+</body>
+</html>
