@@ -1,0 +1,13 @@
+{
+  "name": "argus-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Argus Sentinel marketing site (argus.cognifinity.lu)",
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o dist/tailwind.css --minify",
+    "watch": "tailwindcss -i src/input.css -o dist/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
