@@ -28,6 +28,14 @@
       transform: translateY(0);
     }
   }
+  /* Zero top/side padding on the four menu-linked sections so the inner
+     card sits flush with the nav and the viewport edges (mirrors the
+     full-bleed treatment of the mobile main hero). */
+  #how-it-works, #verdicts, #use-cases, #performance {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
   /* ===== Mobile overrides (< 768px) ===== */
   @media (max-width: 767px) {
     html { scroll-padding-top: 72px; }
@@ -80,10 +88,10 @@
       </button>
     </div>
     <div class="hidden md:flex absolute left-1/2 top-0 -translate-x-1/2 h-16 items-center">
-      <a href="#how-it-works" class="text-on-surface px-5 h-full flex items-center hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">HOW IT WORKS</a>
-      <a href="#verdicts" class="text-on-surface px-5 h-full flex items-center hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">VERDICTS</a>
-      <a href="#use-cases" class="text-on-surface px-5 h-full flex items-center hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">USE CASES</a>
-      <a href="#performance" class="text-on-surface px-5 h-full flex items-center hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">PERFORMANCE</a>
+      <a href="#how-it-works" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">HOW IT WORKS</a>
+      <a href="#verdicts" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">VERDICTS</a>
+      <a href="#use-cases" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">USE CASES</a>
+      <a href="#performance" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">PERFORMANCE</a>
     </div>
   </div>
   <div id="mobile-menu" class="md:hidden hidden border-t-2 border-primary bg-surface">
@@ -100,7 +108,9 @@
 <!-- ========== HERO (mobile only) ========== -->
 <section class="md:hidden">
   <div class="relative h-[calc(100vh-4rem)] bg-black overflow-hidden border-b-4 border-primary">
-    <img src="assets/argus_hero.png?v=1" alt="Argus Sentinel" class="absolute inset-0 w-full h-full object-cover object-center" />
+    <video class="absolute inset-0 w-full h-full object-contain object-top" autoplay loop muted playsinline preload="auto" poster="assets/argus_hero.png?v=1" aria-label="Argus Sentinel">
+      <source src="assets/argus_hero.mp4" type="video/mp4" />
+    </video>
     <!-- Bottom-up dark scrim so the overlay text reads -->
     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/0"></div>
     <!-- Overlay content (bottom-left) -->
@@ -112,7 +122,10 @@
         <span class="block text-[36px] font-bold tracking-tight">Inline control for AI&nbsp;agents.</span>
         <span class="block text-[15px] font-bold tracking-wide mt-3 text-white/70">Non-human identity security at the wire.</span>
       </h1>
-      <a href="mailto:contact@cognifinity.lu?subject=Argus%20Sentinel%20pilot%20conversation" class="bg-white text-black px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-white hover:bg-transparent hover:text-white transition-all self-start">BOOK A PILOT &nbsp;&rarr;</a>
+      <div class="flex flex-wrap gap-3">
+        <a href="mailto:contact@cognifinity.lu?subject=Argus%20Sentinel%20pilot%20conversation" class="bg-white text-black px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-white hover:bg-transparent hover:text-white transition-all">BOOK A PILOT &nbsp;&rarr;</a>
+        <a href="#how-it-works" class="bg-transparent text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-white hover:bg-white hover:text-black transition-all">HOW IT WORKS</a>
+      </div>
     </div>
   </div>
 </section>
@@ -137,7 +150,9 @@
     </div>
     <!-- Right: hero visual -->
     <div class="md:col-span-4 bg-black relative overflow-hidden">
-      <img src="assets/argus_hero.png?v=1" alt="Argus Sentinel" class="absolute inset-0 w-full h-full object-cover" />
+      <video class="absolute inset-0 w-full h-full object-contain" autoplay loop muted playsinline preload="auto" poster="assets/argus_hero.png?v=1" aria-label="Argus Sentinel">
+        <source src="assets/argus_hero.mp4" type="video/mp4" />
+      </video>
     </div>
   </div>
 </section>
@@ -223,10 +238,17 @@
 
 <!-- ========== HOW IT WORKS ========== -->
 <section id="how-it-works" class="p-margin">
-  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
-    <span class="font-label-caps text-primary-container uppercase tracking-widest">How it works</span>
-    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">An inline gateway. A six-stage pipeline. A transparent verdict.</h2>
-    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">Every request is normalised to a protocol-agnostic shape, runs through the inspection pipeline, and is allowed, transformed, deferred, or blocked &mdash; in a documented number of milliseconds.</p>
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 mb-12 border-thick_border border-primary">
+    <div class="md:col-span-8 bg-primary p-8 md:p-12 flex flex-col justify-center min-h-[420px] md:min-h-[60vh] border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
+      <div class="mb-5 md:mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
+        <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">How it works</span>
+      </div>
+      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">An inline gateway. A six-stage pipeline. A transparent verdict.</h2>
+      <p class="font-body-lg text-white/50 max-w-xl">Every request is normalised to a protocol-agnostic shape, runs through the inspection pipeline, and is allowed, transformed, deferred, or blocked &mdash; in a documented number of milliseconds.</p>
+    </div>
+    <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
+      <img src="assets/how_it_works.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    </div>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-12 gap-0 border-thick_border border-primary">
@@ -295,10 +317,17 @@
 
 <!-- ========== 7 VERDICTS ========== -->
 <section id="verdicts" class="p-margin">
-  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
-    <span class="font-label-caps text-primary-container uppercase tracking-widest">The vocabulary</span>
-    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">Seven verdicts. No black-box risk score.</h2>
-    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">Every detected request resolves to exactly one of these outcomes; the higher-precedence verdict wins when multiple rules fire.</p>
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 mb-12 border-thick_border border-primary">
+    <div class="md:col-span-8 bg-primary p-8 md:p-12 flex flex-col justify-center min-h-[420px] md:min-h-[60vh] border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
+      <div class="mb-5 md:mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
+        <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">The vocabulary</span>
+      </div>
+      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">Seven verdicts. No black-box risk score.</h2>
+      <p class="font-body-lg text-white/50 max-w-xl">Every detected request resolves to exactly one of these outcomes; the higher-precedence verdict wins when multiple rules fire.</p>
+    </div>
+    <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
+      <img src="assets/verdicts.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    </div>
   </div>
 
   <div class="verdicts-grid grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-0 border-thick_border border-primary">
@@ -389,10 +418,17 @@
 
 <!-- ========== USE CASES ========== -->
 <section id="use-cases" class="p-margin">
-  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
-    <span class="font-label-caps text-primary-container uppercase tracking-widest">Use cases</span>
-    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">Twelve scenarios Argus covers today.</h2>
-    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">Nine drawn from the AI-security category, three from the NHI category. Each card names the verdict and the maturity tag for the path that drives it.</p>
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 mb-12 border-thick_border border-primary">
+    <div class="md:col-span-8 bg-primary p-8 md:p-12 flex flex-col justify-center min-h-[420px] md:min-h-[60vh] border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
+      <div class="mb-5 md:mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
+        <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">Use cases</span>
+      </div>
+      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">Twelve scenarios Argus covers today.</h2>
+      <p class="font-body-lg text-white/50 max-w-xl">Nine drawn from the AI-security category, three from the NHI category. Each card names the verdict and the maturity tag for the path that drives it.</p>
+    </div>
+    <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
+      <img src="assets/use_cases.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    </div>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-thick_border border-primary">
@@ -607,17 +643,24 @@
 
 <!-- ========== PERFORMANCE ========== -->
 <section id="performance" class="p-margin">
-  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
-    <span class="font-label-caps text-primary-container uppercase tracking-widest">Performance</span>
-    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">Measured. Published. Regression-guarded in CI.</h2>
-    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">A &ldquo;sub-100 ms&rdquo; claim inherited from a paper is not a number. Below is the number the engine actually produces, on the documented harness, with the artifact stored from every main-branch build.</p>
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 mb-12 border-thick_border border-primary">
+    <div class="md:col-span-8 bg-primary p-8 md:p-12 flex flex-col justify-center min-h-[420px] md:min-h-[60vh] border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
+      <div class="mb-5 md:mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
+        <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">Performance</span>
+      </div>
+      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">Measured. Published. Regression-guarded in CI.</h2>
+      <p class="font-body-lg text-white/50 max-w-xl">A &ldquo;sub-100 ms&rdquo; claim inherited from a paper is not a number. Below is the number the engine actually produces, on the documented harness, with the artifact stored from every main-branch build.</p>
+    </div>
+    <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
+      <img src="assets/performance.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    </div>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-12 gap-0 border-thick_border border-primary">
-    <div class="md:col-span-4 bg-primary-container p-8 md:p-12 flex flex-col justify-center items-center text-center">
+    <div class="md:col-span-4 bg-tertiary-container p-8 md:p-12 flex flex-col justify-center items-center text-center">
       <span class="font-headline-lg text-[64px] md:text-[88px] text-black leading-none">1.82</span>
       <span class="font-headline-sm text-black mt-2 uppercase">milliseconds</span>
-      <span class="font-mono-technical text-on-primary-container mt-6 uppercase">p99 verdict latency</span>
+      <span class="font-mono-technical text-primary mt-6 uppercase">p99 verdict latency</span>
     </div>
     <div class="md:col-span-8 bg-surface p-6 md:p-10">
       <h3 class="font-headline-sm text-headline-sm uppercase text-white mb-3">1,000 evt/sec &middot; mixed protocol mix &middot; 10-minute soak</h3>
@@ -731,8 +774,8 @@
 </section>
 
 <!-- ========== FINAL CTA ========== -->
-<section class="px-margin pb-16 md:pb-32">
-  <div class="bg-primary-container border-thick_border border-primary p-8 md:p-16 text-center">
+<section class="pb-16 md:pb-32">
+  <div class="bg-tertiary-container border-thick_border border-primary p-8 md:p-16 text-center">
     <h2 class="font-headline-lg text-[28px] md:text-[48px] text-black mb-6 md:mb-8 uppercase leading-tight">Ready to talk?</h2>
     <p class="font-body-lg text-[15px] md:text-[18px] text-black max-w-2xl mx-auto mb-8 md:mb-12">Argus Sentinel is in design-partner pilot. Get in touch and we&apos;ll walk you through what&apos;s stable today, what&apos;s still on the bench, and whether it fits your environment.</p>
     <a href="mailto:contact@cognifinity.lu?subject=Argus%20Sentinel%20pilot%20conversation" class="inline-block bg-black text-white px-8 py-4 md:px-12 md:py-5 font-label-caps text-[13px] md:text-[14px] font-bold border-border_width border-black hover:bg-white hover:text-black transition-all">BOOK A PILOT &nbsp;&rarr;</a>
