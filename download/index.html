@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Download Argus Sentinel — macOS, Windows, Linux</title>
+<meta name="description" content="Download Argus Sentinel for your operating system. Native installers for macOS, Windows, and Linux. Inline AI agent visibility + policy enforcement, in 1.82 ms."/>
+<link rel="canonical" href="https://argus.cognifinity.lu/download" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!--
+  Identical Tailwind config block to /index.html. Kept inline (rather
+  than extracted into a shared file) because the marketing site is a
+  zero-build static GH Pages property and adding a JS bundler purely
+  to deduplicate this would cost more than the duplication does.
+-->
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"tertiary-container": "#b2895c", "on-secondary-container": "#99b9d1", "on-tertiary": "#462a05", "on-primary-fixed-variant": "#294b5e", "on-error": "#690005", "primary-fixed-dim": "#304451", "surface-container-lowest": "#0d0e10", "surface-dim": "#121415", "inverse-surface": "#e2e2e4", "secondary-container": "#2a4a5f", "on-primary-fixed": "#001e2c", "on-secondary-fixed": "#001e2e", "on-surface-variant": "#c1c7cc", "secondary-fixed-dim": "#202629", secondary: "#202629", "on-error-container": "#ffdad6", "surface-variant": "#333537", "surface-tint": "#304451", "on-background": "#e2e2e4", tertiary: "#ecbe8d", "error-container": "#93000a", surface: "#121415", "surface-container-low": "#1a1c1d", "tertiary-fixed": "#ffddba", primary: "#304451", "tertiary-fixed-dim": "#ecbe8d", "surface-container-high": "#282a2c", "primary-fixed": "#c4e7ff", "on-secondary": "#113447", "inverse-primary": "#416276", "on-primary-container": "#052d3f", "inverse-on-surface": "#2f3132", "on-tertiary-container": "#3e2401", "on-secondary-fixed-variant": "#2a4a5f", "surface-container": "#1e2021", "on-tertiary-fixed-variant": "#5f401a", "surface-bright": "#38393b", outline: "#8b9196", "on-surface": "#e2e2e4", "primary-container": "#7495ab", "outline-variant": "#41484c", error: "#ffb4ab", "surface-container-highest": "#333537", "on-tertiary-fixed": "#2b1700", "secondary-fixed": "#c7e7ff", background: "#121415", "on-primary": "#0e3446", "v-allow": "#22c55e", "v-monitor": "#3b82f6", "v-hide": "#64748b", "v-redact": "#eab308", "v-approval": "#f97316", "v-deny": "#ef4444", "v-quarantine": "#b91c1c", "m-stable": "#22c55e", "m-experimental": "#f59e0b", "m-planned": "#94a3b8"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {unit: "4px", margin: "32px", gutter: "24px", border_width: "2px", thick_border: "4px"}, fontFamily: {"headline-sm": ["Figtree"], "headline-lg": ["Figtree"], "body-lg": ["Figtree"], "body-md": ["Figtree"], "label-caps": ["Figtree"], "mono-technical": ["Figtree"], "headline-md": ["Figtree"], headline: ["Figtree"], display: ["Figtree"], body: ["Figtree"], label: ["Figtree"]}, fontSize: {"headline-sm": ["20px", {lineHeight: "1.2", letterSpacing: "0em", fontWeight: "600"}], "headline-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "1.6", letterSpacing: "0em", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400"}], "label-caps": ["12px", {lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700"}], "mono-technical": ["14px", {lineHeight: "1.4", letterSpacing: "0em", fontWeight: "400"}], "headline-md": ["32px", {lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "600"}]}}}};</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { background-color: #121414; color: #e2e2e2; }
+  ::-webkit-scrollbar { width: 12px; }
+  ::-webkit-scrollbar-track { background: #121414; border-left: 2px solid #304451; }
+  ::-webkit-scrollbar-thumb { background: #304451; border: 2px solid #121414; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  /* Per-card visitor-OS highlight — `data-os-current` is added by JS
+     once we detect the visitor's UA. The accent is purely visual; the
+     card stays clickable for everyone. */
+  [data-os-current="true"] {
+    box-shadow: 0 0 0 2px #7495ab inset, 0 12px 32px -8px rgba(116,149,171,0.35);
+  }
+
+  @media (max-width: 767px) {
+    .download-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container font-body">
+
+<!-- ========== NAV ==========
+     Same shape as the main page's nav but with the section-anchor
+     links pointing back to /#section so they still work from this
+     sub-page. The "DOWNLOAD" label in the nav center isn't a link
+     because we're already on it; instead we replace it with a "BACK
+     TO MAIN" affordance on the right side. -->
+<nav class="fixed top-0 w-full z-50 bg-surface shadow-[0_6px_20px_-4px_rgba(0,0,0,0.7)]">
+  <div class="relative grid grid-cols-[auto_1fr_auto] items-stretch w-full h-16">
+    <a href="/" class="px-4 md:px-6 h-full flex items-center">
+      <img src="../assets/argus_horizontal_logo.png?v=2" alt="Argus Sentinel" class="h-[34px] md:h-[45px] w-auto block" />
+    </a>
+    <div></div>
+    <div class="flex items-center gap-3 self-center mr-4 md:mr-6">
+      <a href="mailto:contact@cognifinity.lu?subject=Argus%20Sentinel%20early-access" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">REQUEST EARLY ACCESS</a>
+      <button id="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden inline-flex w-10 h-10 items-center justify-center border-2 border-white text-white hover:bg-white hover:text-black transition-all">
+        <span class="material-symbols-outlined text-[22px]" id="mobile-menu-icon">menu</span>
+      </button>
+    </div>
+    <div class="hidden md:flex absolute left-1/2 top-0 -translate-x-1/2 h-16 items-center">
+      <a href="/#how-it-works" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">HOW IT WORKS</a>
+      <a href="/#verdicts" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">VERDICTS</a>
+      <a href="/#use-cases" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">USE CASES</a>
+      <a href="/#performance" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">PERFORMANCE</a>
+      <span class="bg-primary text-white px-5 h-full flex items-center whitespace-nowrap font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">DOWNLOAD</span>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden border-t-2 border-primary bg-surface">
+    <a href="/#how-it-works" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">HOW IT WORKS</a>
+    <a href="/#verdicts" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">VERDICTS</a>
+    <a href="/#use-cases" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">USE CASES</a>
+    <a href="/#performance" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">PERFORMANCE</a>
+    <a href="mailto:contact@cognifinity.lu?subject=Argus%20Sentinel%20early-access" class="block px-6 py-4 text-black font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase bg-primary-container hover:bg-white">REQUEST EARLY ACCESS &nbsp;&rarr;</a>
+  </div>
+</nav>
+
+<main id="top" class="mt-16">
+
+<!-- ========== HERO ========== -->
+<section class="px-margin py-margin md:py-20 border-b-border_width border-primary">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-4 inline-flex items-stretch border-2 border-primary bg-surface-container-low self-start">
+      <span class="px-3 py-1.5 font-mono-technical text-[11px] font-bold uppercase text-primary-container">CLOSED BETA · BY REQUEST</span>
+    </div>
+    <h1 class="font-headline-lg text-white uppercase leading-[0.95] mb-6">
+      Download Argus Sentinel
+    </h1>
+    <p class="font-body-lg text-on-surface-variant max-w-3xl">
+      Native installers for macOS, Windows, and Linux. Run the daemon
+      locally — argus.exe / Argus.app opens the Console in its own native
+      window. No Docker, no Kubernetes, no cloud account. Single binary +
+      embedded SQLite.
+    </p>
+  </div>
+</section>
+
+<!-- ========== DOWNLOAD GRID ==========
+     Three cards, one per OS. Each card has:
+       - OS icon (Material Symbols)
+       - OS name + recommended-version line
+       - Architecture options
+       - Download CTA → GitHub Releases URL (404s until v0.1.0 ships
+         with attached artifacts; intentional so the link stops being
+         a lie the moment we tag a release)
+       - SHA-256 hash placeholder (will be populated post-release)
+       - "Build from source" fallback link
+
+     Visitor-OS detection: a small JS block at the bottom adds
+     data-os-current="true" to the matching card. The CSS up top
+     paints an accent ring around it. -->
+<section id="downloads" class="px-margin py-margin md:py-20 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section eyebrow -->
+    <div class="mb-12">
+      <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">YOUR PLATFORM</div>
+      <h2 class="font-headline-md text-white">Pick the installer for your OS.</h2>
+    </div>
+
+    <div class="download-grid grid grid-cols-3 gap-gutter">
+
+      <!-- ===== macOS ===== -->
+      <article id="card-macos" data-os="macos" class="bg-surface border-border_width border-primary p-margin transition-all">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="material-symbols-outlined text-[40px] text-primary-container">laptop_mac</span>
+          <div>
+            <h3 class="font-headline-sm text-white">macOS</h3>
+            <p class="font-mono-technical text-[12px] text-on-surface-variant">12 Monterey or later · Universal (arm64 + x86_64)</p>
+          </div>
+        </div>
+        <ul class="space-y-3 mb-8 font-mono-technical text-[13px] text-on-surface-variant">
+          <li class="flex justify-between"><span>Installer</span><span class="text-white">Argus.pkg</span></li>
+          <li class="flex justify-between"><span>Architecture</span><span class="text-white">Universal</span></li>
+          <li class="flex justify-between"><span>Console window</span><span class="text-white">Native (WKWebView)</span></li>
+          <li class="flex justify-between"><span>Auto-start</span><span class="text-white">LaunchAgent</span></li>
+        </ul>
+        <a href="https://github.com/mcpids/argus/releases/latest/download/Argus.pkg" class="block w-full bg-primary text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">DOWNLOAD .PKG</a>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">Unsigned beta · Right-click → Open to bypass Gatekeeper</p>
+      </article>
+
+      <!-- ===== Windows ===== -->
+      <article id="card-windows" data-os="windows" class="bg-surface border-border_width border-primary p-margin transition-all">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="material-symbols-outlined text-[40px] text-primary-container">desktop_windows</span>
+          <div>
+            <h3 class="font-headline-sm text-white">Windows</h3>
+            <p class="font-mono-technical text-[12px] text-on-surface-variant">Windows 10 22H2 or later · x64 + ARM64</p>
+          </div>
+        </div>
+        <ul class="space-y-3 mb-8 font-mono-technical text-[13px] text-on-surface-variant">
+          <li class="flex justify-between"><span>Installer</span><span class="text-white">Argus.msi</span></li>
+          <li class="flex justify-between"><span>Architecture</span><span class="text-white">x64 (ARM64 build avail.)</span></li>
+          <li class="flex justify-between"><span>Console window</span><span class="text-white">Native (WebView2)</span></li>
+          <li class="flex justify-between"><span>Service</span><span class="text-white">ArgusSentinel (SCM)</span></li>
+        </ul>
+        <a href="https://github.com/mcpids/argus/releases/latest/download/Argus.msi" class="block w-full bg-primary text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">DOWNLOAD .MSI</a>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">Unsigned beta · SmartScreen → More info → Run anyway</p>
+      </article>
+
+      <!-- ===== Linux ===== -->
+      <article id="card-linux" data-os="linux" class="bg-surface border-border_width border-primary p-margin transition-all">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="material-symbols-outlined text-[40px] text-primary-container">terminal</span>
+          <div>
+            <h3 class="font-headline-sm text-white">Linux</h3>
+            <p class="font-mono-technical text-[12px] text-on-surface-variant">Debian / Ubuntu / RHEL / Fedora · x86_64 + arm64</p>
+          </div>
+        </div>
+        <ul class="space-y-3 mb-8 font-mono-technical text-[13px] text-on-surface-variant">
+          <li class="flex justify-between"><span>Installer</span><span class="text-white">.deb · .rpm · .tar.gz</span></li>
+          <li class="flex justify-between"><span>Architecture</span><span class="text-white">amd64 + arm64</span></li>
+          <li class="flex justify-between"><span>Console</span><span class="text-white">Browser → :3000</span></li>
+          <li class="flex justify-between"><span>Auto-start</span><span class="text-white">systemd unit</span></li>
+        </ul>
+        <div class="grid grid-cols-3 gap-2">
+          <a href="https://github.com/mcpids/argus/releases/latest/download/argus_amd64.deb" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">.DEB</a>
+          <a href="https://github.com/mcpids/argus/releases/latest/download/argus-0.1.0.x86_64.rpm" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">.RPM</a>
+          <a href="https://github.com/mcpids/argus/releases/latest/download/argus-linux-amd64.tar.gz" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">.TAR.GZ</a>
+        </div>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">SHA-256 sums in the GitHub release notes</p>
+      </article>
+
+    </div>
+
+    <!-- ========== POST-INSTALL HINT ========== -->
+    <div class="mt-12 border-border_width border-primary bg-surface p-margin">
+      <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">AFTER INSTALL</div>
+      <h3 class="font-headline-sm text-white mb-4">Try the live demo</h3>
+      <p class="font-body-md text-on-surface-variant mb-6">
+        Once the daemon is running, head to
+        <a class="text-primary-container underline underline-offset-4 hover:text-white" href="https://demo.cognifinity.lu">demo.cognifinity.lu</a>
+        — the launcher detects your local install and lets you trigger a
+        scenario (GOOD, INJECTED, SHADOW, FAKED, APPROVED). Each scenario
+        emits real telemetry into your local Argus over 30-60 seconds.
+        No staging, no recording.
+      </p>
+      <a href="https://demo.cognifinity.lu" class="inline-block bg-transparent text-white px-6 py-3 border-2 border-white font-label-caps text-[12px] font-bold hover:bg-white hover:text-black transition-all">OPEN DEMO &nbsp;&rarr;</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== BUILD FROM SOURCE ========== -->
+<section id="build-from-source" class="px-margin py-margin md:py-20 border-t-border_width border-primary">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-margin">
+    <div>
+      <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">FOR DEVELOPERS</div>
+      <h2 class="font-headline-md text-white mb-4">Build from source.</h2>
+      <p class="font-body-md text-on-surface-variant mb-6">
+        The Argus source repo is open to design partners. Cross-compile
+        from any host (Go, Rust, .NET); the same Argus.msi we ship is
+        produced by <code class="bg-surface-container-low text-primary-container px-2 py-0.5">make desktop-msi</code>
+        on a Windows VM, or by the
+        <code class="bg-surface-container-low text-primary-container px-2 py-0.5">.github/workflows/build-windows-msi.yml</code>
+        workflow on GitHub Actions.
+      </p>
+      <p class="font-body-md text-on-surface-variant mb-6">
+        See <code class="bg-surface-container-low text-primary-container px-2 py-0.5">packaging/windows/BUILDING.md</code>
+        for the full step-by-step Windows VM playbook (VM choice,
+        Windows ISO, unattended Toolchain install, build, smoke test).
+      </p>
+    </div>
+    <div class="border-border_width border-primary bg-surface-container-low p-margin">
+      <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">QUICKSTART</div>
+      <pre class="font-mono-technical text-[13px] text-on-surface leading-relaxed overflow-x-auto"><code># Clone
+git clone https://github.com/mcpids/argus.git
+cd argus
+
+# macOS .pkg (from a Mac)
+make desktop-pkg
+
+# Windows .msi (from a Windows VM)
+make desktop-build-windows-amd64
+make desktop-tauri-build
+make desktop-msi
+
+# Linux binary (any host)
+make desktop-build-linux-amd64</code></pre>
+      <a href="https://github.com/mcpids/argus" class="block mt-6 bg-transparent text-white px-6 py-3 border-2 border-white font-label-caps text-[12px] font-bold hover:bg-white hover:text-black transition-all text-center">VIEW SOURCE ON GITHUB &nbsp;&rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TROUBLE / REQUEST ACCESS ========== -->
+<section class="px-margin py-margin md:py-20 bg-surface-container-low border-t-border_width border-primary">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">SOMETHING WRONG?</div>
+    <h2 class="font-headline-md text-white mb-4">Need a signed build, an air-gapped tarball, or a pilot conversation?</h2>
+    <p class="font-body-md text-on-surface-variant mb-8">
+      Argus is in closed beta — installer signing (EV Authenticode +
+      Apple Developer ID) lands with the production-pilot rollout.
+      If you need a signed or notarized build today, or your IT shop
+      needs an air-gapped tarball / vendor questionnaire / SBOM,
+      reach out and we'll get it to you the same business day.
+    </p>
+    <a href="mailto:contact@cognifinity.lu?subject=Argus%20Sentinel%20early-access" class="inline-block bg-primary text-white px-8 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container transition-all">CONTACT@COGNIFINITY.LU</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="bg-surface border-t-thick_border border-primary">
+  <div class="grid grid-cols-1 md:grid-cols-12 px-margin py-12 max-w-7xl mx-auto">
+    <div class="md:col-span-4 md:pr-8 md:border-r-border_width md:border-primary">
+      <img src="../assets/argus_horizontal_logo.png?v=2" alt="Argus Sentinel" class="h-9 w-auto block mb-6" />
+      <p class="font-body-md text-on-surface-variant max-w-xs">Inline control plane for AI agents and non-human identities. Built on MCPIDS. Cognifinity.</p>
+    </div>
+    <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-6 uppercase">Product</h5>
+      <ul class="space-y-3">
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/#how-it-works">How it works</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/#verdicts">Verdicts</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/#use-cases">Use cases</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/download">Download</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-6 uppercase">Docs</h5>
+      <ul class="space-y-3">
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/architecture.md">Architecture</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/performance.md">Performance</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://github.com/mcpids/argus">Source</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-4 md:pl-8 md:text-right mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-3 uppercase">Aligned with</h5>
+      <div class="inline-flex items-stretch border-border_width border-primary">
+        <span class="font-mono-technical text-on-surface-variant px-3 py-1 border-r-border_width border-primary">OWASP LLM TOP-10</span>
+        <span class="font-mono-technical text-on-surface-variant px-3 py-1">NIST AI RMF</span>
+      </div>
+    </div>
+    <div class="md:col-span-12 mt-12 pt-12 border-t-border_width border-primary">
+      <div class="font-body-md text-on-surface-variant text-[12px] uppercase tracking-widest">&copy; 2026 Cognifinity. All rights reserved. Argus Sentinel is in design-partner pilot.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== OS-DETECT HIGHLIGHT ==========
+     UA-based detection — coarse on purpose. We're not making any
+     access decision based on the result, just visually nudging the
+     visitor toward the card that matches their platform. If
+     navigator.userAgentData is available (Chromium) we use that;
+     fallback is plain UA string regex. -->
+<script>
+  (function () {
+    function pickOS() {
+      if (navigator.userAgentData && navigator.userAgentData.platform) {
+        var p = navigator.userAgentData.platform.toLowerCase();
+        if (p.indexOf('mac') !== -1) return 'macos';
+        if (p.indexOf('windows') !== -1) return 'windows';
+        if (p.indexOf('linux') !== -1) return 'linux';
+      }
+      var ua = (navigator.userAgent || '').toLowerCase();
+      if (ua.indexOf('mac') !== -1) return 'macos';
+      if (ua.indexOf('windows') !== -1) return 'windows';
+      if (ua.indexOf('linux') !== -1) return 'linux';
+      return null;
+    }
+    var os = pickOS();
+    if (os) {
+      var card = document.querySelector('[data-os="' + os + '"]');
+      if (card) card.setAttribute('data-os-current', 'true');
+    }
+
+    // Mobile menu toggle, copied from index.html
+    var btn = document.getElementById('mobile-menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    var icon = document.getElementById('mobile-menu-icon');
+    if (btn && menu && icon) {
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('hidden') === false;
+        btn.setAttribute('aria-expanded', open);
+        icon.textContent = open ? 'close' : 'menu';
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
