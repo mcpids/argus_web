@@ -81,7 +81,12 @@
       <img src="assets/argus_horizontal_logo.png?v=2" alt="Argus Sentinel" class="h-[34px] md:h-[45px] w-auto block" />
     </a>
     <div></div>
+    <!-- Top-right CTA pair: DOWNLOAD + BOOK A PILOT. Same ghost-button
+         styling so they read as visually-paired conversion options
+         (self-serve vs talk-to-us). Promote one to filled-primary
+         later if/when we want to bias visitors toward one action. -->
     <div class="flex items-center gap-3 self-center mr-4 md:mr-6">
+      <a href="/download" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">DOWNLOAD</a>
       <a href="mailto:contact@cognifinity.lu?subject=Argus%20Sentinel%20pilot%20conversation" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">BOOK A PILOT</a>
       <button id="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden inline-flex w-10 h-10 items-center justify-center border-2 border-white text-white hover:bg-white hover:text-black transition-all">
         <span class="material-symbols-outlined text-[22px]" id="mobile-menu-icon">menu</span>
@@ -92,7 +97,6 @@
       <a href="#verdicts" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">VERDICTS</a>
       <a href="#use-cases" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">USE CASES</a>
       <a href="#performance" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">PERFORMANCE</a>
-      <a href="/download" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">DOWNLOAD</a>
     </div>
   </div>
   <div id="mobile-menu" class="md:hidden hidden border-t-2 border-primary bg-surface">
@@ -150,9 +154,15 @@
         <a href="#how-it-works" class="bg-transparent text-white/50 px-10 py-5 font-label-caps text-[14px] font-bold border-2 border-white/50 hover:bg-white/10 hover:text-white transition-all">HOW IT WORKS</a>
       </div>
     </div>
-    <!-- Right: hero visual -->
+    <!-- Right: hero visual.
+         object-cover (was object-contain) so the video fills the
+         column edge-to-edge — without it the grid stretches the
+         right column to the left column's min-h-[calc(100vh-4rem)]
+         height, but `object-contain` preserves the video's aspect
+         ratio and lets the bg-black parent show through as
+         letterbox gaps top + bottom. -->
     <div class="md:col-span-4 bg-black relative overflow-hidden">
-      <video class="absolute inset-0 w-full h-full object-contain" autoplay loop muted playsinline preload="auto" poster="assets/argus_hero.png?v=1" aria-label="Argus Sentinel">
+      <video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline preload="auto" poster="assets/argus_hero.png?v=1" aria-label="Argus Sentinel">
         <source src="assets/argus_hero.mp4" type="video/mp4" />
       </video>
     </div>
