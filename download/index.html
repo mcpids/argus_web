@@ -134,8 +134,8 @@
           <li class="flex justify-between"><span>Console window</span><span class="text-white">Native (WKWebView)</span></li>
           <li class="flex justify-between"><span>Auto-start</span><span class="text-white">LaunchAgent</span></li>
         </ul>
-        <a href="https://github.com/mcpids/argus/releases/latest/download/Argus.pkg" class="block w-full bg-primary text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">DOWNLOAD .PKG</a>
-        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">Unsigned beta · Right-click → Open to bypass Gatekeeper</p>
+        <a href="/releases/Argus-0.1.0.pkg" class="block w-full bg-primary text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">DOWNLOAD ARGUS.PKG &nbsp;&middot;&nbsp; 37 MB</a>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.0 · Unsigned beta · Right-click → Open to bypass Gatekeeper</p>
       </article>
 
       <!-- ===== Windows ===== -->
@@ -153,8 +153,8 @@
           <li class="flex justify-between"><span>Console window</span><span class="text-white">Native (WebView2)</span></li>
           <li class="flex justify-between"><span>Service</span><span class="text-white">ArgusSentinel (SCM)</span></li>
         </ul>
-        <a href="https://github.com/mcpids/argus/releases/latest/download/Argus.msi" class="block w-full bg-primary text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">DOWNLOAD .MSI</a>
-        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">Unsigned beta · SmartScreen → More info → Run anyway</p>
+        <a href="/releases/Argus-0.1.0.msi" class="block w-full bg-primary text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">DOWNLOAD ARGUS.MSI &nbsp;&middot;&nbsp; 18 MB</a>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.0 · Unsigned beta · SmartScreen → More info → Run anyway</p>
       </article>
 
       <!-- ===== Linux ===== -->
@@ -167,17 +167,16 @@
           </div>
         </div>
         <ul class="space-y-3 mb-8 font-mono-technical text-[13px] text-on-surface-variant">
-          <li class="flex justify-between"><span>Installer</span><span class="text-white">.deb · .rpm · .tar.gz</span></li>
-          <li class="flex justify-between"><span>Architecture</span><span class="text-white">amd64 + arm64</span></li>
+          <li class="flex justify-between"><span>Format</span><span class="text-white">.tar.gz (binary)</span></li>
+          <li class="flex justify-between"><span>Architectures</span><span class="text-white">amd64 + arm64</span></li>
           <li class="flex justify-between"><span>Console</span><span class="text-white">Browser → :3000</span></li>
-          <li class="flex justify-between"><span>Auto-start</span><span class="text-white">systemd unit</span></li>
+          <li class="flex justify-between"><span>Init</span><span class="text-white">systemd (with v0.2.0)</span></li>
         </ul>
-        <div class="grid grid-cols-3 gap-2">
-          <a href="https://github.com/mcpids/argus/releases/latest/download/argus_amd64.deb" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">.DEB</a>
-          <a href="https://github.com/mcpids/argus/releases/latest/download/argus-0.1.0.x86_64.rpm" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">.RPM</a>
-          <a href="https://github.com/mcpids/argus/releases/latest/download/argus-linux-amd64.tar.gz" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">.TAR.GZ</a>
+        <div class="grid grid-cols-2 gap-2">
+          <a href="/releases/argus-0.1.0-linux-amd64.tar.gz" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">AMD64 &nbsp;&middot;&nbsp; 9 MB</a>
+          <a href="/releases/argus-0.1.0-linux-arm64.tar.gz" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">ARM64 &nbsp;&middot;&nbsp; 9 MB</a>
         </div>
-        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">SHA-256 sums in the GitHub release notes</p>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.0 · <a class="text-primary-container hover:text-white" href="/releases/SHA256SUMS-0.1.0.txt">SHA-256 sums</a> · .deb/.rpm via packager wrapper coming with v0.2.0</p>
       </article>
 
     </div>
