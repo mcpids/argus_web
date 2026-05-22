@@ -1,3 +1,4 @@
 3e91ce0d35737bc5034fef27306c53e2c7d16a4ba7513114db5f22c462bfcf2f  Argus-0.1.1.pkg
+3d3de653d4ac95aaf4eb8ee22e062eb62996fa6fb88ae726528c5c7dd859aa43  Argus-0.1.1.msi
 e7ec6840ec9dec3e21358e1a502e32f9654a4e2fd59685ca0bed1b3a72b8c7fd  argus-0.1.1-linux-amd64.tar.gz
 5f5b5aab180670cece820a18a76ef41bcf057c2c9bae14ad14520e6c57c97984  argus-0.1.1-linux-arm64.tar.gz
