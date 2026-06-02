@@ -181,7 +181,7 @@
       </div>
     </div>
     <div class="p-8 border-r-thick_border border-b-thick_border border-primary bg-surface flex flex-col">
-      <span class="font-label-caps text-on-surface-variant mb-4 uppercase">Sustained throughput</span>
+      <span class="font-label-caps text-on-surface-variant mb-4 uppercase">Peak throughput</span>
       <span class="font-headline-lg text-primary-container">20K evt/s</span>
       <div class="mt-auto pt-4 flex items-center text-primary-container">
         <span class="material-symbols-outlined mr-2">graph_5</span>
@@ -201,7 +201,7 @@
       <span class="font-headline-lg text-primary-container">8 / 8</span>
       <div class="mt-auto pt-4 flex items-center text-v-allow">
         <span class="material-symbols-outlined mr-2">verified</span>
-        <span class="font-mono-technical">PILOT-VERIFIED</span>
+        <span class="font-mono-technical">PASS IN CI</span>
       </div>
     </div>
   </div>
@@ -236,7 +236,7 @@
         <span class="bg-primary-container text-on-primary-container px-2 py-0.5 font-mono-technical text-[11px] font-bold uppercase">NHI</span>
       </div>
       <h3 class="font-headline-sm text-headline-sm mb-4 uppercase text-white">Every agent is a non-human identity.</h3>
-      <p class="font-body-md text-on-surface-variant mb-8">NHIs already outnumber human users 4:1 in most enterprises. AI agents are the fastest-growing class &mdash; and the only one that makes autonomous decisions.</p>
+      <p class="font-body-md text-on-surface-variant mb-8">NHIs already outnumber human users many times over in most enterprises. AI agents are the fastest-growing class &mdash; and the only one that makes autonomous decisions.</p>
       <ul class="space-y-4">
         <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">NHI discovery tools catalog tokens and service accounts &mdash; they don&apos;t sit in the data path</span></li>
         <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">You can&apos;t enforce least-privilege on an identity whose behaviour you never observe</span></li>
@@ -452,7 +452,7 @@
         <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Shadow AI</span>
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Shadow agent discovery</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Fingerprint every agent on first connect via headers, framework signatures, JA3/JA4. New agents land in the &ldquo;Unknown Agents&rdquo; view; bulk promote or block.</p>
+      <p class="font-body-md text-on-surface-variant mb-4">Fingerprint every agent on first connect via headers and framework signatures. New agents land in the &ldquo;Unknown Agents&rdquo; view; bulk promote or block.</p>
       <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-quarantine text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">quarantine</span><span class="font-mono-technical text-on-surface-variant text-[11px]">M4 &middot; stable</span></div>
     </div>
 
@@ -540,7 +540,7 @@
         <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Governance</span>
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">HITL approvals on high-blast actions</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Any rule can pause the request on <code class="text-primary">require_approval</code>. Pending decisions land in <a class="text-primary underline" href="../console/src/pages/Approvals.tsx">Console &rsaquo; Approvals</a>; operator approves or denies; agent unblocks.</p>
+      <p class="font-body-md text-on-surface-variant mb-4">Any rule can pause the request on <code class="text-primary">require_approval</code>. Pending decisions land in <span class="text-primary">Console &rsaquo; Approvals</span>; operator approves or denies; agent unblocks.</p>
       <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-approval text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">require_approval</span><span class="font-mono-technical text-on-surface-variant text-[11px]">P2.2.1 &middot; stable</span></div>
     </div>
 
@@ -647,8 +647,8 @@
 
   <p class="mt-6 font-mono-technical text-on-surface-variant text-[12px]">
     Illustrative; rule IDs and verdict mappings reflect rules shipped in
-    <a class="text-primary underline" href="rules/packs/customer-service-ai.md">customer-service-ai</a> &middot;
-    <a class="text-primary underline" href="rules/packs/code-assistants.md">code-assistants</a> &middot;
+    <code class="text-primary">customer-service-ai</code> &middot;
+    <code class="text-primary">code-assistants</code> &middot;
     the built-in set in <code class="text-primary">internal/policy/rules/engine.go</code>.
   </p>
 </section>
@@ -711,7 +711,7 @@
         </div>
       </div>
 
-      <p class="mt-6 font-mono-technical text-on-surface-variant text-[12px]">See <a class="text-primary underline" href="performance.md">docs/performance.md</a> &middot; harness at <a class="text-primary underline" href="../tests/bench/">tests/bench/</a></p>
+      <p class="mt-6 font-mono-technical text-on-surface-variant text-[12px]">Measured on the documented benchmark harness, regenerated from every main-branch build.</p>
     </div>
   </div>
 </section>
@@ -809,16 +809,15 @@
         <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="#how-it-works">How it works</a></li>
         <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="#verdicts">Verdicts</a></li>
         <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="#use-cases">Use cases</a></li>
-        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="architecture.md">Architecture</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="#performance">Performance</a></li>
         <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/download">Download</a></li>
       </ul>
     </div>
     <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
-      <h5 class="font-label-caps text-white mb-6 uppercase">Docs</h5>
+      <h5 class="font-label-caps text-white mb-6 uppercase">Open source</h5>
       <ul class="space-y-3">
-        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="architecture.md">Architecture</a></li>
-        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="performance.md">Performance</a></li>
-        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="api-reference.md">API reference</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://github.com/mcpids/mcpids" target="_blank" rel="noopener">mcpids on GitHub</a></li>
+        <li><span class="font-mono-technical text-on-surface-variant">Apache-2.0</span></li>
       </ul>
     </div>
     <div class="md:col-span-4 md:pl-8 md:text-right mt-10 md:mt-0">

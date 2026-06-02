@@ -199,43 +199,34 @@
   </div>
 </section>
 
-<!-- ========== BUILD FROM SOURCE ========== -->
+<!-- ========== OPEN SOURCE CORE ========== -->
 <section id="build-from-source" class="px-margin py-margin md:py-20 border-t-border_width border-primary">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-margin">
     <div>
       <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">FOR DEVELOPERS</div>
-      <h2 class="font-headline-md text-white mb-4">Build from source.</h2>
+      <h2 class="font-headline-md text-white mb-4">Built on open source.</h2>
       <p class="font-body-md text-on-surface-variant mb-6">
-        The Argus source repo is open to design partners. Cross-compile
-        from any host (Go, Rust, .NET); the same Argus.msi we ship is
-        produced by <code class="bg-surface-container-low text-primary-container px-2 py-0.5">make desktop-msi</code>
-        on a Windows VM, or by the
-        <code class="bg-surface-container-low text-primary-container px-2 py-0.5">.github/workflows/build-windows-msi.yml</code>
-        workflow on GitHub Actions.
+        Argus is a proprietary product: free to run on a single host, but not
+        itself open source. Its inspection core is forked from
+        <code class="bg-surface-container-low text-primary-container px-2 py-0.5">mcpids</code>,
+        our open-source MCP security gateway (Apache-2.0). The policy, schema,
+        diff, risk, graph, and rules engines live there in the open: read them,
+        run them, build on them.
       </p>
       <p class="font-body-md text-on-surface-variant mb-6">
-        See <code class="bg-surface-container-low text-primary-container px-2 py-0.5">packaging/windows/BUILDING.md</code>
-        for the full step-by-step Windows VM playbook (VM choice,
-        Windows ISO, unattended Toolchain install, build, smoke test).
+        Want Argus itself? Grab the installer for your platform above. For a
+        pilot, an air-gapped build, or source access under a design-partner
+        agreement, <a class="text-primary-container underline hover:text-white" href="mailto:contact@cognifinity.lu?subject=Argus%20Sentinel%20pilot%20conversation">talk to us</a>.
       </p>
     </div>
     <div class="border-border_width border-primary bg-surface-container-low p-margin">
-      <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">QUICKSTART</div>
-      <pre class="font-mono-technical text-[13px] text-on-surface leading-relaxed overflow-x-auto"><code># Clone
-git clone https://github.com/mcpids/argus.git
-cd argus
+      <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">MCPIDS &middot; APACHE-2.0</div>
+      <pre class="font-mono-technical text-[13px] text-on-surface leading-relaxed overflow-x-auto"><code># Argus's open-source core
+git clone https://github.com/mcpids/mcpids.git
+cd mcpids
 
-# macOS .pkg (from a Mac)
-make desktop-pkg
-
-# Windows .msi (from a Windows VM)
-make desktop-build-windows-amd64
-make desktop-tauri-build
-make desktop-msi
-
-# Linux binary (any host)
-make desktop-build-linux-amd64</code></pre>
-      <a href="https://github.com/mcpids/argus" class="block mt-6 bg-transparent text-white px-6 py-3 border-2 border-white font-label-caps text-[12px] font-bold hover:bg-white hover:text-black transition-all text-center">VIEW SOURCE ON GITHUB &nbsp;&rarr;</a>
+# build + run: see the repo README</code></pre>
+      <a href="https://github.com/mcpids/mcpids" class="block mt-6 bg-transparent text-white px-6 py-3 border-2 border-white font-label-caps text-[12px] font-bold hover:bg-white hover:text-black transition-all text-center">VIEW MCPIDS ON GITHUB &nbsp;&rarr;</a>
     </div>
   </div>
 </section>
@@ -275,11 +266,10 @@ make desktop-build-linux-amd64</code></pre>
       </ul>
     </div>
     <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
-      <h5 class="font-label-caps text-white mb-6 uppercase">Docs</h5>
+      <h5 class="font-label-caps text-white mb-6 uppercase">Open source</h5>
       <ul class="space-y-3">
-        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/architecture.md">Architecture</a></li>
-        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/performance.md">Performance</a></li>
-        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://github.com/mcpids/argus">Source</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://github.com/mcpids/mcpids" target="_blank" rel="noopener">mcpids on GitHub</a></li>
+        <li><span class="font-mono-technical text-on-surface-variant">Apache-2.0</span></li>
       </ul>
     </div>
     <div class="md:col-span-4 md:pl-8 md:text-right mt-10 md:mt-0">
