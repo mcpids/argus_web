@@ -135,7 +135,7 @@
           <li class="flex justify-between"><span>Auto-start</span><span class="text-white">LaunchAgent</span></li>
         </ul>
         <a href="/releases/Argus-0.1.9.pkg" class="block w-full bg-primary text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">DOWNLOAD ARGUS.PKG &nbsp;&middot;&nbsp; 40 MB</a>
-        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.9 · Unsigned beta · Right-click → Open to bypass Gatekeeper</p>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.9 · Signed + notarized · Opens normally — no Gatekeeper prompt</p>
       </article>
 
       <!-- ===== Windows ===== -->
@@ -167,16 +167,24 @@
           </div>
         </div>
         <ul class="space-y-3 mb-8 font-mono-technical text-[13px] text-on-surface-variant">
-          <li class="flex justify-between"><span>Format</span><span class="text-white">.tar.gz (binary)</span></li>
+          <li class="flex justify-between"><span>Format</span><span class="text-white">.deb + .tar.gz</span></li>
           <li class="flex justify-between"><span>Architectures</span><span class="text-white">amd64 + arm64</span></li>
           <li class="flex justify-between"><span>Console</span><span class="text-white">Browser → :3000</span></li>
-          <li class="flex justify-between"><span>Init</span><span class="text-white">systemd (with v0.2.0)</span></li>
+          <li class="flex justify-between"><span>Init</span><span class="text-white">systemd (root services)</span></li>
         </ul>
-        <div class="grid grid-cols-2 gap-2">
-          <a href="/releases/argus-0.1.9-linux-amd64.tar.gz" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">AMD64 &nbsp;&middot;&nbsp; 9 MB</a>
-          <a href="/releases/argus-0.1.9-linux-arm64.tar.gz" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">ARM64 &nbsp;&middot;&nbsp; 9 MB</a>
+        <div class="space-y-2">
+          <div class="font-mono-technical text-[10px] uppercase tracking-wider text-on-surface-variant">Debian / Ubuntu (.deb)</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="/releases/argus_0.1.9_amd64.deb" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">AMD64 &nbsp;&middot;&nbsp; 15 MB</a>
+            <a href="/releases/argus_0.1.9_arm64.deb" class="block bg-primary text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">ARM64 &nbsp;&middot;&nbsp; 14 MB</a>
+          </div>
+          <div class="font-mono-technical text-[10px] uppercase tracking-wider text-on-surface-variant pt-1">Other distros (.tar.gz + install.sh)</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="/releases/argus-0.1.9-linux-amd64.tar.gz" class="block bg-transparent text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-white hover:bg-white hover:text-black text-center transition-all">AMD64 &nbsp;&middot;&nbsp; 18 MB</a>
+            <a href="/releases/argus-0.1.9-linux-arm64.tar.gz" class="block bg-transparent text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-white hover:bg-white hover:text-black text-center transition-all">ARM64 &nbsp;&middot;&nbsp; 17 MB</a>
+          </div>
         </div>
-        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.9 · <a class="text-primary-container hover:text-white" href="/releases/SHA256SUMS-0.1.9.txt">SHA-256 sums</a> · .deb/.rpm via packager wrapper coming with v0.2.0</p>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.9 · <a class="text-primary-container hover:text-white" href="/releases/SHA256SUMS-0.1.9.txt">SHA-256 sums</a> · installs systemd services · Console at localhost:3000</p>
       </article>
 
     </div>
