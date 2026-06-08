@@ -1,8 +1,8 @@
 {
-  "name": "argus-website",
+  "name": "paart-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Argus Sentinel marketing site (argus.cognifinity.lu)",
+  "description": "Paart marketing site (paart.ai)",
   "scripts": {
     "build": "tailwindcss -i src/input.css -o dist/tailwind.css --minify",
     "watch": "tailwindcss -i src/input.css -o dist/tailwind.css --watch"
