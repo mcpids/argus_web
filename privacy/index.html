@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy — Paart</title>
+<meta name="description" content="Paart runs on your machine and, by default, sends us nothing. No account, no analytics, no phone-home. Optional telemetry is opt-in and anonymous. Full contract here."/>
+<link rel="canonical" href="https://paart.ai/privacy" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!--
+  Identical Tailwind config block to /index.html and /download. Kept inline
+  (rather than extracted into a shared file) because the marketing site is a
+  zero-build static GH Pages property and adding a JS bundler purely to
+  deduplicate this would cost more than the duplication does.
+-->
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"tertiary-container": "#b2895c", "on-secondary-container": "#99b9d1", "on-tertiary": "#462a05", "on-primary-fixed-variant": "#294b5e", "on-error": "#690005", "primary-fixed-dim": "#304451", "surface-container-lowest": "#0d0e10", "surface-dim": "#121415", "inverse-surface": "#e2e2e4", "secondary-container": "#2a4a5f", "on-primary-fixed": "#001e2c", "on-secondary-fixed": "#001e2e", "on-surface-variant": "#c1c7cc", "secondary-fixed-dim": "#202629", secondary: "#202629", "on-error-container": "#ffdad6", "surface-variant": "#333537", "surface-tint": "#304451", "on-background": "#e2e2e4", tertiary: "#ecbe8d", "error-container": "#93000a", surface: "#121415", "surface-container-low": "#1a1c1d", "tertiary-fixed": "#ffddba", primary: "#304451", "tertiary-fixed-dim": "#ecbe8d", "surface-container-high": "#282a2c", "primary-fixed": "#c4e7ff", "on-secondary": "#113447", "inverse-primary": "#416276", "on-primary-container": "#052d3f", "inverse-on-surface": "#2f3132", "on-tertiary-container": "#3e2401", "on-secondary-fixed-variant": "#2a4a5f", "surface-container": "#1e2021", "on-tertiary-fixed-variant": "#5f401a", "surface-bright": "#38393b", outline: "#8b9196", "on-surface": "#e2e2e4", "primary-container": "#7495ab", "outline-variant": "#41484c", error: "#ffb4ab", "surface-container-highest": "#333537", "on-tertiary-fixed": "#2b1700", "secondary-fixed": "#c7e7ff", background: "#121415", "on-primary": "#0e3446", "v-allow": "#22c55e", "v-monitor": "#3b82f6", "v-hide": "#64748b", "v-redact": "#eab308", "v-approval": "#f97316", "v-deny": "#ef4444", "v-quarantine": "#b91c1c", "m-stable": "#22c55e", "m-experimental": "#f59e0b", "m-planned": "#94a3b8"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {unit: "4px", margin: "32px", gutter: "24px", border_width: "2px", thick_border: "4px"}, fontFamily: {"headline-sm": ["Figtree"], "headline-lg": ["Figtree"], "body-lg": ["Figtree"], "body-md": ["Figtree"], "label-caps": ["Figtree"], "mono-technical": ["Figtree"], "headline-md": ["Figtree"], headline: ["Figtree"], display: ["Figtree"], body: ["Figtree"], label: ["Figtree"]}, fontSize: {"headline-sm": ["20px", {lineHeight: "1.2", letterSpacing: "0em", fontWeight: "600"}], "headline-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "1.6", letterSpacing: "0em", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400"}], "label-caps": ["12px", {lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700"}], "mono-technical": ["14px", {lineHeight: "1.4", letterSpacing: "0em", fontWeight: "400"}], "headline-md": ["32px", {lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "600"}]}}}};</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { background-color: #121414; color: #e2e2e2; }
+  ::-webkit-scrollbar { width: 12px; }
+  ::-webkit-scrollbar-track { background: #121414; border-left: 2px solid #304451; }
+  ::-webkit-scrollbar-thumb { background: #304451; border: 2px solid #121414; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  .prose-paart h2 { color: #fff; }
+  .prose-paart a { color: #7495ab; text-decoration: underline; text-underline-offset: 4px; }
+  .prose-paart a:hover { color: #fff; }
+</style>
+</head>
+
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container font-body">
+
+<!-- ========== NAV ========== -->
+<nav class="fixed top-0 w-full z-50 bg-surface shadow-[0_6px_20px_-4px_rgba(0,0,0,0.7)]">
+  <div class="relative grid grid-cols-[auto_1fr_auto] items-stretch w-full h-16">
+    <a href="/" class="px-4 md:px-6 h-full flex items-center">
+      <img src="../assets/paart_horizontal_logo.png?v=2" alt="Paart" class="h-[24px] md:h-[32px] w-auto block" />
+    </a>
+    <div></div>
+    <div class="flex items-center gap-3 self-center mr-4 md:mr-6">
+      <a href="/download" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">DOWNLOAD</a>
+      <button id="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden inline-flex w-10 h-10 items-center justify-center border-2 border-white text-white hover:bg-white hover:text-black transition-all">
+        <span class="material-symbols-outlined text-[22px]" id="mobile-menu-icon">menu</span>
+      </button>
+    </div>
+    <div class="hidden md:flex absolute left-1/2 top-0 -translate-x-1/2 h-16 items-center">
+      <a href="/#how-it-works" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">HOW IT WORKS</a>
+      <a href="/#verdicts" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">VERDICTS</a>
+      <a href="/#use-cases" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">USE CASES</a>
+      <a href="/#performance" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">PERFORMANCE</a>
+      <a href="/download" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">DOWNLOAD</a>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden border-t-2 border-primary bg-surface">
+    <a href="/#how-it-works" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">HOW IT WORKS</a>
+    <a href="/#verdicts" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">VERDICTS</a>
+    <a href="/#use-cases" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">USE CASES</a>
+    <a href="/#performance" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">PERFORMANCE</a>
+    <a href="/download" class="block px-6 py-4 text-black font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase bg-primary-container hover:bg-white">DOWNLOAD &nbsp;&rarr;</a>
+  </div>
+</nav>
+
+<main id="top" class="mt-16">
+
+<!-- ========== HERO ========== -->
+<section class="px-margin py-margin md:py-20 border-b-border_width border-primary">
+  <div class="max-w-4xl mx-auto">
+    <div class="mb-4 inline-flex items-stretch border-2 border-primary bg-surface-container-low self-start">
+      <span class="px-3 py-1.5 font-mono-technical text-[11px] font-bold uppercase text-primary-container">PRIVACY · LAST UPDATED 2026-06-09</span>
+    </div>
+    <h1 class="font-headline-lg text-white uppercase leading-[0.95] mb-6">Privacy</h1>
+    <p class="font-body-lg text-on-surface-variant max-w-3xl">
+      Short version: <span class="text-white">Paart runs on your machine and, by
+      default, sends us nothing.</span> No account, no sign-up, no analytics, no
+      phone-home. Everything it observes about your AI tools stays in a local
+      database on your device.
+    </p>
+  </div>
+</section>
+
+<!-- ========== BODY ========== -->
+<section class="px-margin py-margin md:py-16">
+  <div class="max-w-4xl mx-auto prose-paart space-y-12">
+
+    <!-- Default: nothing -->
+    <div>
+      <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">WHAT WE COLLECT BY DEFAULT</div>
+      <h2 class="font-headline-md mb-4">Nothing.</h2>
+      <p class="font-body-md text-on-surface-variant mb-4">
+        The free desktop app has no telemetry switched on out of the box. It does
+        not create an account, does not need to contact Cognifinity servers to
+        run, and does not transmit your traffic, detections, configuration, or any
+        usage data anywhere. Everything stays in a local database on your machine:
+      </p>
+      <div class="border-border_width border-primary bg-surface-container-low overflow-x-auto">
+        <table class="w-full font-mono-technical text-[13px]">
+          <thead>
+            <tr class="border-b-border_width border-primary text-primary-container">
+              <th class="text-left px-4 py-3 font-bold uppercase tracking-wider">OS</th>
+              <th class="text-left px-4 py-3 font-bold uppercase tracking-wider">Local data location</th>
+            </tr>
+          </thead>
+          <tbody class="text-on-surface-variant">
+            <tr class="border-b border-outline-variant"><td class="px-4 py-3 text-white">macOS</td><td class="px-4 py-3">~/Library/Application Support/Argus/</td></tr>
+            <tr class="border-b border-outline-variant"><td class="px-4 py-3 text-white">Windows</td><td class="px-4 py-3">%ProgramData%\Argus Sentinel\</td></tr>
+            <tr><td class="px-4 py-3 text-white">Linux</td><td class="px-4 py-3">~/.local/share/argus/</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="font-body-md text-on-surface-variant mt-4 text-[14px]">
+        The on-disk directory names still use the previous product name
+        ("Argus" / "Argus Sentinel"). The brand was renamed to <span class="text-white">Paart</span>
+        in June 2026; the directory rename and data migration is a separate
+        scheduled task. The bundled Sentinel daemon that watches your processes
+        talks only to the local Paart instance on your own machine — it has no
+        internet path.
+      </p>
+    </div>
+
+    <!-- Opt-in telemetry -->
+    <div>
+      <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">OPTIONAL, OPT-IN TELEMETRY</div>
+      <h2 class="font-headline-md mb-4">Off by default. You choose.</h2>
+      <p class="font-body-md text-on-surface-variant mb-4">
+        In <span class="text-white">Settings</span> you can turn on anonymous usage
+        telemetry. The first time you open the Console, Paart asks once whether to
+        enable it; until you say yes, nothing is sent and no identifier is even
+        created. When — and only when — it is on, the daemon POSTs one small JSON
+        object about every 24 hours. That payload is fixed, and this is its
+        <span class="text-white">entire</span> contents:
+      </p>
+      <div class="border-border_width border-primary bg-surface-container-low overflow-x-auto">
+        <table class="w-full font-mono-technical text-[13px]">
+          <thead>
+            <tr class="border-b-border_width border-primary text-primary-container">
+              <th class="text-left px-4 py-3 font-bold uppercase tracking-wider">Field</th>
+              <th class="text-left px-4 py-3 font-bold uppercase tracking-wider">Example</th>
+              <th class="text-left px-4 py-3 font-bold uppercase tracking-wider">Why</th>
+            </tr>
+          </thead>
+          <tbody class="text-on-surface-variant">
+            <tr class="border-b border-outline-variant"><td class="px-4 py-3 text-white">install_id</td><td class="px-4 py-3">b1f2… (random UUIDv4)</td><td class="px-4 py-3">Recognise a returning install. Random — never derived from hardware, user, MAC, or hostname. Created only on opt-in.</td></tr>
+            <tr class="border-b border-outline-variant"><td class="px-4 py-3 text-white">version</td><td class="px-4 py-3">0.1.10</td><td class="px-4 py-3">Adoption by version</td></tr>
+            <tr class="border-b border-outline-variant"><td class="px-4 py-3 text-white">os</td><td class="px-4 py-3">darwin</td><td class="px-4 py-3">Platform mix</td></tr>
+            <tr class="border-b border-outline-variant"><td class="px-4 py-3 text-white">arch</td><td class="px-4 py-3">arm64</td><td class="px-4 py-3">Platform mix</td></tr>
+            <tr class="border-b border-outline-variant"><td class="px-4 py-3 text-white">install_first_seen</td><td class="px-4 py-3">2026-06-01</td><td class="px-4 py-3">Cohort/retention (date of first opt-in)</td></tr>
+            <tr><td class="px-4 py-3 text-white">sent_at</td><td class="px-4 py-3">2026-06-09</td><td class="px-4 py-3">Active-use counting (date only)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="font-body-md text-on-surface-variant mt-4">
+        <span class="text-white">What it never sends:</span> no traffic, tool calls,
+        tool names, detections, rule contents, file paths, prompts, hostnames,
+        usernames, emails, or IP-level identifiers. The collection endpoint discards
+        the source IP. Toggling telemetry off in Settings stops sending immediately.
+      </p>
+    </div>
+
+    <!-- Website -->
+    <div>
+      <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">THE DOWNLOAD WEBSITE</div>
+      <h2 class="font-headline-md mb-4">Standard server logs.</h2>
+      <p class="font-body-md text-on-surface-variant">
+        When you download Paart from <span class="text-white">paart.ai</span>, the web
+        host records standard server-log information (IP address, timestamp,
+        user-agent) the way any website does. We use this only to count downloads in
+        aggregate and to operate and secure the site. If you choose to give us an
+        email address (for example, to receive update notices) we use it only for
+        that purpose, we don't sell or share it, and you can ask us to delete it at
+        any time.
+      </p>
+    </div>
+
+    <!-- Paid -->
+    <div>
+      <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">PAID / HOSTED TIERS</div>
+      <h2 class="font-headline-md mb-4">Governed by your agreement.</h2>
+      <p class="font-body-md text-on-surface-variant">
+        If you run a paid multi-host or hosted deployment, data handling is governed
+        by your commercial agreement and a separate data-processing agreement (DPA),
+        not by this page.
+      </p>
+    </div>
+
+    <!-- Rights -->
+    <div>
+      <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">YOUR RIGHTS</div>
+      <h2 class="font-headline-md mb-4">GDPR.</h2>
+      <p class="font-body-md text-on-surface-variant mb-4">
+        Cognifinity S.à r.l. is established in Luxembourg and handles personal data
+        in line with the EU General Data Protection Regulation (GDPR). Because the
+        free product collects no personal data by default, there is normally nothing
+        of yours for us to hold. Where we do hold personal data — an email address
+        you gave us, or opt-in telemetry you enabled — you may ask us to access,
+        correct, or delete it.
+      </p>
+      <p class="font-body-md text-on-surface-variant">
+        Contact for any privacy question or request:
+        <a href="mailto:cengis.hasan@cognifinity.lu">cengis.hasan@cognifinity.lu</a>.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="bg-surface border-t-thick_border border-primary">
+  <div class="grid grid-cols-1 md:grid-cols-12 px-margin py-12 max-w-7xl mx-auto">
+    <div class="md:col-span-4 md:pr-8 md:border-r-border_width md:border-primary">
+      <img src="../assets/paart_horizontal_logo.png?v=2" alt="Paart" class="h-9 w-auto block mb-6" />
+      <p class="font-body-md text-on-surface-variant max-w-xs">Inline control plane for AI agents and non-human identities. Built on MCPIDS. Cognifinity.</p>
+    </div>
+    <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-6 uppercase">Product</h5>
+      <ul class="space-y-3">
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/#how-it-works">How it works</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/download">Download</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/demo">Demo mode</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/privacy">Privacy</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-6 uppercase">Open source</h5>
+      <ul class="space-y-3">
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://github.com/mcpids/mcpids" target="_blank" rel="noopener">mcpids on GitHub</a></li>
+        <li><span class="font-mono-technical text-on-surface-variant">Apache-2.0</span></li>
+      </ul>
+    </div>
+    <div class="md:col-span-4 md:pl-8 md:text-right mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-3 uppercase">Aligned with</h5>
+      <div class="inline-flex items-stretch border-border_width border-primary">
+        <span class="font-mono-technical text-on-surface-variant px-3 py-1 border-r-border_width border-primary">OWASP LLM TOP-10</span>
+        <span class="font-mono-technical text-on-surface-variant px-3 py-1">NIST AI RMF</span>
+      </div>
+    </div>
+    <div class="md:col-span-12 mt-12 pt-12 border-t-border_width border-primary">
+      <div class="font-body-md text-on-surface-variant text-[12px] uppercase tracking-widest">&copy; 2026 Cognifinity. All rights reserved. Paart is in design-partner pilot.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('mobile-menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    var icon = document.getElementById('mobile-menu-icon');
+    if (btn && menu && icon) {
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('hidden') === false;
+        btn.setAttribute('aria-expanded', open);
+        icon.textContent = open ? 'close' : 'menu';
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
