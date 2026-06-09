@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Demo mode — Paart</title>
+<meta name="description" content="Demo mode makes a local Paart install react to realistic, synthetic AI-agent activity — clean, injected, shadow, spoofed, and approval scenarios — so you can see detection and enforcement end to end without wiring up real traffic."/>
+<link rel="canonical" href="https://paart.ai/demo" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!--
+  Identical Tailwind config block to /index.html and /download. Kept inline
+  (rather than extracted into a shared file) because the marketing site is a
+  zero-build static GH Pages property and adding a JS bundler purely to
+  deduplicate this would cost more than the duplication does.
+-->
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"tertiary-container": "#b2895c", "on-secondary-container": "#99b9d1", "on-tertiary": "#462a05", "on-primary-fixed-variant": "#294b5e", "on-error": "#690005", "primary-fixed-dim": "#304451", "surface-container-lowest": "#0d0e10", "surface-dim": "#121415", "inverse-surface": "#e2e2e4", "secondary-container": "#2a4a5f", "on-primary-fixed": "#001e2c", "on-secondary-fixed": "#001e2e", "on-surface-variant": "#c1c7cc", "secondary-fixed-dim": "#202629", secondary: "#202629", "on-error-container": "#ffdad6", "surface-variant": "#333537", "surface-tint": "#304451", "on-background": "#e2e2e4", tertiary: "#ecbe8d", "error-container": "#93000a", surface: "#121415", "surface-container-low": "#1a1c1d", "tertiary-fixed": "#ffddba", primary: "#304451", "tertiary-fixed-dim": "#ecbe8d", "surface-container-high": "#282a2c", "primary-fixed": "#c4e7ff", "on-secondary": "#113447", "inverse-primary": "#416276", "on-primary-container": "#052d3f", "inverse-on-surface": "#2f3132", "on-tertiary-container": "#3e2401", "on-secondary-fixed-variant": "#2a4a5f", "surface-container": "#1e2021", "on-tertiary-fixed-variant": "#5f401a", "surface-bright": "#38393b", outline: "#8b9196", "on-surface": "#e2e2e4", "primary-container": "#7495ab", "outline-variant": "#41484c", error: "#ffb4ab", "surface-container-highest": "#333537", "on-tertiary-fixed": "#2b1700", "secondary-fixed": "#c7e7ff", background: "#121415", "on-primary": "#0e3446", "v-allow": "#22c55e", "v-monitor": "#3b82f6", "v-hide": "#64748b", "v-redact": "#eab308", "v-approval": "#f97316", "v-deny": "#ef4444", "v-quarantine": "#b91c1c", "m-stable": "#22c55e", "m-experimental": "#f59e0b", "m-planned": "#94a3b8"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {unit: "4px", margin: "32px", gutter: "24px", border_width: "2px", thick_border: "4px"}, fontFamily: {"headline-sm": ["Figtree"], "headline-lg": ["Figtree"], "body-lg": ["Figtree"], "body-md": ["Figtree"], "label-caps": ["Figtree"], "mono-technical": ["Figtree"], "headline-md": ["Figtree"], headline: ["Figtree"], display: ["Figtree"], body: ["Figtree"], label: ["Figtree"]}, fontSize: {"headline-sm": ["20px", {lineHeight: "1.2", letterSpacing: "0em", fontWeight: "600"}], "headline-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "1.6", letterSpacing: "0em", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400"}], "label-caps": ["12px", {lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700"}], "mono-technical": ["14px", {lineHeight: "1.4", letterSpacing: "0em", fontWeight: "400"}], "headline-md": ["32px", {lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "600"}]}}}};</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { background-color: #121414; color: #e2e2e2; }
+  ::-webkit-scrollbar { width: 12px; }
+  ::-webkit-scrollbar-track { background: #121414; border-left: 2px solid #304451; }
+  ::-webkit-scrollbar-thumb { background: #304451; border: 2px solid #121414; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+</style>
+</head>
+
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container font-body">
+
+<!-- ========== NAV ========== -->
+<nav class="fixed top-0 w-full z-50 bg-surface shadow-[0_6px_20px_-4px_rgba(0,0,0,0.7)]">
+  <div class="relative grid grid-cols-[auto_1fr_auto] items-stretch w-full h-16">
+    <a href="/" class="px-4 md:px-6 h-full flex items-center">
+      <img src="../assets/paart_horizontal_logo.png?v=2" alt="Paart" class="h-[24px] md:h-[32px] w-auto block" />
+    </a>
+    <div></div>
+    <div class="flex items-center gap-3 self-center mr-4 md:mr-6">
+      <a href="/download" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">DOWNLOAD</a>
+      <button id="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden inline-flex w-10 h-10 items-center justify-center border-2 border-white text-white hover:bg-white hover:text-black transition-all">
+        <span class="material-symbols-outlined text-[22px]" id="mobile-menu-icon">menu</span>
+      </button>
+    </div>
+    <div class="hidden md:flex absolute left-1/2 top-0 -translate-x-1/2 h-16 items-center">
+      <a href="/#how-it-works" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">HOW IT WORKS</a>
+      <a href="/#verdicts" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">VERDICTS</a>
+      <a href="/#use-cases" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">USE CASES</a>
+      <a href="/#performance" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">PERFORMANCE</a>
+      <a href="/download" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">DOWNLOAD</a>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden border-t-2 border-primary bg-surface">
+    <a href="/#how-it-works" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">HOW IT WORKS</a>
+    <a href="/#verdicts" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">VERDICTS</a>
+    <a href="/#use-cases" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">USE CASES</a>
+    <a href="/#performance" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">PERFORMANCE</a>
+    <a href="/download" class="block px-6 py-4 text-black font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase bg-primary-container hover:bg-white">DOWNLOAD &nbsp;&rarr;</a>
+  </div>
+</nav>
+
+<main id="top" class="mt-16">
+
+<!-- ========== HERO ========== -->
+<section class="px-margin py-margin md:py-20 border-b-border_width border-primary">
+  <div class="max-w-4xl mx-auto">
+    <div class="mb-4 inline-flex items-stretch border-2 border-primary bg-surface-container-low self-start">
+      <span class="px-3 py-1.5 font-mono-technical text-[11px] font-bold uppercase text-primary-container">DEMO MODE · LOCAL &amp; SYNTHETIC</span>
+    </div>
+    <h1 class="font-headline-lg text-white uppercase leading-[0.95] mb-6">See it react.</h1>
+    <p class="font-body-lg text-on-surface-variant max-w-3xl">
+      Demo mode makes your local Paart install react to realistic, <span class="text-white">synthetic</span>
+      AI-agent activity — so you can watch detection, classification, and
+      enforcement happen end to end without wiring up real traffic. Everything
+      runs on your own machine. Nothing leaves it.
+    </p>
+  </div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<section class="px-margin py-margin md:py-16">
+  <div class="max-w-4xl mx-auto">
+    <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">HOW IT WORKS</div>
+    <h2 class="font-headline-md text-white mb-4">Scripted scenarios, real pipeline.</h2>
+    <p class="font-body-md text-on-surface-variant mb-4">
+      When you switch demo mode on in <span class="text-white">Settings</span>, the local
+      daemon replays a set of scripted scenarios through the <span class="text-white">same</span>
+      inspection pipeline that handles live traffic — emitting genuine events,
+      detections, and approval requests into your local database over 30–60
+      seconds each. The Console you already have open lights up with agents,
+      verdicts, alerts, and pending approvals you can act on. It's the fastest way
+      to understand what Paart does before pointing real tools at it.
+    </p>
+  </div>
+</section>
+
+<!-- ========== SCENARIOS ========== -->
+<section class="px-margin py-margin md:py-16 bg-surface-container-low border-y-border_width border-primary">
+  <div class="max-w-4xl mx-auto">
+    <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">THE SCENARIOS</div>
+    <h2 class="font-headline-md text-white mb-8">Five, one per thing Paart catches.</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+      <div class="bg-surface border-l-thick_border border-v-allow p-6">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-v-allow">GOOD</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant text-[15px]">A registered, well-behaved enterprise agent doing normal work. The baseline: clean traffic, allowed verdicts, healthy status.</p>
+      </div>
+
+      <div class="bg-surface border-l-thick_border border-v-deny p-6">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-v-deny">INJECTED</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant text-[15px]">A prompt-injection attempt riding inside a tool call. Watch the pattern engine flag it and the pipeline raise a high-severity detection.</p>
+      </div>
+
+      <div class="bg-surface border-l-thick_border border-v-approval p-6">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-v-approval">SHADOW</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant text-[15px]">An unregistered agent IT has never seen, discovered by fingerprinting and auto-classified as a shadow agent on the Agents page.</p>
+      </div>
+
+      <div class="bg-surface border-l-thick_border border-v-quarantine p-6">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-v-quarantine">FAKED</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant text-[15px]">An agent spoofing a trusted identity. Surfaces how fingerprint mismatch escalates risk toward suspicious / malicious tiering.</p>
+      </div>
+
+      <div class="bg-surface border-l-thick_border border-v-monitor p-6 md:col-span-2">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-v-monitor">APPROVED</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant text-[15px]">A human-in-the-loop flow: a sensitive call triggers a <span class="text-white">require_approval</span> verdict and shows up under Approvals, where you Approve or Deny and see the decision recorded.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== ENABLE ========== -->
+<section class="px-margin py-margin md:py-16">
+  <div class="max-w-4xl mx-auto">
+    <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">TURNING IT ON</div>
+    <h2 class="font-headline-md text-white mb-6">Two clicks, fully reversible.</h2>
+    <ol class="space-y-4 font-body-md text-on-surface-variant list-none">
+      <li class="flex gap-4"><span class="font-mono-technical text-primary-container font-bold">01</span><span>Install Paart and let the daemon start. Open the Console (the native app window, or <span class="text-white">localhost:3000</span> in a browser).</span></li>
+      <li class="flex gap-4"><span class="font-mono-technical text-primary-container font-bold">02</span><span>Go to <span class="text-white">Settings</span> and toggle <span class="text-white">Demo mode</span> on. Scenarios begin emitting into your local instance.</span></li>
+      <li class="flex gap-4"><span class="font-mono-technical text-primary-container font-bold">03</span><span>Watch the Dashboard, Detections, Agents, and Approvals pages populate. Toggle demo mode off whenever you're done — it stops immediately and the synthetic data is clearly marked.</span></li>
+    </ol>
+    <div class="mt-8 border-border_width border-primary bg-surface-container-low p-6">
+      <p class="font-body-md text-on-surface-variant text-[14px]">
+        <span class="text-white">It's local and safe.</span> Demo mode generates synthetic
+        events on your own machine and sends nothing to Cognifinity. It's for
+        exploration only — turn it off before running Paart against real traffic so
+        your dashboards reflect reality. See <a class="text-primary-container underline underline-offset-4 hover:text-white" href="/privacy">how Paart handles your data</a>.
+      </p>
+    </div>
+    <div class="mt-8">
+      <a href="/download" class="inline-block bg-primary text-white px-8 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container transition-all">GET PAART &nbsp;&rarr;</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="bg-surface border-t-thick_border border-primary">
+  <div class="grid grid-cols-1 md:grid-cols-12 px-margin py-12 max-w-7xl mx-auto">
+    <div class="md:col-span-4 md:pr-8 md:border-r-border_width md:border-primary">
+      <img src="../assets/paart_horizontal_logo.png?v=2" alt="Paart" class="h-9 w-auto block mb-6" />
+      <p class="font-body-md text-on-surface-variant max-w-xs">Inline control plane for AI agents and non-human identities. Built on MCPIDS. Cognifinity.</p>
+    </div>
+    <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-6 uppercase">Product</h5>
+      <ul class="space-y-3">
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/#how-it-works">How it works</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/download">Download</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/demo">Demo mode</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/privacy">Privacy</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-6 uppercase">Open source</h5>
+      <ul class="space-y-3">
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://github.com/mcpids/mcpids" target="_blank" rel="noopener">mcpids on GitHub</a></li>
+        <li><span class="font-mono-technical text-on-surface-variant">Apache-2.0</span></li>
+      </ul>
+    </div>
+    <div class="md:col-span-4 md:pl-8 md:text-right mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-3 uppercase">Aligned with</h5>
+      <div class="inline-flex items-stretch border-border_width border-primary">
+        <span class="font-mono-technical text-on-surface-variant px-3 py-1 border-r-border_width border-primary">OWASP LLM TOP-10</span>
+        <span class="font-mono-technical text-on-surface-variant px-3 py-1">NIST AI RMF</span>
+      </div>
+    </div>
+    <div class="md:col-span-12 mt-12 pt-12 border-t-border_width border-primary">
+      <div class="font-body-md text-on-surface-variant text-[12px] uppercase tracking-widest">&copy; 2026 Cognifinity. All rights reserved. Paart is in design-partner pilot.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('mobile-menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    var icon = document.getElementById('mobile-menu-icon');
+    if (btn && menu && icon) {
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('hidden') === false;
+        btn.setAttribute('aria-expanded', open);
+        icon.textContent = open ? 'close' : 'menu';
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
