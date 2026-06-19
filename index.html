@@ -49,9 +49,9 @@
     /* 7-verdict grid: kill the right border on right-column cards (mobile 2-col) */
     .verdicts-grid > div:nth-child(2n) { border-right-width: 0 !important; }
     .verdicts-grid > div:nth-child(6) { border-bottom-width: 2px; }
-    /* 7th verdict (quarantine) is the orphan in a 2-col grid — span both columns */
+    /* 7th verdict (quarantine) is the orphan in a 2-col grid, span both columns */
     .verdicts-grid > div:nth-child(7) { grid-column: 1 / -1; border-right-width: 0 !important; }
-    /* Protocol matrix — stack each row vertically */
+    /* Protocol matrix, stack each row vertically */
     .protocol-matrix .protocol-row { grid-template-columns: 1fr !important; }
     .protocol-matrix .protocol-row > div { border-right: 0 !important; padding: 12px 14px !important; }
     .protocol-matrix .protocol-row > div + div { border-top: 2px solid #304451; }
@@ -66,9 +66,9 @@
     .console-row > div:nth-child(2)  { grid-column: 1 / -1; grid-row: 2; }
     .console-row > span:nth-child(3) { grid-column: 2; grid-row: 1; text-align: right; align-self: center; }
     .console-row > div:nth-child(4)  { grid-column: 1 / -1; grid-row: 3; justify-content: flex-end; }
-    /* Paart stack cards — tighten the desktop `mb-12` eyebrow gap on mobile */
+    /* Paart stack cards, tighten the desktop `mb-12` eyebrow gap on mobile */
     .argus-stack-card .argus-stack-eyebrow { margin-bottom: 16px !important; }
-    /* Final-CTA inner div — already targeted via classes below */
+    /* Final-CTA inner div, already targeted via classes below */
   }
 </style>
 </head>
@@ -97,6 +97,7 @@
       <a href="#verdicts" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">VERDICTS</a>
       <a href="#use-cases" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">USE CASES</a>
       <a href="#performance" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">PERFORMANCE</a>
+      <a href="/about" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">ABOUT</a>
     </div>
   </div>
   <div id="mobile-menu" class="md:hidden hidden border-t-2 border-primary bg-surface">
@@ -104,6 +105,7 @@
     <a href="#verdicts" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">VERDICTS</a>
     <a href="#use-cases" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">USE CASES</a>
     <a href="#performance" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">PERFORMANCE</a>
+    <a href="/about" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">ABOUT</a>
     <a href="/download" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">DOWNLOAD</a>
     <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="block px-6 py-4 text-black font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase bg-primary-container hover:bg-white">BOOK A PILOT &nbsp;&rarr;</a>
   </div>
@@ -156,7 +158,7 @@
     </div>
     <!-- Right: hero visual.
          object-cover (was object-contain) so the video fills the
-         column edge-to-edge — without it the grid stretches the
+         column edge-to-edge, without it the grid stretches the
          right column to the left column's min-h-[calc(100vh-4rem)]
          height, but `object-contain` preserves the video's aspect
          ratio and lets the bg-black parent show through as
@@ -220,9 +222,9 @@
     <div class="bg-surface p-10 md:p-12 border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
       <div class="font-mono-technical text-on-surface-variant mb-6 uppercase">01 / Agent behaviour</div>
       <h3 class="font-headline-sm text-headline-sm mb-4 uppercase text-white">AI agents are operating without controls.</h3>
-      <p class="font-body-md text-on-surface-variant mb-8">Copilots, IDE assistants, autonomous agents, MCP servers &mdash; all making tool calls against your data, your APIs, your filesystem. Most security stacks never see the traffic.</p>
+      <p class="font-body-md text-on-surface-variant mb-8">Copilots, IDE assistants, autonomous agents, MCP servers, all making tool calls against your data, your APIs, your filesystem. Most security stacks never see the traffic.</p>
       <ul class="space-y-4">
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Prompt injection arriving from documents, emails, and tool outputs &mdash; not just chat</span></li>
+        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Prompt injection arriving from documents, emails, and tool outputs, not just chat</span></li>
         <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Shadow MCP servers installed on developer machines without IT review</span></li>
         <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Secrets, PII, and credentials leaking through tool-call arguments</span></li>
         <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Code-assistants suggesting destructive shell, insecure dependencies, force-push to protected branches</span></li>
@@ -236,13 +238,13 @@
         <span class="bg-primary-container text-on-primary-container px-2 py-0.5 font-mono-technical text-[11px] font-bold uppercase">NHI</span>
       </div>
       <h3 class="font-headline-sm text-headline-sm mb-4 uppercase text-white">Every agent is a non-human identity.</h3>
-      <p class="font-body-md text-on-surface-variant mb-8">NHIs already outnumber human users many times over in most enterprises. AI agents are the fastest-growing class &mdash; and the only one that makes autonomous decisions.</p>
+      <p class="font-body-md text-on-surface-variant mb-8">NHIs already outnumber human users many times over in most enterprises. AI agents are the fastest-growing class, and the only one that makes autonomous decisions.</p>
       <ul class="space-y-4">
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">NHI discovery tools catalog tokens and service accounts &mdash; they don&apos;t sit in the data path</span></li>
+        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">NHI discovery tools catalog tokens and service accounts, they don&apos;t sit in the data path</span></li>
         <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">You can&apos;t enforce least-privilege on an identity whose behaviour you never observe</span></li>
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Agent fingerprints (JA3/JA4, framework, model) are an NHI primary key &mdash; if you record them</span></li>
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">The same identity acting normally yesterday can be compromised today &mdash; posture isn&apos;t enough</span></li>
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Governance asks &ldquo;who can do what?&rdquo; &mdash; the only honest answer is observed behaviour, not stated permissions</span></li>
+        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Agent fingerprints (JA3/JA4, framework, model) are an NHI primary key, if you record them</span></li>
+        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">The same identity acting normally yesterday can be compromised today, posture isn&apos;t enough</span></li>
+        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Governance asks &ldquo;who can do what?&rdquo;, the only honest answer is observed behaviour, not stated permissions</span></li>
       </ul>
     </div>
   </div>
@@ -256,7 +258,7 @@
         <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">How it works</span>
       </div>
       <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">An inline gateway. A six-stage pipeline. A transparent verdict.</h2>
-      <p class="font-body-lg text-white/50 max-w-xl">Every request is normalised to a protocol-agnostic shape, runs through the inspection pipeline, and is allowed, transformed, deferred, or blocked &mdash; in a documented number of milliseconds.</p>
+      <p class="font-body-lg text-white/50 max-w-xl">Every request is normalised to a protocol-agnostic shape, runs through the inspection pipeline, and is allowed, transformed, deferred, or blocked, in a documented number of milliseconds.</p>
     </div>
     <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
       <img src="assets/how_it_works.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
@@ -281,7 +283,7 @@
         <div class="bg-black border-border_width border-primary p-3 text-center font-mono-technical text-primary uppercase">Schema</div>
         <div class="bg-black border-border_width border-primary p-3 text-center font-mono-technical text-primary uppercase">Semantic</div>
       </div>
-      <p class="font-body-md text-on-surface-variant mt-6"><span class="text-v-allow">Fail-closed.</span> 100&nbsp;ms hard budget; 1.82&nbsp;ms p99 observed. Decision joined to the agent&apos;s NHI record &mdash; classification, fingerprint, history.</p>
+      <p class="font-body-md text-on-surface-variant mt-6"><span class="text-v-allow">Fail-closed.</span> 100&nbsp;ms hard budget; 1.82&nbsp;ms p99 observed. Decision joined to the agent&apos;s NHI record, classification, fingerprint, history.</p>
     </div>
     <!-- Outcome -->
     <div class="md:col-span-3 bg-surface p-8 flex flex-col justify-center">
@@ -396,7 +398,7 @@
 <section class="p-margin bg-surface-container">
   <div class="mb-12 border-l-thick_border border-primary-container pl-6">
     <span class="font-label-caps text-primary-container uppercase tracking-widest">Protocol Coverage</span>
-    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">One pipeline, three protocols &mdash; tagged honestly.</h2>
+    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">One pipeline, three protocols, tagged honestly.</h2>
   </div>
 
   <div class="protocol-matrix border-thick_border border-primary">
@@ -453,7 +455,7 @@
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Shadow agent discovery</h3>
       <p class="font-body-md text-on-surface-variant mb-4">Fingerprint every agent on first connect via headers and framework signatures. New agents land in the &ldquo;Unknown Agents&rdquo; view; bulk promote or block.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-quarantine text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">quarantine</span><span class="font-mono-technical text-on-surface-variant text-[11px]">M4 &middot; stable</span></div>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-quarantine text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">quarantine</span><span class="font-mono-technical text-on-surface-variant text-[11px]">fingerprinting &middot; stable</span></div>
     </div>
 
     <!-- 02 -->
@@ -463,8 +465,8 @@
         <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Data protection</span>
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Secret &amp; PII leakage</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Built-in detectors for AWS keys, GitHub tokens, OAuth secrets, credit cards, SSNs, 20+ secret formats &mdash; redacted in arguments and responses, both directions.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-redact text-black px-2 py-0.5 font-mono-technical text-[11px] uppercase">redact</span><span class="font-mono-technical text-on-surface-variant text-[11px]">builtin rules &middot; stable</span></div>
+      <p class="font-body-md text-on-surface-variant mb-4">Built-in detectors for AWS keys, GitHub tokens, OAuth secrets, credit cards, SSNs, 20+ secret formats, redacted in arguments and responses, both directions.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-redact text-black px-2 py-0.5 font-mono-technical text-[11px] uppercase">redact</span><span class="font-mono-technical text-on-surface-variant text-[11px]">built-in rules &middot; stable</span></div>
     </div>
 
     <!-- 03 -->
@@ -475,7 +477,7 @@
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Direct &amp; indirect injection</h3>
       <p class="font-body-md text-on-surface-variant mb-4">Regex baseline today; transformer classifier (DeBERTa-v3-base) behind a config flag, with measured P/R against HackAPrompt + OWASP LLM01.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">deny</span><span class="font-mono-technical text-on-surface-variant text-[11px]">Cortex &middot; experimental</span></div>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">deny</span><span class="font-mono-technical text-on-surface-variant text-[11px]">semantic engine &middot; experimental</span></div>
     </div>
 
     <!-- 04 -->
@@ -486,7 +488,7 @@
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Insecure code &amp; destructive shell</h3>
       <p class="font-body-md text-on-surface-variant mb-4">Curated rule pack for IDE agents: destructive shell (<code class="text-primary">rm -rf /</code>, fork bombs), creds in commits, lateral file access, <code class="text-primary">curl &hellip; | bash</code>.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">deny</span><span class="font-mono-technical text-on-surface-variant text-[11px]">code-assistants pack &middot; stable</span></div>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">deny</span><span class="font-mono-technical text-on-surface-variant text-[11px]">code-assistant rules &middot; stable</span></div>
     </div>
 
     <!-- 05 -->
@@ -497,7 +499,7 @@
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Tool poisoning &amp; schema drift</h3>
       <p class="font-body-md text-on-surface-variant mb-4">MCP servers advertise tool schemas; Paart snapshots them, diffs across sessions, flags widened permissions or new dangerous parameters before they&apos;re used.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-quarantine text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">quarantine</span><span class="font-mono-technical text-on-surface-variant text-[11px]">diff + schema &middot; stable</span></div>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-quarantine text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">quarantine</span><span class="font-mono-technical text-on-surface-variant text-[11px]">schema diff &middot; stable</span></div>
     </div>
 
     <!-- 06 -->
@@ -508,7 +510,7 @@
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Lateral movement detection</h3>
       <p class="font-body-md text-on-surface-variant mb-4">Graph of agent &rarr; server &rarr; tool relationships flags anomalous chains: a chatbot reaching for a deploy tool, a code-assistant pivoting to production DB.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">deny</span><span class="font-mono-technical text-on-surface-variant text-[11px]">graph engine &middot; stable</span></div>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">deny</span><span class="font-mono-technical text-on-surface-variant text-[11px]">graph analysis &middot; stable</span></div>
     </div>
 
     <!-- 07 -->
@@ -541,7 +543,7 @@
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">HITL approvals on high-blast actions</h3>
       <p class="font-body-md text-on-surface-variant mb-4">Any rule can pause the request on <code class="text-primary">require_approval</code>. Pending decisions land in <span class="text-primary">Console &rsaquo; Approvals</span>; operator approves or denies; agent unblocks.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-approval text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">require_approval</span><span class="font-mono-technical text-on-surface-variant text-[11px]">P2.2.1 &middot; stable</span></div>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-approval text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">require_approval</span><span class="font-mono-technical text-on-surface-variant text-[11px]">approvals workflow &middot; stable</span></div>
     </div>
 
     <!-- 10 NHI -->
@@ -552,7 +554,7 @@
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Non-human identity inventory</h3>
       <p class="font-body-md text-on-surface-variant mb-4">Every agent gets a stable fingerprint, a classification (<code class="text-primary">enterprise_managed</code> / <code class="text-primary">shadow_agent</code> / <code class="text-primary">suspicious</code> / <code class="text-primary">malicious</code>), a behaviour history. Bulk-promote, bulk-block.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-monitor text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">monitor_only</span><span class="font-mono-technical text-on-surface-variant text-[11px]">agent taxonomy &middot; stable</span></div>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-monitor text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">monitor_only</span><span class="font-mono-technical text-on-surface-variant text-[11px]">classification &middot; stable</span></div>
     </div>
 
     <!-- 11 NHI -->
@@ -562,8 +564,8 @@
         <span class="font-mono-technical text-[11px] uppercase bg-tertiary/20 text-tertiary px-2 py-0.5 border-border_width border-tertiary/40">NHI &middot; Runtime</span>
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Behavioural least-privilege</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Posture tools tell you what an identity <em>can</em> do. Paart enforces what it <em>does</em> &mdash; per tool call, per session, with the verdict joined to the NHI record for audit.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">deny</span><span class="font-mono-technical text-on-surface-variant text-[11px]">policy + agent join &middot; stable</span></div>
+      <p class="font-body-md text-on-surface-variant mb-4">Posture tools tell you what an identity <em>can</em> do. Paart enforces what it <em>does</em>, per tool call, per session, with the verdict joined to the NHI record for audit.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">deny</span><span class="font-mono-technical text-on-surface-variant text-[11px]">policy engine &middot; stable</span></div>
     </div>
 
     <!-- 12 NHI -->
@@ -573,8 +575,8 @@
         <span class="font-mono-technical text-[11px] uppercase bg-tertiary/20 text-tertiary px-2 py-0.5 border-border_width border-tertiary/40">NHI &middot; Response</span>
       </div>
       <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Compromised-identity quarantine</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">An NHI that crosses a risk threshold &mdash; injection success, lateral chain, exfil pattern &mdash; is quarantined at the gateway. No code change, no rotation outage.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-quarantine text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">quarantine</span><span class="font-mono-technical text-on-surface-variant text-[11px]">risk engine &middot; stable</span></div>
+      <p class="font-body-md text-on-surface-variant mb-4">An NHI that crosses a risk threshold (injection success, lateral chain, exfil pattern) is quarantined at the gateway. No code change, no rotation outage.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-quarantine text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">quarantine</span><span class="font-mono-technical text-on-surface-variant text-[11px]">risk scoring &middot; stable</span></div>
     </div>
 
   </div>
@@ -646,10 +648,7 @@
   </div>
 
   <p class="mt-6 font-mono-technical text-on-surface-variant text-[12px]">
-    Illustrative; rule IDs and verdict mappings reflect rules shipped in
-    <code class="text-primary">customer-service-ai</code> &middot;
-    <code class="text-primary">code-assistants</code> &middot;
-    the built-in set in <code class="text-primary">internal/policy/rules/engine.go</code>.
+    Illustrative. The rule IDs and verdicts shown reflect Paart's built-in rule packs.
   </p>
 </section>
 
@@ -721,7 +720,7 @@
   <div class="mb-12 border-l-thick_border border-primary-container pl-6">
     <span class="font-label-caps text-primary-container uppercase tracking-widest">Rule Packs</span>
     <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">Three curated bundles. CI-tested against silent-failure regex.</h2>
-    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">Start from a pack instead of an empty rule set. Each pack ships as a ConfigMap and is gated for RE2 compatibility, ID uniqueness, positive/negative smoke &mdash; the engine&apos;s silent-failure mode (regex that &ldquo;appears active, never fires&rdquo;) can&apos;t hide in production.</p>
+    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">Start from a pack instead of an empty rule set. Each pack ships as a ConfigMap and is gated for RE2 compatibility, ID uniqueness, positive/negative smoke, the engine&apos;s silent-failure mode (regex that &ldquo;appears active, never fires&rdquo;) can&apos;t hide in production.</p>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-thick_border border-primary">
@@ -767,7 +766,7 @@
     <div>
       <span class="font-label-caps text-primary-container uppercase tracking-widest">Built on</span>
       <a href="https://github.com/mcpids/mcpids" target="_blank" rel="noopener" class="block mt-3 hover:opacity-80 transition-opacity">
-        <img src="assets/mcpids_logo.svg" alt="MCPIDS — view on GitHub" class="h-12 w-auto" />
+        <img src="assets/mcpids_logo.svg" alt="MCPIDS, view on GitHub" class="h-12 w-auto" />
       </a>
       <p class="font-body-md text-on-surface-variant mt-4">Not a greenfield rewrite. Core inspection packages are battle-tested IDS code we extend, never re-invent.</p>
     </div>
@@ -811,6 +810,7 @@
         <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="#use-cases">Use cases</a></li>
         <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="#performance">Performance</a></li>
         <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/download">Download</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/about">About</a></li>
       </ul>
     </div>
     <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
@@ -821,11 +821,11 @@
       </ul>
     </div>
     <div class="md:col-span-4 md:pl-8 md:text-right mt-10 md:mt-0">
-      <h5 class="font-label-caps text-white mb-3 uppercase">Aligned with</h5>
-      <div class="inline-flex items-stretch border-border_width border-primary">
-        <span class="font-mono-technical text-on-surface-variant px-3 py-1 border-r-border_width border-primary">OWASP LLM TOP-10</span>
-        <span class="font-mono-technical text-on-surface-variant px-3 py-1">NIST AI RMF</span>
-      </div>
+      <h5 class="font-label-caps text-white mb-6 uppercase">Aligned with</h5>
+      <ul class="space-y-3">
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener">OWASP Top 10 for LLMs</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI Risk Management Framework</a></li>
+      </ul>
     </div>
     <div class="md:col-span-12 mt-12 pt-12 border-t-border_width border-primary">
       <div class="font-body-md text-on-surface-variant text-[12px] uppercase tracking-widest">&copy; 2026 Cognifinity. All rights reserved. Paart is in design-partner pilot.</div>
@@ -872,7 +872,7 @@
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const run = () => {
       const sections = Array.from(document.querySelectorAll('main section'));
-      // Skip the two hero sections (mobile + desktop variants) — visible on first paint.
+      // Skip the two hero sections (mobile + desktop variants), visible on first paint.
       const targets = sections.slice(2);
       targets.forEach(s => s.classList.add('reveal-on-scroll'));
       const observer = new IntersectionObserver((entries) => {
