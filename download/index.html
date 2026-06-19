@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Download Paart — macOS, Windows, Linux</title>
+<title>Download Paart | macOS, Windows, Linux</title>
 <meta name="description" content="Download Paart for your operating system. Native installers for macOS, Windows, and Linux. Inline AI agent visibility + policy enforcement, in 1.82 ms."/>
 <link rel="canonical" href="https://paart.ai/download" />
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -24,7 +24,7 @@
   ::-webkit-scrollbar-thumb { background: #304451; border: 2px solid #121414; }
   html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
-  /* Per-card visitor-OS highlight — `data-os-current` is added by JS
+  /* Per-card visitor-OS highlight, `data-os-current` is added by JS
      once we detect the visitor's UA. The accent is purely visual; the
      card stays clickable for everyone. */
   [data-os-current="true"] {
@@ -52,7 +52,8 @@
     </a>
     <div></div>
     <div class="flex items-center gap-3 self-center mr-4 md:mr-6">
-      <a href="mailto:contact@cognifinity.lu?subject=Paart%20early-access" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">REQUEST EARLY ACCESS</a>
+      <a href="/download" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">DOWNLOAD</a>
+      <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">BOOK A PILOT</a>
       <button id="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden inline-flex w-10 h-10 items-center justify-center border-2 border-white text-white hover:bg-white hover:text-black transition-all">
         <span class="material-symbols-outlined text-[22px]" id="mobile-menu-icon">menu</span>
       </button>
@@ -62,7 +63,7 @@
       <a href="/#verdicts" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">VERDICTS</a>
       <a href="/#use-cases" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">USE CASES</a>
       <a href="/#performance" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">PERFORMANCE</a>
-      <span class="bg-primary text-white px-5 h-full flex items-center whitespace-nowrap font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">DOWNLOAD</span>
+      <a href="/about" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">ABOUT</a>
     </div>
   </div>
   <div id="mobile-menu" class="md:hidden hidden border-t-2 border-primary bg-surface">
@@ -70,7 +71,9 @@
     <a href="/#verdicts" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">VERDICTS</a>
     <a href="/#use-cases" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">USE CASES</a>
     <a href="/#performance" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">PERFORMANCE</a>
-    <a href="mailto:contact@cognifinity.lu?subject=Paart%20early-access" class="block px-6 py-4 text-black font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase bg-primary-container hover:bg-white">REQUEST EARLY ACCESS &nbsp;&rarr;</a>
+    <a href="/about" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">ABOUT</a>
+    <a href="/download" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">DOWNLOAD</a>
+    <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="block px-6 py-4 text-black font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase bg-primary-container hover:bg-white">BOOK A PILOT &nbsp;&rarr;</a>
   </div>
 </nav>
 
@@ -87,7 +90,7 @@
     </h1>
     <p class="font-body-lg text-on-surface-variant max-w-3xl">
       Native installers for macOS, Windows, and Linux. Run the daemon
-      locally — the Paart app opens the Console in its own native
+      locally, the Paart app opens the Console in its own native
       window. No Docker, no Kubernetes, no cloud account. Single binary +
       embedded SQLite.
     </p>
@@ -135,7 +138,7 @@
           <li class="flex justify-between"><span>Auto-start</span><span class="text-white">LaunchAgent</span></li>
         </ul>
         <a href="/releases/Paart-0.1.12.pkg" class="block w-full bg-primary text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">DOWNLOAD PAART.PKG &nbsp;&middot;&nbsp; 40 MB</a>
-        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.12 · Signed + notarized · Opens normally — no Gatekeeper prompt</p>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.12 · Signed + notarized · Opens normally, no Gatekeeper prompt</p>
       </article>
 
       <!-- ===== Windows ===== -->
@@ -198,7 +201,7 @@
         <span class="text-white">Demo mode</span> in Settings. Paart replays scripted
         scenarios (GOOD, INJECTED, SHADOW, FAKED, APPROVED) through the real
         inspection pipeline, emitting events into your local instance over 30–60
-        seconds each — so you can see detection and enforcement before pointing
+        seconds each, so you can see detection and enforcement before pointing
         real tools at it. It's local and synthetic; nothing leaves your machine.
         <a class="text-primary-container underline underline-offset-4 hover:text-white" href="/demo">Learn more</a>.
       </p>
@@ -246,7 +249,7 @@ cd mcpids
     <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">SOMETHING WRONG?</div>
     <h2 class="font-headline-md text-white mb-4">Need a signed build, an air-gapped tarball, or a pilot conversation?</h2>
     <p class="font-body-md text-on-surface-variant mb-8">
-      Paart is in closed beta — installer signing (EV Authenticode +
+      Paart is in closed beta. Installer signing (EV Authenticode +
       Apple Developer ID) lands with the production-pilot rollout.
       If you need a signed or notarized build today, or your IT shop
       needs an air-gapped tarball / vendor questionnaire / SBOM,
@@ -284,11 +287,11 @@ cd mcpids
       </ul>
     </div>
     <div class="md:col-span-4 md:pl-8 md:text-right mt-10 md:mt-0">
-      <h5 class="font-label-caps text-white mb-3 uppercase">Aligned with</h5>
-      <div class="inline-flex items-stretch border-border_width border-primary">
-        <span class="font-mono-technical text-on-surface-variant px-3 py-1 border-r-border_width border-primary">OWASP LLM TOP-10</span>
-        <span class="font-mono-technical text-on-surface-variant px-3 py-1">NIST AI RMF</span>
-      </div>
+      <h5 class="font-label-caps text-white mb-6 uppercase">Aligned with</h5>
+      <ul class="space-y-3">
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener">OWASP Top 10 for LLMs</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI Risk Management Framework</a></li>
+      </ul>
     </div>
     <div class="md:col-span-12 mt-12 pt-12 border-t-border_width border-primary">
       <div class="font-body-md text-on-surface-variant text-[12px] uppercase tracking-widest">&copy; 2026 Cognifinity. All rights reserved. Paart is in design-partner pilot.</div>
@@ -297,7 +300,7 @@ cd mcpids
 </footer>
 
 <!-- ========== OS-DETECT HIGHLIGHT ==========
-     UA-based detection — coarse on purpose. We're not making any
+     UA-based detection, coarse on purpose. We're not making any
      access decision based on the result, just visually nudging the
      visitor toward the card that matches their platform. If
      navigator.userAgentData is available (Chromium) we use that;
