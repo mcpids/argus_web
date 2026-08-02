@@ -1,4 +1,0 @@
-b53e72e2b0529bc9e88fdcc9892803c80088b7188f0e845ca9b82e03ff9643f3  /tmp/argus-release/v0.1.0/Argus.msi
-615888b8d04a4e0ed603faea9a852250a660179e15af459b8071f13bffc59392  /tmp/argus-release/v0.1.0/Argus.pkg
-94bbf278aa70719b634a6e8b0fa82f846d45d3c26e8d2d62363242cd183f2719  /tmp/argus-release/v0.1.0/argus-linux-amd64.tar.gz
-609b638d01c5b7463ff71ac1400258c17951eefb44be771b92bab130861f6e03  /tmp/argus-release/v0.1.0/argus-linux-arm64.tar.gz
