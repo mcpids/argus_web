@@ -83,7 +83,7 @@
 <section class="px-margin py-margin md:py-20 border-b-border_width border-primary">
   <div class="max-w-7xl mx-auto">
     <div class="mb-4 inline-flex items-stretch border-2 border-primary bg-surface-container-low self-start">
-      <span class="px-3 py-1.5 font-mono-technical text-[11px] font-bold uppercase text-primary-container">CLOSED BETA · BY REQUEST</span>
+      <span class="px-3 py-1.5 font-mono-technical text-[11px] font-bold uppercase text-primary-container">EARLY ACCESS · FREE FOR ONE HOST</span>
     </div>
     <h1 class="font-headline-lg text-white uppercase leading-[0.95] mb-6">
       Download Paart
@@ -247,13 +247,17 @@ cd mcpids
 <section class="px-margin py-margin md:py-20 bg-surface-container-low border-t-border_width border-primary">
   <div class="max-w-3xl mx-auto text-center">
     <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">SOMETHING WRONG?</div>
-    <h2 class="font-headline-md text-white mb-4">Need a signed build, an air-gapped tarball, or a pilot conversation?</h2>
+    <h2 class="font-headline-md text-white mb-4">Need an air-gapped tarball, an SBOM, or a pilot conversation?</h2>
     <p class="font-body-md text-on-surface-variant mb-8">
-      Paart is in closed beta. Installer signing (EV Authenticode +
-      Apple Developer ID) lands with the production-pilot rollout.
-      If you need a signed or notarized build today, or your IT shop
-      needs an air-gapped tarball / vendor questionnaire / SBOM,
-      reach out and we'll get it to you the same business day.
+      Both desktop installers are signed. macOS is Developer ID signed,
+      notarized and stapled, so it opens without a Gatekeeper prompt.
+      Windows is Authenticode signed (SSL.com OV, RFC-3161 timestamped);
+      SmartScreen may still prompt until the certificate builds
+      reputation. Checksums for every artifact are published above, and
+      you can verify the signatures yourself before installing.
+      If your IT shop needs an air-gapped tarball, a vendor
+      questionnaire or an SBOM, or you would like a pilot conversation,
+      reach out and we'll come back to you the same business day.
     </p>
     <a href="mailto:contact@cognifinity.lu?subject=Paart%20early-access" class="inline-block bg-primary text-white px-8 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container transition-all">CONTACT@COGNIFINITY.LU</a>
   </div>
