@@ -94,6 +94,21 @@
       window. No Docker, no Kubernetes, no cloud account. Single binary +
       embedded SQLite.
     </p>
+
+    <!-- Above-the-fold download.
+         Works without JS: the link defaults to the #downloads grid, so a
+         no-JS visitor still gets a CTA here instead of having to scroll.
+         With JS, pickOS() upgrades it in place to a direct link for the
+         detected platform, copying the href and size text straight out of
+         the matching card below. Sourcing from the card matters: at release
+         time only the cards change, so this button cannot drift out of date
+         the way a second hardcoded version string would. -->
+    <div class="mt-10 flex flex-wrap items-center gap-5">
+      <a id="hero-download" href="#downloads"
+         class="inline-block bg-primary text-white px-10 py-5 font-label-caps text-[13px] md:text-[14px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container transition-all">DOWNLOAD PAART &nbsp;&rarr;</a>
+      <a id="hero-download-alt" href="#downloads"
+         class="font-mono-technical text-[12px] uppercase tracking-[0.1em] text-on-surface-variant underline decoration-primary/40 hover:text-white hidden">All platforms &amp; checksums</a>
+    </div>
   </div>
 </section>
 
@@ -327,7 +342,27 @@ cd mcpids
     var os = pickOS();
     if (os) {
       var card = document.querySelector('[data-os="' + os + '"]');
-      if (card) card.setAttribute('data-os-current', 'true');
+      if (card) {
+        card.setAttribute('data-os-current', 'true');
+
+        // Promote the platform's own download link into the hero so the
+        // first download button is above the fold rather than below it.
+        // The first anchor in a card is its download link.
+        var cardLink = card.querySelector('a[href]');
+        var hero = document.getElementById('hero-download');
+        var heroAlt = document.getElementById('hero-download-alt');
+        if (cardLink && hero) {
+          var label = { macos: 'macOS', windows: 'Windows', linux: 'Linux' }[os] || os;
+          // Reuse the card's own size suffix (e.g. "· 40 MB") instead of
+          // hardcoding it here, so it stays correct across releases.
+          var size = (cardLink.textContent.split('\u00b7')[1] || '').trim();
+          hero.setAttribute('href', cardLink.getAttribute('href'));
+          hero.innerHTML = 'DOWNLOAD FOR ' + label.toUpperCase() +
+            (size ? ' &nbsp;&middot;&nbsp; ' + size : '') + ' &nbsp;&darr;';
+          hero.setAttribute('aria-label', 'Download Paart for ' + label);
+          if (heroAlt) heroAlt.classList.remove('hidden');
+        }
+      }
     }
 
     // Mobile menu toggle, copied from index.html
