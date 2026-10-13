@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Paart | Inline control for AI agents &amp; non-human identities</title>
-<meta name="description" content="Paart sits inline between AI agents and the tools they call. It inspects MCP, OpenAI, and Anthropic traffic at the wire, classifies every agent as a non-human identity, and enforces policy in 1.82 ms p99. Built on MCPIDS."/>
+<title>Paart | Keep control of your AI tools</title>
+<meta name="description" content="Paart helps teams review connected AI activity, protect sensitive information, and approve or block actions."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -87,27 +87,21 @@
          later if/when we want to bias visitors toward one action. -->
     <div class="flex items-center gap-3 self-center mr-4 md:mr-6">
       <a href="/download" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">DOWNLOAD</a>
-      <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">BOOK A PILOT</a>
+      <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">DISCUSS A PILOT</a>
       <button id="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden inline-flex w-10 h-10 items-center justify-center border-2 border-white text-white hover:bg-white hover:text-black transition-all">
         <span class="material-symbols-outlined text-[22px]" id="mobile-menu-icon">menu</span>
       </button>
     </div>
     <div class="hidden md:flex absolute left-1/2 top-0 -translate-x-1/2 h-16 items-center">
       <a href="#how-it-works" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">HOW IT WORKS</a>
-      <a href="#verdicts" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">VERDICTS</a>
-      <a href="#use-cases" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">USE CASES</a>
-      <a href="#performance" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">PERFORMANCE</a>
       <a href="/about" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">ABOUT</a>
     </div>
   </div>
   <div id="mobile-menu" class="md:hidden hidden border-t-2 border-primary bg-surface">
     <a href="#how-it-works" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">HOW IT WORKS</a>
-    <a href="#verdicts" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">VERDICTS</a>
-    <a href="#use-cases" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">USE CASES</a>
-    <a href="#performance" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">PERFORMANCE</a>
     <a href="/about" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">ABOUT</a>
     <a href="/download" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">DOWNLOAD</a>
-    <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="block px-6 py-4 text-black font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase bg-primary-container hover:bg-white">BOOK A PILOT &nbsp;&rarr;</a>
+    <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="block px-6 py-4 text-black font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase bg-primary-container hover:bg-white">DISCUSS A PILOT &nbsp;&rarr;</a>
   </div>
 </nav>
 
@@ -124,17 +118,17 @@
     <!-- Overlay content (bottom-left) -->
     <div class="absolute inset-x-0 bottom-0 p-6 pb-10 flex flex-col">
       <div class="mb-4 inline-flex items-stretch border-2 border-black bg-black self-start">
-        <span class="px-3 py-1.5 font-mono-technical text-[11px] font-bold uppercase text-primary-container">AI Agent Security &middot; NHI Security</span>
+        <span class="px-3 py-1.5 font-mono-technical text-[11px] font-bold uppercase text-primary-container">AI security for your team</span>
       </div>
       <h1 class="font-headline-lg text-white mb-6 uppercase leading-[0.95]">
-        <span class="block text-[36px] font-bold tracking-tight">Inline control for AI&nbsp;agents.</span>
-        <span class="block text-[15px] font-bold tracking-wide mt-3 text-white/70">Non-human identity security at the wire.</span>
+        <span class="block text-[36px] font-bold tracking-tight">AI tools. Your rules.</span>
+        <span class="block text-[15px] font-bold tracking-wide mt-3 text-white/70">Check actions before they happen.</span>
       </h1>
       <div class="flex flex-wrap gap-3">
         <a href="/download" data-hero-download class="bg-white text-black px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-white hover:bg-transparent hover:text-white transition-all">DOWNLOAD FREE &nbsp;&rarr;</a>
-        <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="bg-transparent text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-white hover:bg-white hover:text-black transition-all">BOOK A PILOT</a>
+        <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="bg-transparent text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-white hover:bg-white hover:text-black transition-all">DISCUSS A PILOT</a>
       </div>
-      <p class="font-mono-technical text-[11px] uppercase tracking-[0.12em] text-white/60 mt-4">No account &middot; Local-first &middot; Free for one host</p>
+      <p class="font-mono-technical text-[11px] uppercase tracking-[0.12em] text-white/60 mt-4">No account &middot; Runs locally &middot; Free for one computer</p>
     </div>
   </div>
 </section>
@@ -145,18 +139,18 @@
     <!-- Left: title + CTAs -->
     <div class="md:col-span-8 bg-primary p-12 flex flex-col justify-center min-h-[calc(100vh-4rem)] md:border-r-thick_border border-primary">
       <div class="mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
-        <span class="px-4 py-2 font-mono-technical text-mono-technical font-bold uppercase text-primary-container">AI Agent Security &middot; NHI Security</span>
+        <span class="px-4 py-2 font-mono-technical text-mono-technical font-bold uppercase text-primary-container">AI security for your team</span>
       </div>
       <h1 class="font-headline-lg text-black mb-10 uppercase leading-[0.95]">
-        <span class="block text-[72px] font-bold tracking-tight">Inline control for AI&nbsp;agents.</span>
-        <span class="block text-[26px] font-bold tracking-wide mt-5 text-white/50">Non-human identity security at the wire.</span>
+        <span class="block text-[72px] font-bold tracking-tight">AI tools. Your rules.</span>
+        <span class="block text-[26px] font-bold tracking-wide mt-5 text-white/50">Check actions before they happen.</span>
       </h1>
-      <p class="font-body-lg text-white/50 max-w-xl mb-12">Every AI agent in your environment is a non-human identity making tool calls against real systems. Paart sits inline between agents and the tools they invoke, inspects MCP traffic at the wire (OpenAI and Anthropic codecs are experimental), classifies every agent, and enforces policy in 1.82&nbsp;ms p99.</p>
+      <p class="font-body-lg text-white/50 max-w-xl mb-12">Paart checks what connected AI tools are about to do. Stop unwanted actions or ask a person to approve.</p>
       <div class="flex flex-wrap gap-6 items-center">
         <a href="/download" data-hero-download class="bg-black text-white px-10 py-5 font-label-caps text-[14px] font-bold border-border_width border-black hover:bg-white hover:text-black transition-all">DOWNLOAD FREE &nbsp;&rarr;</a>
-        <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="bg-transparent text-white/50 px-10 py-5 font-label-caps text-[14px] font-bold border-2 border-white/50 hover:bg-white/10 hover:text-white transition-all">BOOK A PILOT</a>
+        <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="bg-transparent text-white/50 px-10 py-5 font-label-caps text-[14px] font-bold border-2 border-white/50 hover:bg-white/10 hover:text-white transition-all">DISCUSS A PILOT</a>
       </div>
-      <p class="font-mono-technical text-[12px] uppercase tracking-[0.12em] text-white/50 mt-6">No account &middot; Local-first &middot; Free for one host</p>
+      <p class="font-mono-technical text-[12px] uppercase tracking-[0.12em] text-white/50 mt-6">No account &middot; Runs locally &middot; Free for one computer</p>
     </div>
     <!-- Right: hero visual.
          object-cover (was object-contain) so the video fills the
@@ -173,81 +167,41 @@
   </div>
 </section>
 
-<!-- ========== STATS GRID ========== -->
-<section class="px-margin pb-margin">
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t-thick_border border-l-thick_border border-primary">
-    <div class="p-8 border-r-thick_border border-b-thick_border border-primary bg-surface flex flex-col">
-      <span class="font-label-caps text-on-surface-variant mb-4 uppercase">p99 verdict latency</span>
-      <span class="font-headline-lg text-primary-container">1.82 ms</span>
-      <div class="mt-auto pt-4 flex items-center text-primary-container">
-        <span class="material-symbols-outlined mr-2">speed</span>
-        <span class="font-mono-technical">55× UNDER BUDGET</span>
-      </div>
-    </div>
-    <div class="p-8 border-r-thick_border border-b-thick_border border-primary bg-surface flex flex-col">
-      <span class="font-label-caps text-on-surface-variant mb-4 uppercase">Peak throughput</span>
-      <span class="font-headline-lg text-primary-container">20K evt/s</span>
-      <div class="mt-auto pt-4 flex items-center text-primary-container">
-        <span class="material-symbols-outlined mr-2">graph_5</span>
-        <span class="font-mono-technical">20× HEADLINE RATE</span>
-      </div>
-    </div>
-    <div class="p-8 border-r-thick_border border-b-thick_border border-primary bg-surface flex flex-col">
-      <span class="font-label-caps text-on-surface-variant mb-4 uppercase">Verdict vocabulary</span>
-      <span class="font-headline-lg text-primary-container">7 / 7</span>
-      <div class="mt-auto pt-4 flex items-center text-primary-container">
-        <span class="material-symbols-outlined mr-2">gavel</span>
-        <span class="font-mono-technical">TRANSPARENT</span>
-      </div>
-    </div>
-    <div class="p-8 border-r-thick_border border-b-thick_border border-primary bg-surface flex flex-col">
-      <span class="font-label-caps text-on-surface-variant mb-4 uppercase">Threat scenarios pass</span>
-      <span class="font-headline-lg text-primary-container">8 / 8</span>
-      <div class="mt-auto pt-4 flex items-center text-v-allow">
-        <span class="material-symbols-outlined mr-2">verified</span>
-        <span class="font-mono-technical">PASS IN CI</span>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ========== DUAL PROBLEM ========== -->
 <section class="p-margin bg-surface-container">
   <div class="mb-12 border-l-thick_border border-primary-container pl-6">
     <span class="font-label-caps text-primary-container uppercase tracking-widest">The Problem</span>
-    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">Two security gaps converging on one identity surface.</h2>
-    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">Most tools address one of them, in observation mode, after the fact. Paart addresses both, inline, before the request lands on its target.</p>
+    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">Useful AI needs boundaries.</h2>
+    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">Protect information. Prevent mistakes. Keep a person in charge.</p>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border-thick_border border-primary">
     <!-- 01 Agent behaviour -->
     <div class="bg-surface p-10 md:p-12 border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
-      <div class="font-mono-technical text-on-surface-variant mb-6 uppercase">01 / Agent behaviour</div>
-      <h3 class="font-headline-sm text-headline-sm mb-4 uppercase text-white">AI agents are operating without controls.</h3>
-      <p class="font-body-md text-on-surface-variant mb-8">Copilots, IDE assistants, autonomous agents, MCP servers, all making tool calls against your data, your APIs, your filesystem. Most security stacks never see the traffic.</p>
+      <div class="font-mono-technical text-on-surface-variant mb-6 uppercase">01 / The risks</div>
+      <h3 class="font-headline-sm text-headline-sm mb-4 uppercase text-white">What could go wrong?</h3>
+      <p class="font-body-md text-on-surface-variant mb-8">An assistant could share private data or take an action you did not intend.</p>
       <ul class="space-y-4">
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Prompt injection arriving from documents, emails, and tool outputs, not just chat</span></li>
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Shadow MCP servers installed on developer machines without IT review</span></li>
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Secrets, PII, and credentials leaking through tool-call arguments</span></li>
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Code-assistants suggesting destructive shell, insecure dependencies, force-push to protected branches</span></li>
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Autonomous agents escalating privilege through chained tool calls nobody approved</span></li>
+        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Sharing sensitive information</span></li>
+        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Deleting important files</span></li>
+        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Acting without approval</span></li>
       </ul>
     </div>
     <!-- 02 NHI -->
     <div class="bg-surface p-10 md:p-12">
       <div class="flex items-center gap-3 mb-6">
-        <span class="font-mono-technical text-on-surface-variant uppercase">02 / Non-human identity</span>
-        <span class="bg-primary-container text-on-primary-container px-2 py-0.5 font-mono-technical text-[11px] font-bold uppercase">NHI</span>
+        <span class="font-mono-technical text-on-surface-variant uppercase">02 / Your controls</span>
+        <span class="bg-primary-container text-on-primary-container px-2 py-0.5 font-mono-technical text-[11px] font-bold uppercase">PAART</span>
       </div>
-      <h3 class="font-headline-sm text-headline-sm mb-4 uppercase text-white">Every agent is a non-human identity.</h3>
-      <p class="font-body-md text-on-surface-variant mb-8">NHIs already outnumber human identities many times over in most enterprises. AI agents are the fastest-growing class, and the only one that makes autonomous decisions.</p>
+      <h3 class="font-headline-sm text-headline-sm mb-4 uppercase text-white">Keep people in control.</h3>
+      <p class="font-body-md text-on-surface-variant mb-8">Set rules for the requests you connect to Paart.</p>
       <ul class="space-y-4">
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">NHI discovery tools catalog tokens and service accounts, they don&apos;t sit in the data path</span></li>
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">You can&apos;t enforce least-privilege on an identity whose behaviour you never observe</span></li>
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Agent fingerprints (JA3/JA4, framework, model) are an NHI primary key, if you record them</span></li>
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">The same identity acting normally yesterday can be compromised today, posture isn&apos;t enough</span></li>
-        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Governance asks &ldquo;who can do what?&rdquo;, the only honest answer is observed behaviour, not stated permissions</span></li>
-      </ul>
+        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Check for sensitive information</span></li>
+        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Block actions that break your rules</span></li>
+        <li class="flex items-start"><span class="material-symbols-outlined text-error mr-4 mt-0.5">priority_high</span><span class="font-body-md text-on-surface-variant">Ask before sensitive actions</span></li>
+        </ul>
     </div>
   </div>
 </section>
@@ -259,8 +213,8 @@
       <div class="mb-5 md:mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
         <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">How it works</span>
       </div>
-      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">An inline gateway. A six-stage pipeline. A transparent verdict.</h2>
-      <p class="font-body-lg text-white/50 max-w-xl">Every request is normalised to a protocol-agnostic shape, runs through the inspection pipeline, and is allowed, transformed, deferred, or blocked, in a documented number of milliseconds.</p>
+      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">A refund needs your approval.</h2>
+      <p class="font-body-lg text-white/50 max-w-xl">You set the rule. Paart holds the request. A person decides.</p>
     </div>
     <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
       <img src="assets/how_it_works.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
@@ -270,528 +224,48 @@
   <div class="grid grid-cols-1 md:grid-cols-12 gap-0 border-thick_border border-primary">
     <!-- Source -->
     <div class="md:col-span-3 bg-surface p-8 border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary flex flex-col justify-center">
-      <div class="font-mono-technical text-on-surface-variant uppercase mb-3">Source</div>
-      <h3 class="font-headline-sm text-headline-sm mb-3 text-white">Agent</h3>
-      <p class="font-body-md text-on-surface-variant">Copilot, IDE assistant, MCP server, autonomous agent, custom client. Fingerprinted on first connect.</p>
+      <div class="font-mono-technical text-on-surface-variant uppercase mb-3">1 / The assistant</div>
+      <h3 class="font-headline-sm text-headline-sm mb-3 text-white">Requests a refund</h3>
+      <p class="font-body-md text-on-surface-variant">A customer asks for their money back.</p>
     </div>
     <!-- Pipeline -->
     <div class="md:col-span-6 bg-surface-container p-8 border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
-      <div class="font-mono-technical text-primary-container uppercase mb-4">Paart gateway &middot; inspection pipeline</div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-        <div class="bg-black border-border_width border-primary p-3 text-center font-mono-technical text-primary uppercase">Policy</div>
-        <div class="bg-black border-border_width border-primary p-3 text-center font-mono-technical text-primary uppercase">Diff</div>
-        <div class="bg-black border-border_width border-primary p-3 text-center font-mono-technical text-primary uppercase">Risk</div>
-        <div class="bg-black border-border_width border-primary p-3 text-center font-mono-technical text-primary uppercase">Graph</div>
-        <div class="bg-black border-border_width border-primary p-3 text-center font-mono-technical text-primary uppercase">Schema</div>
-        <div class="bg-black border-border_width border-primary p-3 text-center font-mono-technical text-primary uppercase">Semantic</div>
-      </div>
-      <p class="font-body-md text-on-surface-variant mt-6"><span class="text-v-allow">Fail-closed.</span> 100&nbsp;ms hard budget; 1.82&nbsp;ms p99 observed. Decision joined to the agent&apos;s NHI record, classification, fingerprint, history.</p>
+      <div class="font-mono-technical text-primary-container uppercase mb-4">2 / Paart</div>
+      <h3 class="font-headline-sm text-headline-sm mb-3 text-white">Holds the request</h3>
+      <p class="font-body-md text-on-surface-variant">Your rule requires a person’s approval.</p>
+      <p class="font-body-md text-on-surface-variant mt-6"><span class="text-v-allow">Illustrative example.</span> Requires a supported connection and an approval rule.</p>
     </div>
     <!-- Outcome -->
     <div class="md:col-span-3 bg-surface p-8 flex flex-col justify-center">
-      <div class="font-mono-technical text-on-surface-variant uppercase mb-3">Outcome</div>
-      <h3 class="font-headline-sm text-headline-sm mb-3 text-white">1 of 7 verdicts</h3>
-      <p class="font-body-md text-on-surface-variant">Enforced in line with the request. Recorded in audit. Stream to SIEM. Surface in Console.</p>
+      <div class="font-mono-technical text-on-surface-variant uppercase mb-3">3 / You</div>
+      <h3 class="font-headline-sm text-headline-sm mb-3 text-white">Approve or deny</h3>
+      <p class="font-body-md text-on-surface-variant">Your decision is recorded in Paart.</p>
     </div>
   </div>
 </section>
 
-<!-- ========== PAART STACK ========== -->
-<section class="p-margin bg-surface-container">
-  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
-    <span class="font-label-caps text-primary-container uppercase tracking-widest">Core Infrastructure</span>
-    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">The Paart Stack</h2>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-5 gap-0 border-thick_border border-primary">
-    <div class="argus-stack-card bg-surface p-6 border-b-border_width md:border-b-0 md:border-r-border_width border-primary hover:bg-secondary group transition-colors">
-      <div class="argus-stack-eyebrow font-mono-technical text-on-surface-variant group-hover:text-black mb-12 uppercase">01/Gateway</div>
-      <h3 class="font-headline-sm text-headline-sm group-hover:text-black mb-4 uppercase text-white">Inline proxy</h3>
-      <p class="font-body-md text-on-surface-variant group-hover:text-black">Reverse-proxy that inspects MCP, OpenAI, Anthropic at the wire. Enforces verdicts in &lt;2 ms p99.</p>
-    </div>
-    <div class="argus-stack-card bg-surface p-6 border-b-border_width md:border-b-0 md:border-r-border_width border-primary hover:bg-secondary group transition-colors">
-      <div class="argus-stack-eyebrow font-mono-technical text-on-surface-variant group-hover:text-black mb-12 uppercase">02/API</div>
-      <h3 class="font-headline-sm text-headline-sm group-hover:text-black mb-4 uppercase text-white">Control plane</h3>
-      <p class="font-body-md text-on-surface-variant group-hover:text-black">REST + gRPC. Policy engine, approvals workflow, event recording, SIEM export.</p>
-    </div>
-    <div class="argus-stack-card bg-surface p-6 border-b-border_width md:border-b-0 md:border-r-border_width border-primary hover:bg-secondary group transition-colors">
-      <div class="argus-stack-eyebrow font-mono-technical text-on-surface-variant group-hover:text-black mb-12 uppercase">03/Sentinel</div>
-      <h3 class="font-headline-sm text-headline-sm group-hover:text-black mb-4 uppercase text-white">Endpoint daemon</h3>
-      <p class="font-body-md text-on-surface-variant group-hover:text-black">Discovers local MCP configs, wraps stdio processes. Optional eBPF sensor on Linux <span class="font-mono-technical text-m-planned">(planned)</span>.</p>
-    </div>
-    <div class="argus-stack-card bg-surface p-6 border-b-border_width md:border-b-0 md:border-r-border_width border-primary hover:bg-secondary group transition-colors">
-      <div class="argus-stack-eyebrow font-mono-technical text-on-surface-variant group-hover:text-black mb-12 uppercase">04/Cortex</div>
-      <h3 class="font-headline-sm text-headline-sm group-hover:text-black mb-4 uppercase text-white">Semantic engine</h3>
-      <p class="font-body-md text-on-surface-variant group-hover:text-black">Prompt-injection classifier. Regex default; optional DeBERTa-v3 transformer behind a config flag.</p>
-    </div>
-    <div class="argus-stack-card bg-surface p-6 border-primary hover:bg-secondary group transition-colors">
-      <div class="argus-stack-eyebrow font-mono-technical text-on-surface-variant group-hover:text-black mb-12 uppercase">05/Console</div>
-      <h3 class="font-headline-sm text-headline-sm group-hover:text-black mb-4 uppercase text-white">Operator UI</h3>
-      <p class="font-body-md text-on-surface-variant group-hover:text-black">React + TS dashboard. Approvals queue, policy editor, agent inventory, audit, traffic.</p>
-    </div>
-  </div>
-</section>
 
-<!-- ========== 7 VERDICTS ========== -->
-<section id="verdicts" class="p-margin">
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 mb-12 border-thick_border border-primary">
-    <div class="md:col-span-8 bg-primary p-8 md:p-12 flex flex-col justify-center min-h-[420px] md:min-h-[60vh] border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
-      <div class="mb-5 md:mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
-        <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">The vocabulary</span>
-      </div>
-      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">Seven verdicts. No black-box risk score.</h2>
-      <p class="font-body-lg text-white/50 max-w-xl">Every detected request resolves to exactly one of these outcomes; the higher-precedence verdict wins when multiple rules fire.</p>
-    </div>
-    <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
-      <img src="assets/verdicts.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
-    </div>
-  </div>
 
-  <div class="verdicts-grid grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-0 border-thick_border border-primary">
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width lg:border-b-0 border-primary">
-      <div class="h-1 w-12 bg-v-allow mb-4"></div>
-      <h4 class="font-mono-technical text-white uppercase mb-2">allow</h4>
-      <p class="font-body-md text-on-surface-variant">Request proceeds untouched. Recorded as evidence.</p>
-    </div>
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width lg:border-b-0 border-primary">
-      <div class="h-1 w-12 bg-v-monitor mb-4"></div>
-      <h4 class="font-mono-technical text-white uppercase mb-2">monitor_only</h4>
-      <p class="font-body-md text-on-surface-variant">Allowed, flagged for review. Shadow-mode rollouts.</p>
-    </div>
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width lg:border-b-0 border-primary">
-      <div class="h-1 w-12 bg-v-hide mb-4"></div>
-      <h4 class="font-mono-technical text-white uppercase mb-2">hide</h4>
-      <p class="font-body-md text-on-surface-variant">Strip a tool from the agent&apos;s tool list before it&apos;s seen.</p>
-    </div>
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width lg:border-b-0 border-primary">
-      <div class="h-1 w-12 bg-v-redact mb-4"></div>
-      <h4 class="font-mono-technical text-white uppercase mb-2">redact</h4>
-      <p class="font-body-md text-on-surface-variant">Scrub secrets, PII, sensitive fields from args + responses.</p>
-    </div>
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width md:border-b-0 lg:border-b-0 border-primary">
-      <div class="h-1 w-12 bg-v-approval mb-4"></div>
-      <h4 class="font-mono-technical text-white uppercase mb-2">require_approval</h4>
-      <p class="font-body-md text-on-surface-variant">Pause until a human decides in Console. Default expiry.</p>
-    </div>
-    <div class="bg-surface p-6 border-r-border_width border-primary">
-      <div class="h-1 w-12 bg-v-deny mb-4"></div>
-      <h4 class="font-mono-technical text-white uppercase mb-2">deny</h4>
-      <p class="font-body-md text-on-surface-variant">Block with a protocol-correct error. Agent gets a clean rejection.</p>
-    </div>
-    <div class="bg-surface p-6 border-primary">
-      <div class="h-1 w-12 bg-v-quarantine mb-4"></div>
-      <h4 class="font-mono-technical text-white uppercase mb-2">quarantine</h4>
-      <p class="font-body-md text-on-surface-variant">Block and isolate the session and identity. NHI is non-trusted.</p>
-    </div>
-  </div>
 
-  <div class="mt-8 bg-surface-container border-border_width border-primary font-mono-technical text-on-surface-variant overflow-x-auto whitespace-nowrap flex items-stretch">
-    <span class="px-4 py-3 border-r-border_width border-primary text-primary-container uppercase font-bold tracking-wide">Precedence</span>
-    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-quarantine">quarantine</span>
-    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-deny">deny</span>
-    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-approval">require_approval</span>
-    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-redact">redact</span>
-    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-hide">hide</span>
-    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-monitor">monitor_only</span>
-    <span class="px-4 py-3 border-l-thick_border border-l-v-allow">allow</span>
-  </div>
-</section>
 
-<!-- ========== PROTOCOL MATRIX ========== -->
-<section class="p-margin bg-surface-container">
-  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
-    <span class="font-label-caps text-primary-container uppercase tracking-widest">Protocol Coverage</span>
-    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">One pipeline, three protocols, tagged honestly.</h2>
-  </div>
 
-  <div class="protocol-matrix border-thick_border border-primary">
-    <div class="protocol-row protocol-header grid grid-cols-12 bg-black font-label-caps text-on-surface-variant uppercase">
-      <div class="col-span-4 p-4 border-r-border_width border-primary">Protocol</div>
-      <div class="col-span-2 p-4 border-r-border_width border-primary">Status</div>
-      <div class="col-span-6 p-4">Notes</div>
-    </div>
-    <div class="protocol-row grid grid-cols-12 bg-surface border-t-border_width border-primary">
-      <div class="col-span-4 p-4 border-r-border_width border-primary font-mono-technical text-white">MCP (JSON-RPC)</div>
-      <div class="col-span-2 p-4 border-r-border_width border-primary"><span class="bg-m-stable/20 text-m-stable px-2 py-1 font-mono-technical text-[11px] uppercase border-border_width border-m-stable/40">Stable</span></div>
-      <div class="col-span-6 p-4 font-body-md text-on-surface-variant">Pilot-tested end-to-end. Four phase-1 threat scenarios pass on the pilot VM.</div>
-    </div>
-    <div class="protocol-row grid grid-cols-12 bg-surface border-t-border_width border-primary">
-      <div class="col-span-4 p-4 border-r-border_width border-primary font-mono-technical text-white">OpenAI function-calling</div>
-      <div class="col-span-2 p-4 border-r-border_width border-primary"><span class="bg-m-experimental/20 text-m-experimental px-2 py-1 font-mono-technical text-[11px] uppercase border-border_width border-m-experimental/40">Experimental</span></div>
-      <div class="col-span-6 p-4 font-body-md text-on-surface-variant">Codec, deny rendering, cross-protocol rule parity proven. Promotes to <code class="text-primary">stable</code> with the production-overlay load run.</div>
-    </div>
-    <div class="protocol-row grid grid-cols-12 bg-surface border-t-border_width border-primary">
-      <div class="col-span-4 p-4 border-r-border_width border-primary font-mono-technical text-white">Anthropic tool-use</div>
-      <div class="col-span-2 p-4 border-r-border_width border-primary"><span class="bg-m-experimental/20 text-m-experimental px-2 py-1 font-mono-technical text-[11px] uppercase border-border_width border-m-experimental/40">Experimental</span></div>
-      <div class="col-span-6 p-4 font-body-md text-on-surface-variant">Same pipeline, same rule IDs, Anthropic-shaped error on deny. Same promotion path.</div>
-    </div>
-    <div class="protocol-row grid grid-cols-12 bg-surface border-t-border_width border-primary">
-      <div class="col-span-4 p-4 border-r-border_width border-primary font-mono-technical text-white">Generic HTTP / custom</div>
-      <div class="col-span-2 p-4 border-r-border_width border-primary"><span class="bg-m-planned/20 text-m-planned px-2 py-1 font-mono-technical text-[11px] uppercase border-border_width border-m-planned/40">Planned</span></div>
-      <div class="col-span-6 p-4 font-body-md text-on-surface-variant">Protocol interface is extensible; custom codecs implement <code class="text-primary">Detect / ParseRequest / ParseResponse / RebuildResponse</code>.</div>
-    </div>
-  </div>
-</section>
 
-<!-- ========== USE CASES ========== -->
-<section id="use-cases" class="p-margin">
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 mb-12 border-thick_border border-primary">
-    <div class="md:col-span-8 bg-primary p-8 md:p-12 flex flex-col justify-center min-h-[420px] md:min-h-[60vh] border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
-      <div class="mb-5 md:mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
-        <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">Use cases</span>
-      </div>
-      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">Twelve scenarios Paart covers today.</h2>
-      <p class="font-body-lg text-white/50 max-w-xl">Nine drawn from the AI-security category, three from the NHI category. Each card names the verdict and the maturity tag for the path that drives it.</p>
-    </div>
-    <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
-      <img src="assets/use_cases.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
-    </div>
-  </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-thick_border border-primary">
 
-    <!-- 01 -->
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">01</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Shadow AI</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Shadow agent discovery</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Fingerprint every agent on first connect via headers and framework signatures. New agents land in the &ldquo;Unknown Agents&rdquo; view; bulk promote or block.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-monitor text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">monitor_only</span><span class="font-mono-technical text-on-surface-variant text-[11px]">fingerprinting &middot; stable &middot; blocking is a manual operator action</span></div>
-    </div>
 
-    <!-- 02 -->
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">02</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Data protection</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Secret &amp; PII leakage</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Built-in detectors for AWS keys, GitHub tokens, OAuth secrets, credit cards, SSNs, 20+ secret formats, redacted in arguments and responses, both directions.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-redact text-black px-2 py-0.5 font-mono-technical text-[11px] uppercase">redact</span><span class="font-mono-technical text-on-surface-variant text-[11px]">built-in rules &middot; stable</span></div>
-    </div>
 
-    <!-- 03 -->
-    <div class="bg-surface p-6 border-b-border_width border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">03</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Prompt injection</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Direct &amp; indirect injection</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Regex baseline today, with precision/recall measured and CI-gated on a HackAPrompt + OWASP LLM01 eval set; optional DeBERTa-v3-base transformer behind a config flag (not yet benchmarked).</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">deny</span><span class="font-mono-technical text-on-surface-variant text-[11px]">semantic engine &middot; experimental</span></div>
-    </div>
 
-    <!-- 04 -->
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">04</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Code assistants</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Insecure code &amp; destructive shell</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Curated rule pack for IDE agents: destructive shell (<code class="text-primary">rm -rf /</code>, fork bombs), creds in commits, lateral file access, <code class="text-primary">curl &hellip; | bash</code>.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">deny</span><span class="font-mono-technical text-on-surface-variant text-[11px]">code-assistant rules &middot; stable</span></div>
-    </div>
 
-    <!-- 05 -->
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">05</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Supply chain</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Tool poisoning &amp; schema drift</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">MCP servers advertise tool schemas; Paart snapshots them, diffs across sessions, flags widened permissions or new dangerous parameters before they&apos;re used.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-hide text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">hide</span><span class="font-mono-technical text-on-surface-variant text-[11px]">schema diff &middot; stable &middot; rug-pull re-approval is opt-in</span></div>
-    </div>
 
-    <!-- 06 -->
-    <div class="bg-surface p-6 border-b-border_width border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">06</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Privilege escalation</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Lateral movement detection</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Graph of agent &rarr; server &rarr; tool relationships flags anomalous chains: a chatbot reaching for a deploy tool, a code-assistant pivoting to production DB.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-monitor text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">monitor_only</span><span class="font-mono-technical text-on-surface-variant text-[11px]">graph analysis &middot; stable &middot; deny on strong signals is opt-in</span></div>
-    </div>
 
-    <!-- 07 -->
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">07</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Compliance</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">OWASP LLM Top-10 mapping</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Rule packs reference OWASP LLM01 (injection), LLM02 (output handling), LLM06 (sensitive disclosure), LLM08 (excessive agency). Aligned with NIST AI RMF.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-monitor text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">monitor_only</span><span class="font-mono-technical text-on-surface-variant text-[11px]">rule packs &middot; stable</span></div>
-    </div>
 
-    <!-- 08 -->
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">08</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Copilot security</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Microsoft Copilot &amp; SaaS AI</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Copilot and SaaS assistants that speak MCP, OpenAI, or Anthropic route through the same inline pipeline; point them at the gateway and the rule packs apply unchanged. A generic-HTTP codec is on the roadmap.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-redact text-black px-2 py-0.5 font-mono-technical text-[11px] uppercase">redact</span><span class="font-mono-technical text-on-surface-variant text-[11px]">protocol-agnostic &middot; experimental</span></div>
-    </div>
-
-    <!-- 09 -->
-    <div class="bg-surface p-6 border-b-border_width border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">09</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Governance</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">HITL approvals on high-blast actions</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Any rule can pause the request on <code class="text-primary">require_approval</code>. Pending decisions land in <span class="text-primary">Console &rsaquo; Approvals</span>; operator approves or denies; agent unblocks.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-approval text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">require_approval</span><span class="font-mono-technical text-on-surface-variant text-[11px]">approvals workflow &middot; stable</span></div>
-    </div>
-
-    <!-- 10 NHI -->
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width md:border-b-0 border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">10</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-tertiary/20 text-tertiary px-2 py-0.5 border-border_width border-tertiary/40">NHI &middot; Discovery</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Non-human identity inventory</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Every agent gets a stable fingerprint, a classification (<code class="text-primary">enterprise_managed</code> / <code class="text-primary">shadow_agent</code> / <code class="text-primary">suspicious</code> / <code class="text-primary">malicious</code>), a behaviour history. Bulk-promote, bulk-block.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-monitor text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">monitor_only</span><span class="font-mono-technical text-on-surface-variant text-[11px]">classification &middot; stable</span></div>
-    </div>
-
-    <!-- 11 NHI -->
-    <div class="bg-surface p-6 border-r-border_width border-b-border_width md:border-b-0 border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">11</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-tertiary/20 text-tertiary px-2 py-0.5 border-border_width border-tertiary/40">NHI &middot; Runtime</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Behavioural least-privilege</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">Posture tools tell you what an identity <em>can</em> do. Paart enforces what it <em>does</em>, per tool call, per session, with the verdict joined to the NHI record for audit.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">deny</span><span class="font-mono-technical text-on-surface-variant text-[11px]">policy engine &middot; stable</span></div>
-    </div>
-
-    <!-- 12 NHI -->
-    <div class="bg-surface p-6 border-primary">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono-technical text-on-surface-variant">12</span>
-        <span class="font-mono-technical text-[11px] uppercase bg-tertiary/20 text-tertiary px-2 py-0.5 border-border_width border-tertiary/40">NHI &middot; Response</span>
-      </div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Compromised-identity quarantine</h3>
-      <p class="font-body-md text-on-surface-variant mb-4">An NHI that crosses a risk threshold (injection success, lateral chain, exfil pattern) is quarantined at the gateway. No code change, no rotation outage.</p>
-      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-quarantine text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">quarantine</span><span class="font-mono-technical text-on-surface-variant text-[11px]">risk scoring &middot; experimental &middot; auto-quarantine is opt-in</span></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ========== CONSOLE MOCK ========== -->
-<section class="p-margin bg-surface-container">
-  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
-    <span class="font-label-caps text-primary-container uppercase tracking-widest">In the Console</span>
-    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">Operator workflows, not just dashboards.</h2>
-    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">When a high-blast-radius call is paused on <code class="text-primary">require_approval</code>, this is the seat the operator drops into.</p>
-  </div>
-
-  <div class="border-thick_border border-primary bg-black">
-    <div class="flex items-center justify-between p-4 border-b-border_width border-primary bg-surface">
-      <div class="flex items-center gap-4">
-        <div class="flex gap-2"><span class="w-3 h-3 bg-primary-container rounded-full"></span><span class="w-3 h-3 bg-tertiary rounded-full"></span><span class="w-3 h-3 bg-error rounded-full"></span></div>
-        <span class="font-mono-technical text-on-surface-variant">console &rsaquo; approvals</span>
-      </div>
-      <span class="flex items-center gap-2 text-v-allow font-mono-technical text-[12px]"><span class="w-2 h-2 bg-v-allow rounded-full"></span>LIVE · refreshed 2s ago</span>
-    </div>
-    <div class="p-6">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="font-label-caps text-primary-container uppercase">Pending approvals</span>
-        <span class="bg-v-approval text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">3</span>
-      </div>
-
-      <div class="space-y-0 border-t-border_width border-primary">
-        <div class="console-row grid grid-cols-12 gap-4 items-center p-4 border-b-border_width border-primary">
-          <span class="col-span-2 md:col-span-1 bg-v-approval text-white px-2 py-1 font-mono-technical text-[11px] uppercase text-center">Pending</span>
-          <div class="col-span-10 md:col-span-7">
-            <div class="font-mono-technical text-white">chatbot-prod-eu <span class="text-on-surface-variant ml-2">[enterprise_managed]</span></div>
-            <div class="font-body-md text-on-surface-variant text-[14px] mt-1">issue_refund &middot; tool-name match &middot; rule <code class="text-primary">cs-003-financial-action-requires-approval</code></div>
-          </div>
-          <span class="col-span-12 md:col-span-2 font-mono-technical text-on-surface-variant text-[12px]">2m ago</span>
-          <div class="col-span-12 md:col-span-2 flex gap-2 justify-end">
-            <button class="bg-v-allow text-black px-4 py-2 font-label-caps text-[11px] uppercase hover:bg-white">Approve</button>
-            <button class="bg-transparent text-error px-4 py-2 font-label-caps text-[11px] uppercase border-border_width border-error hover:bg-error hover:text-black">Deny</button>
-          </div>
-        </div>
-
-        <div class="console-row grid grid-cols-12 gap-4 items-center p-4 border-b-border_width border-primary">
-          <span class="col-span-2 md:col-span-1 bg-v-approval text-white px-2 py-1 font-mono-technical text-[11px] uppercase text-center">Pending</span>
-          <div class="col-span-10 md:col-span-7">
-            <div class="font-mono-technical text-white">cursor-engineering-dev42 <span class="text-on-surface-variant ml-2">[enterprise_managed]</span></div>
-            <div class="font-body-md text-on-surface-variant text-[14px] mt-1">install_dependency &middot; <code class="text-primary">pip install --index-url http://pkgs.internal/simple internal-sdk</code> &middot; rule <code class="text-primary">code-005-dependency-confusion</code></div>
-          </div>
-          <span class="col-span-12 md:col-span-2 font-mono-technical text-on-surface-variant text-[12px]">14s ago</span>
-          <div class="col-span-12 md:col-span-2 flex gap-2 justify-end">
-            <button class="bg-v-allow text-black px-4 py-2 font-label-caps text-[11px] uppercase hover:bg-white">Approve</button>
-            <button class="bg-transparent text-error px-4 py-2 font-label-caps text-[11px] uppercase border-border_width border-error hover:bg-error hover:text-black">Deny</button>
-          </div>
-        </div>
-
-        <div class="console-row grid grid-cols-12 gap-4 items-center p-4">
-          <span class="col-span-2 md:col-span-1 bg-v-approval text-white px-2 py-1 font-mono-technical text-[11px] uppercase text-center">Pending</span>
-          <div class="col-span-10 md:col-span-7">
-            <div class="font-mono-technical text-white">notion-mcp-prod <span class="text-on-surface-variant ml-2">[enterprise_managed]</span></div>
-            <div class="font-body-md text-on-surface-variant text-[14px] mt-1">tools/list &middot; <code class="text-primary">search</code> schema widened after approval (rug-pull) &middot; guard <code class="text-primary">schema_drift_reapproval</code> (opt-in)</div>
-          </div>
-          <span class="col-span-12 md:col-span-2 font-mono-technical text-on-surface-variant text-[12px]">just now</span>
-          <div class="col-span-12 md:col-span-2 flex gap-2 justify-end">
-            <button class="bg-v-allow text-black px-4 py-2 font-label-caps text-[11px] uppercase hover:bg-white">Approve</button>
-            <button class="bg-transparent text-error px-4 py-2 font-label-caps text-[11px] uppercase border-border_width border-error hover:bg-error hover:text-black">Deny</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <p class="mt-6 font-mono-technical text-on-surface-variant text-[12px]">
-    Illustrative. cs-003 and code-005 are real rules in Paart's rule packs; schema_drift_reapproval is an opt-in gateway guard (off by default). Verdicts are representative.
-  </p>
-</section>
-
-<!-- ========== PERFORMANCE ========== -->
-<section id="performance" class="p-margin">
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 mb-12 border-thick_border border-primary">
-    <div class="md:col-span-8 bg-primary p-8 md:p-12 flex flex-col justify-center min-h-[420px] md:min-h-[60vh] border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
-      <div class="mb-5 md:mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
-        <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">Performance</span>
-      </div>
-      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">Measured. Published. Regression-guarded in CI.</h2>
-      <p class="font-body-lg text-white/50 max-w-xl">A &ldquo;sub-100 ms&rdquo; claim inherited from a paper is not a number. Below is the number the engine actually produces, on the documented harness, with the artifact stored from every main-branch build.</p>
-    </div>
-    <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
-      <img src="assets/performance.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
-    </div>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 border-thick_border border-primary">
-    <div class="md:col-span-4 bg-tertiary-container p-8 md:p-12 flex flex-col justify-center items-center text-center">
-      <span class="font-headline-lg text-[64px] md:text-[88px] text-black leading-none">1.82</span>
-      <span class="font-headline-sm text-black mt-2 uppercase">milliseconds</span>
-      <span class="font-mono-technical text-primary mt-6 uppercase">p99 verdict latency</span>
-    </div>
-    <div class="md:col-span-8 bg-surface p-6 md:p-10">
-      <h3 class="font-headline-sm text-headline-sm uppercase text-white mb-3">1,000 evt/sec &middot; mixed protocol mix &middot; 10-minute soak</h3>
-      <p class="font-body-md text-on-surface-variant mb-6">Apple M1 Max, 100 sessions, mixed MCP / OpenAI / Anthropic. Zero errors and zero over-budget events across 599,986 samples. Rate sweep reaches 20,000 evt/sec (20&times; headline) with p99 still at 3.88 ms.</p>
-
-      <svg viewBox="0 0 800 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="p99 1.82 ms sits within a 100 ms fail-closed budget; max observed 22.68 ms" class="w-full mb-6">
-        <rect x="2" y="38" width="796" height="10" rx="0" fill="rgba(169,203,226,0.10)" stroke="#a9cbe2" stroke-width="2"/>
-        <rect x="2" y="38" width="181" height="10" fill="rgba(234, 179, 8, 0.32)"/>
-        <rect x="2" y="38" width="15" height="10" fill="#22c55e"/>
-        <line x1="17" y1="30" x2="17" y2="56" stroke="#22c55e" stroke-width="2"/>
-        <text x="17" y="22" fill="#22c55e" font-size="11" font-family="Figtree" text-anchor="start">p99 = 1.82 ms</text>
-        <line x1="183" y1="30" x2="183" y2="56" stroke="#eab308" stroke-width="2"/>
-        <text x="183" y="22" fill="#eab308" font-size="11" font-family="Figtree" text-anchor="start">max 22.68 ms</text>
-        <line x1="798" y1="20" x2="798" y2="64" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,3"/>
-        <text x="798" y="14" fill="#ef4444" font-size="11" font-family="Figtree" text-anchor="end">100 ms fail-closed</text>
-        <text x="2" y="72" fill="#c1c7cc" font-size="10" font-family="Figtree" text-anchor="start">0 ms</text>
-        <text x="798" y="72" fill="#c1c7cc" font-size="10" font-family="Figtree" text-anchor="end">55&times; headroom</text>
-      </svg>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-0 border-thick_border border-primary mt-6">
-        <div class="p-4 border-r-border_width border-primary">
-          <div class="font-mono-technical text-on-surface-variant uppercase mb-1">p50</div>
-          <div class="font-headline-sm text-white">287 µs</div>
-        </div>
-        <div class="p-4 border-r-border_width border-primary">
-          <div class="font-mono-technical text-on-surface-variant uppercase mb-1">p95</div>
-          <div class="font-headline-sm text-white">708 µs</div>
-        </div>
-        <div class="p-4 border-r-border_width md:border-r-border_width border-primary">
-          <div class="font-mono-technical text-on-surface-variant uppercase mb-1">p99</div>
-          <div class="font-headline-sm text-primary-container">1.82 ms</div>
-        </div>
-        <div class="p-4">
-          <div class="font-mono-technical text-on-surface-variant uppercase mb-1">max</div>
-          <div class="font-headline-sm text-white">22.68 ms</div>
-        </div>
-      </div>
-
-      <p class="mt-6 font-mono-technical text-on-surface-variant text-[12px]">Measured on the documented benchmark harness, regenerated from every main-branch build.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ========== RULE PACKS ========== -->
-<section class="p-margin bg-surface-container">
-  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
-    <span class="font-label-caps text-primary-container uppercase tracking-widest">Rule Packs</span>
-    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">Three curated bundles. CI-tested against silent-failure regex.</h2>
-    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">Start from a pack instead of an empty rule set. Each pack ships as a ConfigMap and is gated for RE2 compatibility, ID uniqueness, positive/negative smoke, the engine&apos;s silent-failure mode (regex that &ldquo;appears active, never fires&rdquo;) can&apos;t hide in production.</p>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-thick_border border-primary">
-    <div class="bg-surface p-8 border-b-border_width md:border-b-0 md:border-r-border_width border-primary">
-      <div class="font-mono-technical text-on-surface-variant uppercase mb-6">CB / Chatbot deployments</div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-4">Public-facing assistants</h3>
-      <ul class="space-y-2 font-body-md text-on-surface-variant">
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>DAN-family jailbreaks &amp; direct overrides</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>System-prompt extraction</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Secret leakage in responses</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Model / human impersonation</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Excessive PII collection</li>
-      </ul>
-    </div>
-    <div class="bg-surface p-8 border-b-border_width md:border-b-0 md:border-r-border_width border-primary">
-      <div class="font-mono-technical text-on-surface-variant uppercase mb-6">CA / Code assistants</div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-4">IDE &amp; coding agents</h3>
-      <ul class="space-y-2 font-body-md text-on-surface-variant">
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Destructive shell &amp; fork bombs</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Credentials in commits &amp; output</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Lateral filesystem access</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Dependency confusion</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span><code class="text-primary">curl &hellip; | bash</code> patterns</li>
-      </ul>
-    </div>
-    <div class="bg-surface p-8 border-primary">
-      <div class="font-mono-technical text-on-surface-variant uppercase mb-6">CS / Customer-service AI</div>
-      <h3 class="font-headline-sm text-headline-sm uppercase mb-4">Support &amp; financial bots</h3>
-      <ul class="space-y-2 font-body-md text-on-surface-variant">
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>CC / SSN redaction in responses</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>HITL on refunds, chargebacks, voids</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Cross-customer data probing</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Urgency / authority social-engineering</li>
-        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Mass-export approval gates</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MCPIDS PROVENANCE ========== -->
-<section class="p-margin bg-surface-container">
-  <div class="border-thick_border border-primary p-6 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-    <div>
-      <span class="font-label-caps text-primary-container uppercase tracking-widest">Built on</span>
-      <a href="https://github.com/mcpids/mcpids" target="_blank" rel="noopener" class="block mt-3 hover:opacity-80 transition-opacity">
-        <img src="assets/mcpids_logo.svg" alt="MCPIDS, view on GitHub" class="h-12 w-auto" />
-      </a>
-      <p class="font-body-md text-on-surface-variant mt-4">Not a greenfield rewrite. Core inspection packages are battle-tested IDS code we extend, never re-invent.</p>
-    </div>
-    <div class="md:col-span-2">
-      <p class="font-body-md text-on-surface-variant mb-6">Paart&apos;s policy, schema, diff, risk, graph, and rules engines all derive from MCPIDS by Cognifinity. The protocol codec layer, gateway, agent taxonomy, and operator surfaces (Console, approvals, SIEM exporters) are net-new.</p>
-      <div class="flex flex-wrap gap-2">
-        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">internal/policy</code>
-        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">internal/schema</code>
-        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">internal/diff</code>
-        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">internal/risk</code>
-        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">internal/graph</code>
-        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">internal/policy/rules</code>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ========== FINAL CTA ========== -->
 <section class="pb-16 md:pb-32">
   <div class="bg-tertiary-container border-thick_border border-primary p-8 md:p-16 text-center">
-    <h2 class="font-headline-lg text-[28px] md:text-[48px] text-black mb-6 md:mb-8 uppercase leading-tight">Ready to talk?</h2>
-    <p class="font-body-lg text-[15px] md:text-[18px] text-black max-w-2xl mx-auto mb-8 md:mb-12">Paart is in design-partner pilot. Get in touch and we&apos;ll walk you through what&apos;s stable today, what&apos;s still on the bench, and whether it fits your environment.</p>
-    <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="inline-block bg-black text-white px-8 py-4 md:px-12 md:py-5 font-label-caps text-[13px] md:text-[14px] font-bold border-border_width border-black hover:bg-white hover:text-black transition-all">BOOK A PILOT &nbsp;&rarr;</a>
+    <h2 class="font-headline-lg text-[28px] md:text-[48px] text-black mb-6 md:mb-8 uppercase leading-tight">Where do you need more control?</h2>
+    <p class="font-body-lg text-[15px] md:text-[18px] text-black max-w-2xl mx-auto mb-8 md:mb-12">Start with one AI workflow on your infrastructure. We’ll help check what can connect and which rules you need.</p>
+    <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="inline-block bg-black text-white px-8 py-4 md:px-12 md:py-5 font-label-caps text-[13px] md:text-[14px] font-bold border-border_width border-black hover:bg-white hover:text-black transition-all">DISCUSS A PILOT &nbsp;&rarr;</a>
   </div>
 </section>
 
@@ -802,15 +276,13 @@
   <div class="grid grid-cols-1 md:grid-cols-12 px-margin py-12 max-w-7xl mx-auto">
     <div class="md:col-span-4 md:pr-8 md:border-r-border_width md:border-primary">
       <img src="assets/paart_horizontal_logo.png?v=2" alt="Paart" class="h-9 w-auto block mb-6" />
-      <p class="font-body-md text-on-surface-variant max-w-xs">Inline control plane for AI agents and non-human identities. Built on MCPIDS. Cognifinity.</p>
+      <p class="font-body-md text-on-surface-variant max-w-xs">See what connected AI tools do. Decide what they may do. Built by Cognifinity.</p>
     </div>
     <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
       <h5 class="font-label-caps text-white mb-6 uppercase">Product</h5>
       <ul class="space-y-3">
         <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="#how-it-works">How it works</a></li>
-        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="#verdicts">Verdicts</a></li>
-        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="#use-cases">Use cases</a></li>
-        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="#performance">Performance</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/details/">Product details</a></li>
         <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/download">Download</a></li>
         <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/about">About</a></li>
       </ul>

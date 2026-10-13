@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product details | Paart</title>
+<meta name="description" content="Paart helps teams review connected AI activity, protect sensitive information, and approve or block actions."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"tertiary-container": "#b2895c", "on-secondary-container": "#99b9d1", "on-tertiary": "#462a05", "on-primary-fixed-variant": "#294b5e", "on-error": "#690005", "primary-fixed-dim": "#304451", "surface-container-lowest": "#0d0e10", "surface-dim": "#121415", "inverse-surface": "#e2e2e4", "secondary-container": "#2a4a5f", "on-primary-fixed": "#001e2c", "on-secondary-fixed": "#001e2e", "on-surface-variant": "#c1c7cc", "secondary-fixed-dim": "#202629", secondary: "#202629", "on-error-container": "#ffdad6", "surface-variant": "#333537", "surface-tint": "#304451", "on-background": "#e2e2e4", tertiary: "#ecbe8d", "error-container": "#93000a", surface: "#121415", "surface-container-low": "#1a1c1d", "tertiary-fixed": "#ffddba", primary: "#304451", "tertiary-fixed-dim": "#ecbe8d", "surface-container-high": "#282a2c", "primary-fixed": "#c4e7ff", "on-secondary": "#113447", "inverse-primary": "#416276", "on-primary-container": "#052d3f", "inverse-on-surface": "#2f3132", "on-tertiary-container": "#3e2401", "on-secondary-fixed-variant": "#2a4a5f", "surface-container": "#1e2021", "on-tertiary-fixed-variant": "#5f401a", "surface-bright": "#38393b", outline: "#8b9196", "on-surface": "#e2e2e4", "primary-container": "#7495ab", "outline-variant": "#41484c", error: "#ffb4ab", "surface-container-highest": "#333537", "on-tertiary-fixed": "#2b1700", "secondary-fixed": "#c7e7ff", background: "#121415", "on-primary": "#0e3446", "v-allow": "#22c55e", "v-monitor": "#3b82f6", "v-hide": "#64748b", "v-redact": "#eab308", "v-approval": "#f97316", "v-deny": "#ef4444", "v-quarantine": "#b91c1c", "m-stable": "#22c55e", "m-experimental": "#f59e0b", "m-planned": "#94a3b8"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {unit: "4px", margin: "32px", gutter: "24px", border_width: "2px", thick_border: "4px"}, fontFamily: {"headline-sm": ["Figtree"], "headline-lg": ["Figtree"], "body-lg": ["Figtree"], "body-md": ["Figtree"], "label-caps": ["Figtree"], "mono-technical": ["Figtree"], "headline-md": ["Figtree"], headline: ["Figtree"], display: ["Figtree"], body: ["Figtree"], label: ["Figtree"]}, fontSize: {"headline-sm": ["20px", {lineHeight: "1.2", letterSpacing: "0em", fontWeight: "600"}], "headline-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "1.6", letterSpacing: "0em", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400"}], "label-caps": ["12px", {lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700"}], "mono-technical": ["14px", {lineHeight: "1.4", letterSpacing: "0em", fontWeight: "400"}], "headline-md": ["32px", {lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "600"}]}}}};</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { background-color: #121414; color: #e2e2e2; }
+  ::-webkit-scrollbar { width: 12px; }
+  ::-webkit-scrollbar-track { background: #121414; border-left: 2px solid #304451; }
+  ::-webkit-scrollbar-thumb { background: #304451; border: 2px solid #121414; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /* Zero top/side padding on the four menu-linked sections so the inner
+     card sits flush with the nav and the viewport edges (mirrors the
+     full-bleed treatment of the mobile main hero). */
+  #how-it-works, #verdicts, #use-cases, #performance {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  /* ===== Mobile overrides (< 768px) ===== */
+  @media (max-width: 767px) {
+    html { scroll-padding-top: 72px; }
+    .p-margin { padding: 24px !important; }
+    .px-margin { padding-left: 20px !important; padding-right: 20px !important; }
+    .py-margin { padding-top: 24px !important; padding-bottom: 24px !important; }
+    .pb-margin { padding-bottom: 24px !important; }
+    .pt-margin { padding-top: 24px !important; }
+    .text-headline-md { font-size: 24px !important; line-height: 1.2 !important; }
+    .text-headline-sm { font-size: 18px !important; }
+    /* 7-verdict grid: kill the right border on right-column cards (mobile 2-col) */
+    .verdicts-grid > div:nth-child(2n) { border-right-width: 0 !important; }
+    .verdicts-grid > div:nth-child(6) { border-bottom-width: 2px; }
+    /* 7th verdict (quarantine) is the orphan in a 2-col grid, span both columns */
+    .verdicts-grid > div:nth-child(7) { grid-column: 1 / -1; border-right-width: 0 !important; }
+    /* Protocol matrix, stack each row vertically */
+    .protocol-matrix .protocol-row { grid-template-columns: 1fr !important; }
+    .protocol-matrix .protocol-row > div { border-right: 0 !important; padding: 12px 14px !important; }
+    .protocol-matrix .protocol-row > div + div { border-top: 2px solid #304451; }
+    .protocol-matrix .protocol-header { display: none !important; }
+    /* Console-mock approval rows: 2-col header (Pending + time), content row, buttons row */
+    .console-row {
+      grid-template-columns: auto 1fr !important;
+      gap: 6px 12px !important;
+      padding: 12px !important;
+    }
+    .console-row > span:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .console-row > div:nth-child(2)  { grid-column: 1 / -1; grid-row: 2; }
+    .console-row > span:nth-child(3) { grid-column: 2; grid-row: 1; text-align: right; align-self: center; }
+    .console-row > div:nth-child(4)  { grid-column: 1 / -1; grid-row: 3; justify-content: flex-end; }
+    /* Paart stack cards, tighten the desktop `mb-12` eyebrow gap on mobile */
+    .argus-stack-card .argus-stack-eyebrow { margin-bottom: 16px !important; }
+    /* Final-CTA inner div, already targeted via classes below */
+  }
+</style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container font-body">
+
+<!-- ========== NAV ========== -->
+<nav class="fixed top-0 w-full z-50 bg-surface shadow-[0_6px_20px_-4px_rgba(0,0,0,0.7)]">
+  <div class="relative grid grid-cols-[auto_1fr_auto] items-stretch w-full h-16">
+    <a href="#top" class="px-4 md:px-6 h-full flex items-center">
+      <img src="/assets/paart_horizontal_logo.png?v=2" alt="Paart" class="h-[24px] md:h-[32px] w-auto block" />
+    </a>
+    <div></div>
+    <!-- Top-right CTA pair: DOWNLOAD + BOOK A PILOT. Same ghost-button
+         styling so they read as visually-paired conversion options
+         (self-serve vs talk-to-us). Promote one to filled-primary
+         later if/when we want to bias visitors toward one action. -->
+    <div class="flex items-center gap-3 self-center mr-4 md:mr-6">
+      <a href="/download" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">DOWNLOAD</a>
+      <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">DISCUSS A PILOT</a>
+      <button id="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden inline-flex w-10 h-10 items-center justify-center border-2 border-white text-white hover:bg-white hover:text-black transition-all">
+        <span class="material-symbols-outlined text-[22px]" id="mobile-menu-icon">menu</span>
+      </button>
+    </div>
+    <div class="hidden md:flex absolute left-1/2 top-0 -translate-x-1/2 h-16 items-center">
+      <a href="/#how-it-works" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">HOW IT WORKS</a>
+      <a href="/about" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">ABOUT</a>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden border-t-2 border-primary bg-surface">
+    <a href="/#how-it-works" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">HOW IT WORKS</a>
+    <a href="/about" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">ABOUT</a>
+    <a href="/download" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">DOWNLOAD</a>
+    <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="block px-6 py-4 text-black font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase bg-primary-container hover:bg-white">DISCUSS A PILOT &nbsp;&rarr;</a>
+  </div>
+</nav>
+
+<main id="top" class="mt-16">
+<div class="p-margin"><h1 class="font-headline-md text-headline-md uppercase text-white mt-2">Product details</h1><p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">Capabilities, supported connections, and evaluation evidence.</p></div><!-- ========== STATS GRID ========== -->
+<section class="px-margin pb-margin">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t-thick_border border-l-thick_border border-primary">
+    <div class="p-8 border-r-thick_border border-b-thick_border border-primary bg-surface flex flex-col">
+      <span class="font-label-caps text-on-surface-variant mb-4 uppercase">Engine check time (p99)</span>
+      <span class="font-headline-lg text-primary-container">1.82 ms</span>
+      <div class="mt-auto pt-4 flex items-center text-primary-container">
+        <span class="material-symbols-outlined mr-2">speed</span>
+        <span class="font-mono-technical">LAB BENCHMARK</span>
+      </div>
+    </div>
+    <div class="p-8 border-r-thick_border border-b-thick_border border-primary bg-surface flex flex-col">
+      <span class="font-label-caps text-on-surface-variant mb-4 uppercase">Engine test rate</span>
+      <span class="font-headline-lg text-primary-container">20K evt/s</span>
+      <div class="mt-auto pt-4 flex items-center text-primary-container">
+        <span class="material-symbols-outlined mr-2">graph_5</span>
+        <span class="font-mono-technical">LAB BENCHMARK</span>
+      </div>
+    </div>
+    <div class="p-8 border-r-thick_border border-b-thick_border border-primary bg-surface flex flex-col">
+      <span class="font-label-caps text-on-surface-variant mb-4 uppercase">Policy controls</span>
+      <span class="font-headline-lg text-primary-container">7 / 7</span>
+      <div class="mt-auto pt-4 flex items-center text-primary-container">
+        <span class="material-symbols-outlined mr-2">gavel</span>
+        <span class="font-mono-technical">CLEAR OUTCOMES</span>
+      </div>
+    </div>
+    <div class="p-8 border-r-thick_border border-b-thick_border border-primary bg-surface flex flex-col">
+      <span class="font-label-caps text-on-surface-variant mb-4 uppercase">Security test cases</span>
+      <span class="font-headline-lg text-primary-container">8 / 8</span>
+      <div class="mt-auto pt-4 flex items-center text-v-allow">
+        <span class="material-symbols-outlined mr-2">verified</span>
+        <span class="font-mono-technical">AUTOMATED CHECKS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PAART STACK ========== -->
+<section class="p-margin bg-surface-container">
+  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
+    <span class="font-label-caps text-primary-container uppercase tracking-widest">Behind the scenes</span>
+    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">How the parts work together</h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-5 gap-0 border-thick_border border-primary">
+    <div class="argus-stack-card bg-surface p-6 border-b-border_width md:border-b-0 md:border-r-border_width border-primary hover:bg-secondary group transition-colors">
+      <div class="argus-stack-eyebrow font-mono-technical text-on-surface-variant group-hover:text-black mb-12 uppercase">01/Gateway</div>
+      <h3 class="font-headline-sm text-headline-sm group-hover:text-black mb-4 uppercase text-white">Request checks</h3>
+      <p class="font-body-md text-on-surface-variant group-hover:text-black">Checks connected tool requests. MCP is pilot-tested; OpenAI and Anthropic support is experimental.</p>
+    </div>
+    <div class="argus-stack-card bg-surface p-6 border-b-border_width md:border-b-0 md:border-r-border_width border-primary hover:bg-secondary group transition-colors">
+      <div class="argus-stack-eyebrow font-mono-technical text-on-surface-variant group-hover:text-black mb-12 uppercase">02/API</div>
+      <h3 class="font-headline-sm text-headline-sm group-hover:text-black mb-4 uppercase text-white">Shared rules</h3>
+      <p class="font-body-md text-on-surface-variant group-hover:text-black">Manages rules, approval requests, and activity records.</p>
+    </div>
+    <div class="argus-stack-card bg-surface p-6 border-b-border_width md:border-b-0 md:border-r-border_width border-primary hover:bg-secondary group transition-colors">
+      <div class="argus-stack-eyebrow font-mono-technical text-on-surface-variant group-hover:text-black mb-12 uppercase">03/Sentinel</div>
+      <h3 class="font-headline-sm text-headline-sm group-hover:text-black mb-4 uppercase text-white">Tool discovery</h3>
+      <p class="font-body-md text-on-surface-variant group-hover:text-black">Discovers local tool configurations. Automatic process wrapping is not shipped. Kernel monitoring is <span class="font-mono-technical text-m-planned">(planned)</span>.</p>
+    </div>
+    <div class="argus-stack-card bg-surface p-6 border-b-border_width md:border-b-0 md:border-r-border_width border-primary hover:bg-secondary group transition-colors">
+      <div class="argus-stack-eyebrow font-mono-technical text-on-surface-variant group-hover:text-black mb-12 uppercase">04/Cortex</div>
+      <h3 class="font-headline-sm text-headline-sm group-hover:text-black mb-4 uppercase text-white">Content checks</h3>
+      <p class="font-body-md text-on-surface-variant group-hover:text-black">Looks for known harmful instruction patterns. More advanced classification is experimental.</p>
+    </div>
+    <div class="argus-stack-card bg-surface p-6 border-primary hover:bg-secondary group transition-colors">
+      <div class="argus-stack-eyebrow font-mono-technical text-on-surface-variant group-hover:text-black mb-12 uppercase">05/Console</div>
+      <h3 class="font-headline-sm text-headline-sm group-hover:text-black mb-4 uppercase text-white">Your dashboard</h3>
+      <p class="font-body-md text-on-surface-variant group-hover:text-black">Review activity, change rules, and approve or deny requests.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7 VERDICTS ========== -->
+<section id="verdicts" class="p-margin">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 mb-12 border-thick_border border-primary">
+    <div class="md:col-span-8 bg-primary p-8 md:p-12 flex flex-col justify-center min-h-[420px] md:min-h-[60vh] border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
+      <div class="mb-5 md:mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
+        <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">Your options</span>
+      </div>
+      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">Choose what happens next.</h2>
+      <p class="font-body-lg text-white/50 max-w-xl">Rules can let a request proceed, stop it, or ask for approval. Each decision is recorded.</p>
+    </div>
+    <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
+      <img src="/assets/verdicts.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    </div>
+  </div>
+
+  <div class="verdicts-grid grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-0 border-thick_border border-primary">
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width lg:border-b-0 border-primary">
+      <div class="h-1 w-12 bg-v-allow mb-4"></div>
+      <h4 class="font-mono-technical text-white uppercase mb-2">Allow</h4>
+      <p class="font-body-md text-on-surface-variant">Let the request continue.</p>
+    </div>
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width lg:border-b-0 border-primary">
+      <div class="h-1 w-12 bg-v-monitor mb-4"></div>
+      <h4 class="font-mono-technical text-white uppercase mb-2">Observe</h4>
+      <p class="font-body-md text-on-surface-variant">Let it continue and flag it for review.</p>
+    </div>
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width lg:border-b-0 border-primary">
+      <div class="h-1 w-12 bg-v-hide mb-4"></div>
+      <h4 class="font-mono-technical text-white uppercase mb-2">Hide tool</h4>
+      <p class="font-body-md text-on-surface-variant">Remove a tool from the available list.</p>
+    </div>
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width lg:border-b-0 border-primary">
+      <div class="h-1 w-12 bg-v-redact mb-4"></div>
+      <h4 class="font-mono-technical text-white uppercase mb-2">Remove data</h4>
+      <p class="font-body-md text-on-surface-variant">Remove matched sensitive information.</p>
+    </div>
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width md:border-b-0 lg:border-b-0 border-primary">
+      <div class="h-1 w-12 bg-v-approval mb-4"></div>
+      <h4 class="font-mono-technical text-white uppercase mb-2">Ask a person</h4>
+      <p class="font-body-md text-on-surface-variant">Hold the request for a person’s decision.</p>
+    </div>
+    <div class="bg-surface p-6 border-r-border_width border-primary">
+      <div class="h-1 w-12 bg-v-deny mb-4"></div>
+      <h4 class="font-mono-technical text-white uppercase mb-2">Block</h4>
+      <p class="font-body-md text-on-surface-variant">Stop the request and return an error.</p>
+    </div>
+    <div class="bg-surface p-6 border-primary">
+      <div class="h-1 w-12 bg-v-quarantine mb-4"></div>
+      <h4 class="font-mono-technical text-white uppercase mb-2">Stop session</h4>
+      <p class="font-body-md text-on-surface-variant">Stop this session at the Paart gateway.</p>
+    </div>
+  </div>
+
+  <div class="mt-8 bg-surface-container border-border_width border-primary font-mono-technical text-on-surface-variant overflow-x-auto whitespace-nowrap flex items-stretch">
+    <span class="px-4 py-3 border-r-border_width border-primary text-primary-container uppercase font-bold tracking-wide">When rules conflict</span>
+    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-quarantine">Stop session</span>
+    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-deny">Block</span>
+    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-approval">Ask a person</span>
+    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-redact">Remove data</span>
+    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-hide">Hide tool</span>
+    <span class="px-4 py-3 border-r-border_width border-primary border-l-thick_border border-l-v-monitor">Observe</span>
+    <span class="px-4 py-3 border-l-thick_border border-l-v-allow">Allow</span>
+  </div>
+</section>
+
+<!-- ========== PROTOCOL MATRIX ========== -->
+<section class="p-margin bg-surface-container">
+  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
+    <span class="font-label-caps text-primary-container uppercase tracking-widest">Supported connections</span>
+    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">Check whether your tools can connect.</h2>
+  </div>
+
+  <div class="protocol-matrix border-thick_border border-primary">
+    <div class="protocol-row protocol-header grid grid-cols-12 bg-black font-label-caps text-on-surface-variant uppercase">
+      <div class="col-span-4 p-4 border-r-border_width border-primary">Connection</div>
+      <div class="col-span-2 p-4 border-r-border_width border-primary">Status</div>
+      <div class="col-span-6 p-4">Notes</div>
+    </div>
+    <div class="protocol-row grid grid-cols-12 bg-surface border-t-border_width border-primary">
+      <div class="col-span-4 p-4 border-r-border_width border-primary font-mono-technical text-white">MCP (JSON-RPC)</div>
+      <div class="col-span-2 p-4 border-r-border_width border-primary"><span class="bg-m-stable/20 text-m-stable px-2 py-1 font-mono-technical text-[11px] uppercase border-border_width border-m-stable/40">Pilot-tested</span></div>
+      <div class="col-span-6 p-4 font-body-md text-on-surface-variant">Tested in the pilot with four threat scenarios.</div>
+    </div>
+    <div class="protocol-row grid grid-cols-12 bg-surface border-t-border_width border-primary">
+      <div class="col-span-4 p-4 border-r-border_width border-primary font-mono-technical text-white">OpenAI function-calling</div>
+      <div class="col-span-2 p-4 border-r-border_width border-primary"><span class="bg-m-experimental/20 text-m-experimental px-2 py-1 font-mono-technical text-[11px] uppercase border-border_width border-m-experimental/40">Experimental</span></div>
+      <div class="col-span-6 p-4 font-body-md text-on-surface-variant">Implemented, but not yet verified in the pilot. Not yet <code class="text-primary">stable</code> for production use.</div>
+    </div>
+    <div class="protocol-row grid grid-cols-12 bg-surface border-t-border_width border-primary">
+      <div class="col-span-4 p-4 border-r-border_width border-primary font-mono-technical text-white">Anthropic tool-use</div>
+      <div class="col-span-2 p-4 border-r-border_width border-primary"><span class="bg-m-experimental/20 text-m-experimental px-2 py-1 font-mono-technical text-[11px] uppercase border-border_width border-m-experimental/40">Experimental</span></div>
+      <div class="col-span-6 p-4 font-body-md text-on-surface-variant">Implemented, but not yet verified in the pilot.</div>
+    </div>
+    <div class="protocol-row grid grid-cols-12 bg-surface border-t-border_width border-primary">
+      <div class="col-span-4 p-4 border-r-border_width border-primary font-mono-technical text-white">Generic HTTP / custom</div>
+      <div class="col-span-2 p-4 border-r-border_width border-primary"><span class="bg-m-planned/20 text-m-planned px-2 py-1 font-mono-technical text-[11px] uppercase border-border_width border-m-planned/40">Planned</span></div>
+      <div class="col-span-6 p-4 font-body-md text-on-surface-variant">Custom connections need development using <code class="text-primary">the protocol interface</code>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== USE CASES ========== -->
+<section id="use-cases" class="p-margin">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 mb-12 border-thick_border border-primary">
+    <div class="md:col-span-8 bg-primary p-8 md:p-12 flex flex-col justify-center min-h-[420px] md:min-h-[60vh] border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
+      <div class="mb-5 md:mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
+        <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">Use cases</span>
+      </div>
+      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">Where Paart can help.</h2>
+      <p class="font-body-lg text-white/50 max-w-xl">Support varies by connection and configuration. Each example shows whether the capability is tested or experimental.</p>
+    </div>
+    <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
+      <img src="/assets/use_cases.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-thick_border border-primary">
+
+    <!-- 01 -->
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">01</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Unapproved tools</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Spot unfamiliar AI tools</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Review first-seen agents and choose whether to register or block them.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-monitor text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">Observe</span><span class="font-mono-technical text-on-surface-variant text-[11px]">discovery &middot; pilot-tested &middot; you choose what to block</span></div>
+    </div>
+
+    <!-- 02 -->
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">02</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Data protection</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Protect sensitive data</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Find and redact recognizable secrets and personal information in connected requests and responses.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-redact text-black px-2 py-0.5 font-mono-technical text-[11px] uppercase">Remove data</span><span class="font-mono-technical text-on-surface-variant text-[11px]">built-in rules &middot; stable</span></div>
+    </div>
+
+    <!-- 03 -->
+    <div class="bg-surface p-6 border-b-border_width border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">03</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Prompt injection</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Flag harmful instructions</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Recognize known attack phrases. Pattern checks have limits and will not catch every attempt.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">Block</span><span class="font-mono-technical text-on-surface-variant text-[11px]">semantic engine &middot; experimental</span></div>
+    </div>
+
+    <!-- 04 -->
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">04</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Code assistants</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Check risky code actions</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Optional rules flag dangerous commands such as <code class="text-primary">rm -rf /</code>, or scripts downloaded and run with <code class="text-primary">curl &hellip; | bash</code>.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">Block</span><span class="font-mono-technical text-on-surface-variant text-[11px]">code-assistant rules &middot; stable</span></div>
+    </div>
+
+    <!-- 05 -->
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">05</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Supply chain</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Notice changed tools</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Compare tool definitions and flag changes that need review.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-hide text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">Hide tool</span><span class="font-mono-technical text-on-surface-variant text-[11px]">change detection &middot; pilot-tested &middot; re-approval is optional</span></div>
+    </div>
+
+    <!-- 06 -->
+    <div class="bg-surface p-6 border-b-border_width border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">06</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Privilege escalation</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Spot unusual activity</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Flag unusual chains of requests, such as a chatbot reaching for a deployment tool.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-monitor text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">Observe</span><span class="font-mono-technical text-on-surface-variant text-[11px]">activity checks &middot; pilot-tested &middot; blocking is optional</span></div>
+    </div>
+
+    <!-- 07 -->
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">07</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Compliance</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Support security reviews</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Use rule packs to address known AI risks. Their framework mappings do not constitute certification.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-monitor text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">Observe</span><span class="font-mono-technical text-on-surface-variant text-[11px]">rule packs &middot; stable</span></div>
+    </div>
+
+    <!-- 08 -->
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">08</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">More connections</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Check integration support</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Your client must support routing through Paart. Contact us to check compatibility with a specific product.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-redact text-black px-2 py-0.5 font-mono-technical text-[11px] uppercase">Remove data</span><span class="font-mono-technical text-on-surface-variant text-[11px]">protocol-agnostic &middot; experimental</span></div>
+    </div>
+
+    <!-- 09 -->
+    <div class="bg-surface p-6 border-b-border_width border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">09</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-primary-container/20 text-primary-container px-2 py-0.5 border-border_width border-primary-container/40">Governance</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Ask before sensitive actions</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Configure a rule to <code class="text-primary">Ask a person</code>. Review it under <span class="text-primary">Console &rsaquo; Approvals</span>; approve or deny the request.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-approval text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">Ask a person</span><span class="font-mono-technical text-on-surface-variant text-[11px]">approvals workflow &middot; stable</span></div>
+    </div>
+
+    <!-- 10 NHI -->
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width md:border-b-0 border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">10</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-tertiary/20 text-tertiary px-2 py-0.5 border-border_width border-tertiary/40">Inventory</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Keep an agent inventory</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Review agents that are <code class="text-primary">registered</code> or <code class="text-primary">unregistered</code>. Experimental sensors may label activity <code class="text-primary">suspicious</code> or <code class="text-primary">malicious</code>.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-monitor text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">Observe</span><span class="font-mono-technical text-on-surface-variant text-[11px]">inventory &middot; pilot-tested</span></div>
+    </div>
+
+    <!-- 11 NHI -->
+    <div class="bg-surface p-6 border-r-border_width border-b-border_width md:border-b-0 border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">11</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-tertiary/20 text-tertiary px-2 py-0.5 border-border_width border-tertiary/40">Action rules</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Set boundaries for actions</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Choose what a connected AI tool <em>may</em> do. Check what it <em>requests</em> against your rules and record the outcome.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-deny text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">Block</span><span class="font-mono-technical text-on-surface-variant text-[11px]">policy engine &middot; stable</span></div>
+    </div>
+
+    <!-- 12 NHI -->
+    <div class="bg-surface p-6 border-primary">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono-technical text-on-surface-variant">12</span>
+        <span class="font-mono-technical text-[11px] uppercase bg-tertiary/20 text-tertiary px-2 py-0.5 border-border_width border-tertiary/40">Incident response</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-2">Stop a risky session</h3>
+      <p class="font-body-md text-on-surface-variant mb-4">Optional risk rules can stop a session at the gateway. Credentials elsewhere are not revoked.</p>
+      <div class="flex items-center gap-2 pt-4 border-t-border_width border-outline-variant"><span class="bg-v-quarantine text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">Stop session</span><span class="font-mono-technical text-on-surface-variant text-[11px]">risk scoring &middot; experimental &middot; auto-quarantine is opt-in</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== CONSOLE MOCK ========== -->
+<section class="p-margin bg-surface-container">
+  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
+    <span class="font-label-caps text-primary-container uppercase tracking-widest">In your dashboard</span>
+    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">A person gets the final say.</h2>
+    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">A refund rule can <code class="text-primary">Ask a person</code> before money is returned. These are illustrative examples.</p>
+  </div>
+
+  <div class="border-thick_border border-primary bg-black">
+    <div class="flex items-center justify-between p-4 border-b-border_width border-primary bg-surface">
+      <div class="flex items-center gap-4">
+        <div class="flex gap-2"><span class="w-3 h-3 bg-primary-container rounded-full"></span><span class="w-3 h-3 bg-tertiary rounded-full"></span><span class="w-3 h-3 bg-error rounded-full"></span></div>
+        <span class="font-mono-technical text-on-surface-variant">console &rsaquo; approvals</span>
+      </div>
+      <span class="flex items-center gap-2 text-v-allow font-mono-technical text-[12px]"><span class="w-2 h-2 bg-v-allow rounded-full"></span>ILLUSTRATIVE EXAMPLES</span>
+    </div>
+    <div class="p-6">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="font-label-caps text-primary-container uppercase">Pending approvals</span>
+        <span class="bg-v-approval text-white px-2 py-0.5 font-mono-technical text-[11px] uppercase">3</span>
+      </div>
+
+      <div class="space-y-0 border-t-border_width border-primary">
+        <div class="console-row grid grid-cols-12 gap-4 items-center p-4 border-b-border_width border-primary">
+          <span class="col-span-2 md:col-span-1 bg-v-approval text-white px-2 py-1 font-mono-technical text-[11px] uppercase text-center">Pending</span>
+          <div class="col-span-10 md:col-span-7">
+            <div class="font-mono-technical text-white">Customer assistant <span class="text-on-surface-variant ml-2">[registered]</span></div>
+            <div class="font-body-md text-on-surface-variant text-[14px] mt-1">Issue a refund &middot; approval needed &middot; policy <code class="text-primary">Refunds need approval</code></div>
+          </div>
+          <span class="col-span-12 md:col-span-2 font-mono-technical text-on-surface-variant text-[12px]">2m ago</span>
+          <div class="col-span-12 md:col-span-2 flex gap-2 justify-end">
+            <button class="bg-v-allow text-black px-4 py-2 font-label-caps text-[11px] uppercase hover:bg-white">Approve</button>
+            <button class="bg-transparent text-error px-4 py-2 font-label-caps text-[11px] uppercase border-border_width border-error hover:bg-error hover:text-black">Deny</button>
+          </div>
+        </div>
+
+        <div class="console-row grid grid-cols-12 gap-4 items-center p-4 border-b-border_width border-primary">
+          <span class="col-span-2 md:col-span-1 bg-v-approval text-white px-2 py-1 font-mono-technical text-[11px] uppercase text-center">Pending</span>
+          <div class="col-span-10 md:col-span-7">
+            <div class="font-mono-technical text-white">Coding assistant <span class="text-on-surface-variant ml-2">[registered]</span></div>
+            <div class="font-body-md text-on-surface-variant text-[14px] mt-1">Install a software package · <code class="text-primary">Package source needs review</code> &middot; rule <code class="text-primary">Review package sources</code></div>
+          </div>
+          <span class="col-span-12 md:col-span-2 font-mono-technical text-on-surface-variant text-[12px]">14s ago</span>
+          <div class="col-span-12 md:col-span-2 flex gap-2 justify-end">
+            <button class="bg-v-allow text-black px-4 py-2 font-label-caps text-[11px] uppercase hover:bg-white">Approve</button>
+            <button class="bg-transparent text-error px-4 py-2 font-label-caps text-[11px] uppercase border-border_width border-error hover:bg-error hover:text-black">Deny</button>
+          </div>
+        </div>
+
+        <div class="console-row grid grid-cols-12 gap-4 items-center p-4">
+          <span class="col-span-2 md:col-span-1 bg-v-approval text-white px-2 py-1 font-mono-technical text-[11px] uppercase text-center">Pending</span>
+          <div class="col-span-10 md:col-span-7">
+            <div class="font-mono-technical text-white">Connected tool <span class="text-on-surface-variant ml-2">[registered]</span></div>
+            <div class="font-body-md text-on-surface-variant text-[14px] mt-1">Tool changed · <code class="text-primary">Search</code> now requests more access · policy <code class="text-primary">Review changed tools</code> (optional)</div>
+          </div>
+          <span class="col-span-12 md:col-span-2 font-mono-technical text-on-surface-variant text-[12px]">just now</span>
+          <div class="col-span-12 md:col-span-2 flex gap-2 justify-end">
+            <button class="bg-v-allow text-black px-4 py-2 font-label-caps text-[11px] uppercase hover:bg-white">Approve</button>
+            <button class="bg-transparent text-error px-4 py-2 font-label-caps text-[11px] uppercase border-border_width border-error hover:bg-error hover:text-black">Deny</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="mt-6 font-mono-technical text-on-surface-variant text-[12px]">
+    Illustrative examples. Approval rules require configuration; re-approval after a tool change is optional.
+  </p>
+</section>
+
+<!-- ========== PERFORMANCE ========== -->
+<section id="performance" class="p-margin">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 mb-12 border-thick_border border-primary">
+    <div class="md:col-span-8 bg-primary p-8 md:p-12 flex flex-col justify-center min-h-[420px] md:min-h-[60vh] border-b-thick_border md:border-b-0 md:border-r-thick_border border-primary">
+      <div class="mb-5 md:mb-6 inline-flex items-stretch border-border_width border-black bg-black self-start">
+        <span class="px-3 py-1.5 md:px-4 md:py-2 font-mono-technical text-[11px] md:text-mono-technical font-bold uppercase text-primary-container">Performance</span>
+      </div>
+      <h2 class="font-headline-md text-headline-md text-black mb-6 uppercase leading-tight">Measured in the lab.</h2>
+      <p class="font-body-lg text-white/50 max-w-xl">These tests measure the inspection engine. They do not include network, database, or external classifier delays.</p>
+    </div>
+    <div class="md:col-span-4 bg-black relative overflow-hidden min-h-[260px] md:min-h-0">
+      <img src="/assets/performance.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-0 border-thick_border border-primary">
+    <div class="md:col-span-4 bg-tertiary-container p-8 md:p-12 flex flex-col justify-center items-center text-center">
+      <span class="font-headline-lg text-[64px] md:text-[88px] text-black leading-none">1.82</span>
+      <span class="font-headline-sm text-black mt-2 uppercase">milliseconds</span>
+      <span class="font-mono-technical text-primary mt-6 uppercase">Engine check time (p99)</span>
+    </div>
+    <div class="md:col-span-8 bg-surface p-6 md:p-10">
+      <h3 class="font-headline-sm text-headline-sm uppercase text-white mb-3">1,000 events per second · 10-minute test</h3>
+      <p class="font-body-md text-on-surface-variant mb-6">Measured on an Apple M1 Max with 100 sessions and 599,986 samples. Production performance will depend on your deployment.</p>
+
+      <svg viewBox="0 0 800 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="p99 1.82 ms sits within a 100 ms fail-closed budget; max observed 22.68 ms" class="w-full mb-6">
+        <rect x="2" y="38" width="796" height="10" rx="0" fill="rgba(169,203,226,0.10)" stroke="#a9cbe2" stroke-width="2"/>
+        <rect x="2" y="38" width="181" height="10" fill="rgba(234, 179, 8, 0.32)"/>
+        <rect x="2" y="38" width="15" height="10" fill="#22c55e"/>
+        <line x1="17" y1="30" x2="17" y2="56" stroke="#22c55e" stroke-width="2"/>
+        <text x="17" y="22" fill="#22c55e" font-size="11" font-family="Figtree" text-anchor="start">p99 = 1.82 ms</text>
+        <line x1="183" y1="30" x2="183" y2="56" stroke="#eab308" stroke-width="2"/>
+        <text x="183" y="22" fill="#eab308" font-size="11" font-family="Figtree" text-anchor="start">max 22.68 ms</text>
+        <line x1="798" y1="20" x2="798" y2="64" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,3"/>
+        <text x="798" y="14" fill="#ef4444" font-size="11" font-family="Figtree" text-anchor="end">100 ms fail-closed</text>
+        <text x="2" y="72" fill="#c1c7cc" font-size="10" font-family="Figtree" text-anchor="start">0 ms</text>
+        <text x="798" y="72" fill="#c1c7cc" font-size="10" font-family="Figtree" text-anchor="end">55&times; headroom</text>
+      </svg>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-0 border-thick_border border-primary mt-6">
+        <div class="p-4 border-r-border_width border-primary">
+          <div class="font-mono-technical text-on-surface-variant uppercase mb-1">p50</div>
+          <div class="font-headline-sm text-white">287 µs</div>
+        </div>
+        <div class="p-4 border-r-border_width border-primary">
+          <div class="font-mono-technical text-on-surface-variant uppercase mb-1">p95</div>
+          <div class="font-headline-sm text-white">708 µs</div>
+        </div>
+        <div class="p-4 border-r-border_width md:border-r-border_width border-primary">
+          <div class="font-mono-technical text-on-surface-variant uppercase mb-1">p99</div>
+          <div class="font-headline-sm text-primary-container">1.82 ms</div>
+        </div>
+        <div class="p-4">
+          <div class="font-mono-technical text-on-surface-variant uppercase mb-1">max</div>
+          <div class="font-headline-sm text-white">22.68 ms</div>
+        </div>
+      </div>
+
+      <p class="mt-6 font-mono-technical text-on-surface-variant text-[12px]">In-process benchmark. Ask us for the methodology when evaluating a pilot.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RULE PACKS ========== -->
+<section class="p-margin bg-surface-container">
+  <div class="mb-12 border-l-thick_border border-primary-container pl-6">
+    <span class="font-label-caps text-primary-container uppercase tracking-widest">Starting rules</span>
+    <h2 class="font-headline-md text-headline-md uppercase text-white mt-2">Start with rules for your use case.</h2>
+    <p class="font-body-lg text-on-surface-variant mt-4 max-w-3xl">Choose a rule pack, then configure and test it against your own workflow.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-thick_border border-primary">
+    <div class="bg-surface p-8 border-b-border_width md:border-b-0 md:border-r-border_width border-primary">
+      <div class="font-mono-technical text-on-surface-variant uppercase mb-6">01 / Chatbots</div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-4">Public-facing assistants</h3>
+      <ul class="space-y-2 font-body-md text-on-surface-variant">
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Attempts to bypass instructions</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Requests for hidden instructions</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Secrets in responses</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Impersonation attempts</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Unnecessary personal data collection</li>
+      </ul>
+    </div>
+    <div class="bg-surface p-8 border-b-border_width md:border-b-0 md:border-r-border_width border-primary">
+      <div class="font-mono-technical text-on-surface-variant uppercase mb-6">02 / Coding tools</div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-4">Coding assistants</h3>
+      <ul class="space-y-2 font-body-md text-on-surface-variant">
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Destructive commands</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Exposed credentials</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Unexpected file access</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Untrusted package sources</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span><code class="text-primary">curl &hellip; | bash</code> patterns</li>
+      </ul>
+    </div>
+    <div class="bg-surface p-8 border-primary">
+      <div class="font-mono-technical text-on-surface-variant uppercase mb-6">03 / Customer service</div>
+      <h3 class="font-headline-sm text-headline-sm uppercase mb-4">Customer-service assistants</h3>
+      <ul class="space-y-2 font-body-md text-on-surface-variant">
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Sensitive customer data</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Approval before refunds</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Access to another customer’s data</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Attempts to pressure the assistant</li>
+        <li class="flex"><span class="text-primary-container mr-2">&rarr;</span>Approval before large data exports</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MCPIDS PROVENANCE ========== -->
+<section class="p-margin bg-surface-container">
+  <div class="border-thick_border border-primary p-6 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+    <div>
+      <span class="font-label-caps text-primary-container uppercase tracking-widest">Built on</span>
+      <a href="https://github.com/mcpids/mcpids" target="_blank" rel="noopener" class="block mt-3 hover:opacity-80 transition-opacity">
+        <img src="/assets/mcpids_logo.svg" alt="MCPIDS, view on GitHub" class="h-12 w-auto" />
+      </a>
+      <p class="font-body-md text-on-surface-variant mt-4">Built on the open-source MCPIDS project.</p>
+    </div>
+    <div class="md:col-span-2">
+      <p class="font-body-md text-on-surface-variant mb-6">Paart adds the dashboard, deployment tools, and controls for teams. Paart itself is a proprietary product.</p>
+      <div class="flex flex-wrap gap-2">
+        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">Rules</code>
+        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">Tool definitions</code>
+        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">Change detection</code>
+        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">Risk checks</code>
+        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">Activity patterns</code>
+        <code class="font-mono-technical text-primary bg-surface px-3 py-2 border-border_width border-primary">Detection rules</code>
+      </div>
+    </div>
+  </div>
+</section></main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="bg-surface border-t-thick_border border-primary">
+  <div class="grid grid-cols-1 md:grid-cols-12 px-margin py-12 max-w-7xl mx-auto">
+    <div class="md:col-span-4 md:pr-8 md:border-r-border_width md:border-primary">
+      <img src="/assets/paart_horizontal_logo.png?v=2" alt="Paart" class="h-9 w-auto block mb-6" />
+      <p class="font-body-md text-on-surface-variant max-w-xs">See what connected AI tools do. Decide what they may do. Built by Cognifinity.</p>
+    </div>
+    <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-6 uppercase">Product</h5>
+      <ul class="space-y-3">
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/#how-it-works">How it works</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/details/">Product details</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/download">Download</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="/about">About</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-6 uppercase">Open source</h5>
+      <ul class="space-y-3">
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://github.com/mcpids/mcpids" target="_blank" rel="noopener">mcpids on GitHub</a></li>
+        <li><span class="font-mono-technical text-on-surface-variant">Apache-2.0</span></li>
+      </ul>
+    </div>
+    <div class="md:col-span-4 md:pl-8 md:text-right mt-10 md:mt-0">
+      <h5 class="font-label-caps text-white mb-6 uppercase">Aligned with</h5>
+      <ul class="space-y-3">
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener">OWASP Top 10 for LLMs</a></li>
+        <li><a class="font-mono-technical text-on-surface-variant hover:text-primary transition-all" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI Risk Management Framework</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-12 mt-12 pt-12 border-t-border_width border-primary">
+      <div class="font-body-md text-on-surface-variant text-[12px] uppercase tracking-widest">&copy; 2026 Cognifinity. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Hero download button: name the visitor's OS so the primary CTA reads as
+  // theirs. Same detection as download/index.html — userAgentData first,
+  // userAgent as fallback. Purely cosmetic: the href is /download either
+  // way, so a failed or spoofed detection still lands somewhere correct,
+  // and no-JS visitors keep the plain "DOWNLOAD FREE" label.
+  (function () {
+    function pickOS() {
+      if (navigator.userAgentData && navigator.userAgentData.platform) {
+        var p = navigator.userAgentData.platform.toLowerCase();
+        if (p.indexOf('mac') !== -1) return 'macOS';
+        if (p.indexOf('windows') !== -1) return 'Windows';
+        if (p.indexOf('linux') !== -1) return 'Linux';
+      }
+      var ua = (navigator.userAgent || '').toLowerCase();
+      // Order matters: Android UAs contain "linux", and iOS UAs contain
+      // "mac", so mobile is ruled out before desktop matching.
+      if (ua.indexOf('android') !== -1) return null;
+      if (ua.indexOf('iphone') !== -1 || ua.indexOf('ipad') !== -1) return null;
+      if (ua.indexOf('mac') !== -1) return 'macOS';
+      if (ua.indexOf('windows') !== -1) return 'Windows';
+      if (ua.indexOf('linux') !== -1) return 'Linux';
+      return null;
+    }
+    var os = pickOS();
+    if (!os) return;
+    var els = document.querySelectorAll('[data-hero-download]');
+    for (var i = 0; i < els.length; i++) {
+      els[i].innerHTML = 'DOWNLOAD FOR ' + os.toUpperCase() + ' &nbsp;&rarr;';
+      els[i].setAttribute('aria-label', 'Download Paart free for ' + os);
+    }
+  })();
+
+  // Mobile menu toggle
+  (function() {
+    const wire = () => {
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('mobile-menu-icon');
+      if (!toggle || !menu) return;
+      const close = () => {
+        menu.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        if (icon) icon.textContent = 'menu';
+      };
+      toggle.addEventListener('click', () => {
+        const open = menu.classList.contains('hidden');
+        if (open) {
+          menu.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
+          if (icon) icon.textContent = 'close';
+        } else {
+          close();
+        }
+      });
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+      // Reset state if the viewport grows past the md breakpoint
+      window.addEventListener('resize', () => { if (window.innerWidth >= 768) close(); });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', wire);
+    } else {
+      wire();
+    }
+  })();
+
+  // Scroll reveal
+  (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const run = () => {
+      const sections = Array.from(document.querySelectorAll('main section'));
+      // Skip the two hero sections (mobile + desktop variants), visible on first paint.
+      const targets = sections.slice(2);
+      targets.forEach(s => s.classList.add('reveal-on-scroll'));
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+      targets.forEach(s => observer.observe(s));
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', run);
+    } else {
+      run();
+    }
+  })();
+</script>
+</body>
+</html>

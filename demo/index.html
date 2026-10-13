@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Demo mode | Paart</title>
-<meta name="description" content="Demo mode makes a local Paart install react to realistic, synthetic AI-agent activity, clean, injected, shadow, spoofed, and approval scenarios, so you can see detection and enforcement end to end without wiring up real traffic."/>
+<meta name="description" content="Explore Paart with local simulated activity and approval requests. Demo mode illustrates the dashboard, not live enforcement."/>
 <link rel="canonical" href="https://paart.ai/demo" />
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
@@ -37,27 +37,21 @@
     <div></div>
     <div class="flex items-center gap-3 self-center mr-4 md:mr-6">
       <a href="/download" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">DOWNLOAD</a>
-      <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">BOOK A PILOT</a>
+      <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="hidden sm:inline-block bg-transparent text-white px-4 md:px-6 py-2 md:py-2.5 border-2 border-white font-label-caps text-label-caps font-bold hover:bg-white hover:text-black transition-all">DISCUSS A PILOT</a>
       <button id="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden inline-flex w-10 h-10 items-center justify-center border-2 border-white text-white hover:bg-white hover:text-black transition-all">
         <span class="material-symbols-outlined text-[22px]" id="mobile-menu-icon">menu</span>
       </button>
     </div>
     <div class="hidden md:flex absolute left-1/2 top-0 -translate-x-1/2 h-16 items-center">
       <a href="/#how-it-works" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">HOW IT WORKS</a>
-      <a href="/#verdicts" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">VERDICTS</a>
-      <a href="/#use-cases" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">USE CASES</a>
-      <a href="/#performance" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">PERFORMANCE</a>
       <a href="/about" class="text-on-surface px-5 h-full flex items-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors duration-75 font-label-caps text-[15px] tracking-[0.1em] font-bold uppercase">ABOUT</a>
     </div>
   </div>
   <div id="mobile-menu" class="md:hidden hidden border-t-2 border-primary bg-surface">
     <a href="/#how-it-works" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">HOW IT WORKS</a>
-    <a href="/#verdicts" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">VERDICTS</a>
-    <a href="/#use-cases" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">USE CASES</a>
-    <a href="/#performance" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">PERFORMANCE</a>
     <a href="/about" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">ABOUT</a>
     <a href="/download" class="block px-6 py-4 text-white font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase border-b-2 border-primary hover:bg-primary">DOWNLOAD</a>
-    <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="block px-6 py-4 text-black font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase bg-primary-container hover:bg-white">BOOK A PILOT &nbsp;&rarr;</a>
+    <a href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation" class="block px-6 py-4 text-black font-label-caps text-[13px] tracking-[0.1em] font-bold uppercase bg-primary-container hover:bg-white">DISCUSS A PILOT &nbsp;&rarr;</a>
   </div>
 </nav>
 
@@ -69,13 +63,8 @@
     <div class="mb-4 inline-flex items-stretch border-2 border-primary bg-surface-container-low self-start">
       <span class="px-3 py-1.5 font-mono-technical text-[11px] font-bold uppercase text-primary-container">DEMO MODE · LOCAL &amp; SYNTHETIC</span>
     </div>
-    <h1 class="font-headline-lg text-white uppercase leading-[0.95] mb-6">See it react.</h1>
-    <p class="font-body-lg text-on-surface-variant max-w-3xl">
-      Demo mode makes your local Paart install react to realistic, <span class="text-white">synthetic</span>
-      AI-agent activity, so you can watch detection, classification, and
-      enforcement happen end to end without wiring up real traffic. Everything
-      runs on your own machine. Nothing leaves it.
-    </p>
+    <h1 class="font-headline-lg text-white uppercase leading-[0.95] mb-6">Explore the dashboard.</h1>
+    <p class="font-body-lg text-on-surface-variant max-w-3xl">Explore the dashboard with <span class="text-white">simulated</span> activity. The examples run locally and help you learn the screens. They do not test live detection or blocking.</p>
   </div>
 </section>
 
@@ -83,16 +72,8 @@
 <section class="px-margin py-margin md:py-16">
   <div class="max-w-4xl mx-auto">
     <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">HOW IT WORKS</div>
-    <h2 class="font-headline-md text-white mb-4">Scripted scenarios, real pipeline.</h2>
-    <p class="font-body-md text-on-surface-variant mb-4">
-      When you switch demo mode on in <span class="text-white">Settings</span>, the local
-      daemon replays a set of scripted scenarios through the <span class="text-white">same</span>
-      inspection pipeline that handles live traffic, emitting genuine events,
-      detections, and approval requests into your local database over 30–60
-      seconds each. The Console you already have open lights up with agents,
-      verdicts, alerts, and pending approvals you can act on. It's the fastest way
-      to understand what Paart does before pointing real tools at it.
-    </p>
+    <h2 class="font-headline-md text-white mb-4">Simulated activity. Familiar screens.</h2>
+    <p class="font-body-md text-on-surface-variant mb-4">Enable Demo mode in <span class="text-white">Settings</span> and choose a scenario. It adds <span class="text-white">scripted records</span> to your local database, including alerts and approval requests. Connect a real tool separately to evaluate enforcement.</p>
   </div>
 </section>
 
@@ -100,42 +81,42 @@
 <section class="px-margin py-margin md:py-16 bg-surface-container-low border-y-border_width border-primary">
   <div class="max-w-4xl mx-auto">
     <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">THE SCENARIOS</div>
-    <h2 class="font-headline-md text-white mb-8">Five, one per thing Paart catches.</h2>
+    <h2 class="font-headline-md text-white mb-8">Five examples to explore.</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
 
       <div class="bg-surface border-l-thick_border border-v-allow p-6">
         <div class="flex items-center gap-3 mb-2">
           <span class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-v-allow">GOOD</span>
         </div>
-        <p class="font-body-md text-on-surface-variant text-[15px]">A registered, well-behaved enterprise agent doing normal work. The baseline: clean traffic, allowed verdicts, healthy status.</p>
+        <p class="font-body-md text-on-surface-variant text-[15px]">Normal activity from a registered AI tool.</p>
       </div>
 
       <div class="bg-surface border-l-thick_border border-v-deny p-6">
         <div class="flex items-center gap-3 mb-2">
           <span class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-v-deny">INJECTED</span>
         </div>
-        <p class="font-body-md text-on-surface-variant text-[15px]">A prompt-injection attempt riding inside a tool call. Watch the pattern engine flag it and the pipeline raise a high-severity detection.</p>
+        <p class="font-body-md text-on-surface-variant text-[15px]">A scripted alert showing harmful instructions hidden in a tool request.</p>
       </div>
 
       <div class="bg-surface border-l-thick_border border-v-approval p-6">
         <div class="flex items-center gap-3 mb-2">
           <span class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-v-approval">SHADOW</span>
         </div>
-        <p class="font-body-md text-on-surface-variant text-[15px]">An unregistered agent IT has never seen, discovered by fingerprinting and auto-classified as a shadow agent on the Agents page.</p>
+        <p class="font-body-md text-on-surface-variant text-[15px]">An unfamiliar AI tool appearing in the discovery view.</p>
       </div>
 
       <div class="bg-surface border-l-thick_border border-v-quarantine p-6">
         <div class="flex items-center gap-3 mb-2">
           <span class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-v-quarantine">FAKED</span>
         </div>
-        <p class="font-body-md text-on-surface-variant text-[15px]">An agent spoofing a trusted identity. Surfaces how fingerprint mismatch escalates risk toward suspicious / malicious tiering.</p>
+        <p class="font-body-md text-on-surface-variant text-[15px]">A simulated identity-spoofing incident. This illustrates an experimental detection path.</p>
       </div>
 
       <div class="bg-surface border-l-thick_border border-v-monitor p-6 md:col-span-2">
         <div class="flex items-center gap-3 mb-2">
           <span class="font-label-caps text-[11px] font-bold uppercase tracking-widest text-v-monitor">APPROVED</span>
         </div>
-        <p class="font-body-md text-on-surface-variant text-[15px]">A human-in-the-loop flow: a sensitive call triggers a <span class="text-white">require_approval</span> verdict and shows up under Approvals, where you Approve or Deny and see the decision recorded.</p>
+        <p class="font-body-md text-on-surface-variant text-[15px]">A simulated sensitive action is marked <span class="text-white">Ask a person</span>. Explore the Approvals screen and record a decision.</p>
       </div>
 
     </div>
@@ -146,7 +127,7 @@
 <section class="px-margin py-margin md:py-16">
   <div class="max-w-4xl mx-auto">
     <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">TURNING IT ON</div>
-    <h2 class="font-headline-md text-white mb-6">Two clicks, fully reversible.</h2>
+    <h2 class="font-headline-md text-white mb-6">Try a scenario.</h2>
     <ol class="space-y-4 font-body-md text-on-surface-variant list-none">
       <li class="flex gap-4"><span class="font-mono-technical text-primary-container font-bold">01</span><span>Install Paart and let the daemon start. Open the Console (the native app window, or <span class="text-white">localhost:3000</span> in a browser).</span></li>
       <li class="flex gap-4"><span class="font-mono-technical text-primary-container font-bold">02</span><span>Go to <span class="text-white">Settings</span> and toggle <span class="text-white">Demo mode</span> on. Scenarios begin emitting into your local instance.</span></li>
@@ -173,7 +154,7 @@
   <div class="grid grid-cols-1 md:grid-cols-12 px-margin py-12 max-w-7xl mx-auto">
     <div class="md:col-span-4 md:pr-8 md:border-r-border_width md:border-primary">
       <img src="../assets/paart_horizontal_logo.png?v=2" alt="Paart" class="h-9 w-auto block mb-6" />
-      <p class="font-body-md text-on-surface-variant max-w-xs">Inline control plane for AI agents and non-human identities. Built on MCPIDS. Cognifinity.</p>
+      <p class="font-body-md text-on-surface-variant max-w-xs">See what connected AI tools do. Decide what they may do. Built by Cognifinity.</p>
     </div>
     <div class="md:col-span-2 md:px-8 md:border-r-border_width md:border-primary mt-10 md:mt-0">
       <h5 class="font-label-caps text-white mb-6 uppercase">Product</h5>
