@@ -83,7 +83,7 @@
       Download Paart
     </h1>
     <p class="font-body-lg text-on-surface-variant max-w-3xl">
-      Install Paart on one computer to explore its dashboard and discovery features. Active protection requires connecting supported AI tools to the gateway.
+      Explore Paart on one computer, free. To check or block real actions, connect supported AI tools to its gateway.
     </p>
 
     <!-- Above-the-fold download.
@@ -123,7 +123,7 @@
     <!-- Section eyebrow -->
     <div class="mb-12">
       <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">YOUR PLATFORM</div>
-      <h2 class="font-headline-md text-white">Pick the installer for your OS.</h2>
+      <h2 class="font-headline-md text-white">Choose your installer.</h2>
     </div>
 
     <div class="download-grid grid grid-cols-3 gap-gutter">
@@ -140,11 +140,11 @@
         <ul class="space-y-3 mb-8 font-mono-technical text-[13px] text-on-surface-variant">
           <li class="flex justify-between"><span>Installer</span><span class="text-white">Paart.pkg</span></li>
           <li class="flex justify-between"><span>Architecture</span><span class="text-white">Universal</span></li>
-          <li class="flex justify-between"><span>Console window</span><span class="text-white">Native (WKWebView)</span></li>
+          <li class="flex justify-between"><span>Dashboard</span><span class="text-white">Paart app</span></li>
           <li class="flex justify-between"><span>Auto-start</span><span class="text-white">LaunchAgent</span></li>
         </ul>
         <a href="https://github.com/mcpids/paart-downloads/releases/download/v0.1.25/Paart-0.1.25.pkg" class="block w-full bg-primary text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">DOWNLOAD PAART.PKG &nbsp;&middot;&nbsp; 40 MB</a>
-        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.25 · Signed + notarized · Opens normally, no Gatekeeper prompt</p>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.25 · Signed and notarized</p>
       </article>
 
       <!-- ===== Windows ===== -->
@@ -159,11 +159,11 @@
         <ul class="space-y-3 mb-8 font-mono-technical text-[13px] text-on-surface-variant">
           <li class="flex justify-between"><span>Installer</span><span class="text-white">Paart.msi</span></li>
           <li class="flex justify-between"><span>Architecture</span><span class="text-white">x64</span></li>
-          <li class="flex justify-between"><span>Console window</span><span class="text-white">Native (WebView2)</span></li>
+          <li class="flex justify-between"><span>Dashboard</span><span class="text-white">Paart app</span></li>
           <li class="flex justify-between"><span>Service</span><span class="text-white">Paart (auto-start)</span></li>
         </ul>
         <a href="https://github.com/mcpids/paart-downloads/releases/download/v0.1.25/Paart-0.1.25.msi" class="block w-full bg-primary text-white px-6 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container text-center transition-all">DOWNLOAD PAART.MSI &nbsp;&middot;&nbsp; 18 MB</a>
-        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.25 · Signed + timestamped · SmartScreen may still prompt until reputation builds</p>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.25 · Signed · Windows may show a SmartScreen warning</p>
       </article>
 
       <!-- ===== Linux ===== -->
@@ -193,7 +193,7 @@
             <a href="https://github.com/mcpids/paart-downloads/releases/download/v0.1.25/paart-0.1.25-linux-arm64.tar.gz" class="block bg-transparent text-white px-2 py-3 font-label-caps text-[11px] font-bold border-2 border-white hover:bg-white hover:text-black text-center transition-all">ARM64 &nbsp;&middot;&nbsp; 17 MB</a>
           </div>
         </div>
-        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.25 · <a class="text-primary-container hover:text-white" href="/releases/SHA256SUMS-0.1.25.txt">SHA-256 sums</a> · installs systemd services · Console at localhost:3000</p>
+        <p class="font-mono-technical text-[11px] text-on-surface-variant mt-3 text-center">v0.1.25 · <a class="text-primary-container hover:text-white" href="/releases/SHA256SUMS-0.1.25.txt">Verify download</a> · Dashboard: localhost:3000</p>
       </article>
 
     </div>
@@ -202,7 +202,7 @@
     <div class="mt-12 border-border_width border-primary bg-surface p-margin">
       <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">AFTER INSTALL</div>
       <h3 class="font-headline-sm text-white mb-4">Try demo mode</h3>
-      <p class="font-body-md text-on-surface-variant mb-6">Open Paart and enable <span class="text-white">Demo mode</span> in Settings. Choose a scenario to explore simulated activity and approvals. Real protection requires routing supported requests through the gateway. On Linux, configure its upstream before starting it. <a class="text-primary-container underline underline-offset-4 hover:text-white" href="/demo">Learn more</a>.</p>
+      <p class="font-body-md text-on-surface-variant mb-6">Open Settings and turn on <span class="text-white">Demo mode</span> to try simulated activity and approvals. For real protection, connect your tools to the gateway. Linux users must configure its upstream first. <a class="text-primary-container underline underline-offset-4 hover:text-white" href="/demo">Learn more</a>.</p>
       <a href="/demo" class="inline-block bg-transparent text-white px-6 py-3 border-2 border-white font-label-caps text-[12px] font-bold hover:bg-white hover:text-black transition-all">ABOUT DEMO MODE &nbsp;&rarr;</a>
     </div>
 
@@ -216,17 +216,12 @@
       <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">FOR DEVELOPERS</div>
       <h2 class="font-headline-md text-white mb-4">Built on open source.</h2>
       <p class="font-body-md text-on-surface-variant mb-6">
-        Paart is a proprietary product: free to run on a single host, but not
-        itself open source. Its inspection core is forked from
+        Paart is free for one computer and is proprietary software. Its inspection core comes from
         <code class="bg-surface-container-low text-primary-container px-2 py-0.5">mcpids</code>,
-        our open-source MCP security gateway (Apache-2.0). The policy, schema,
-        diff, risk, graph, and rules engines live there in the open: read them,
-        run them, build on them.
+        our open-source security gateway (Apache-2.0).
       </p>
       <p class="font-body-md text-on-surface-variant mb-6">
-        Want Paart itself? Grab the installer for your platform above. For a
-        pilot, an air-gapped build, or source access under a design-partner
-        agreement, <a class="text-primary-container underline hover:text-white" href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation">talk to us</a>.
+        Use an installer above to try Paart. For a team pilot, an offline build, or source access by agreement, <a class="text-primary-container underline hover:text-white" href="mailto:contact@cognifinity.lu?subject=Paart%20pilot%20conversation">talk to us</a>.
       </p>
     </div>
     <div class="border-border_width border-primary bg-surface-container-low p-margin">
@@ -247,15 +242,7 @@ cd mcpids
     <div class="font-label-caps text-[12px] font-bold uppercase tracking-[0.2em] text-primary-container mb-3">SOMETHING WRONG?</div>
     <h2 class="font-headline-md text-white mb-4">Need help trying Paart with your team?</h2>
     <p class="font-body-md text-on-surface-variant mb-8">
-      Both desktop installers are signed. macOS is Developer ID signed,
-      notarized and stapled, so it opens without a Gatekeeper prompt.
-      Windows is Authenticode signed (SSL.com OV, RFC-3161 timestamped);
-      SmartScreen may still prompt until the certificate builds
-      reputation. Checksums for every artifact are published above, and
-      you can verify the signatures yourself before installing.
-      If your IT shop needs an air-gapped tarball, a vendor
-      questionnaire or an SBOM, or you would like a pilot conversation,
-      reach out and we'll come back to you the same business day.
+      Need installation help or want to try Paart with your team? Contact us for a pilot, an offline package, or security documentation. Download checksums are available above.
     </p>
     <a href="mailto:contact@cognifinity.lu?subject=Paart%20early-access" class="inline-block bg-primary text-white px-8 py-4 font-label-caps text-[12px] font-bold border-2 border-primary hover:bg-transparent hover:text-primary-container transition-all">CONTACT@COGNIFINITY.LU</a>
   </div>
